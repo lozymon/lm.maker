@@ -98,6 +98,120 @@
     }
 
     /**
+     * Search for a specified value within an array and return
+     * its index (or -1 if not found).
+     *
+     * @param  Object  obj The value to search for.
+     * @param  Array   obj An array through which to search.
+     * @param  Number  obj The index of the array at which to begin the search.
+     *                     The default is 0, which will search the whole array.
+     * @return Boolean
+     */
+    maker_jQuery.inArray = function ( obj ) {
+      return $.inArray( obj );
+    }
+
+    /**
+     * Determine whether the argument is an array.
+     *
+     * @param  Object  obj Object to test whether or not it is an array.
+     * @return Boolean
+     */
+    maker_jQuery.isArray = function ( obj ) {
+      return $.isArray( obj );
+    }
+
+    /**
+     * Check to see if an object is empty (contains no enumerable properties).
+     *
+     * @param  Object  obj The object that will be checked to see if it's empty.
+     * @return Boolean
+     */
+    maker_jQuery.isEmptyObject = function ( obj ) {
+      return $.isEmptyObject( obj );
+    }
+
+    /**
+     * Determine if the argument passed is a JavaScript function object.
+     *
+     * @param  Object  obj Object to test whether or not it is a function.
+     * @return Boolean
+     */
+    maker_jQuery.isFunction = function ( obj ) {
+      return $.isFunction( obj );
+    }
+
+    /**
+     * Determines whether its argument represents a JavaScript number.
+     *
+     * @param  Object  value The value to be tested.
+     * @return Boolean
+     */
+    maker_jQuery.isNumeric = function ( value ) {
+      return $.isNumeric( value );
+    }
+
+    /**
+     * Check to see if an object is a plain object (created using "{}" or "new Object").
+     *
+     * @param  Object  obj The object that will be checked to see if it's a plain object.
+     * @return Boolean
+     */
+    maker_jQuery.isPlainObject = function ( obj ) {
+      return $.isPlainObject( obj );
+    }
+
+    /**
+     * Determine whether the argument is a window.
+     *
+     * @param  Element obj Object to test whether or not it is a window.
+     * @return Boolean
+     */
+    maker_jQuery.isWindow = function ( obj ) {
+      return $.isWindow( obj );
+    }
+
+    /**
+     * Check to see if a DOM node is within an XML document (or is an XML document).
+     *
+     * @param  Element node The DOM node that will be checked to see if it's in an XML document.
+     * @return Boolean
+     */
+    maker_jQuery.isXMLDoc = function ( node ) {
+      return $.isXMLDoc( node );
+    }
+
+    /**
+     * Convert an array-like object into a true JavaScript array.
+     *
+     * @param  Object obj Any object to turn into a native Array.
+     * @return Array
+     */
+    maker_jQuery.makeArray = function ( obj ) {
+      return $.makeArray( obj );
+    }
+
+    /**
+     * Takes a function and returns a new one that will always have a particular context.
+     *
+     * @param  Object object   The Array to translate. or
+     *                         The Object to translate.
+     * @param  Fluxo  callback The function to process each item against. The first argument
+     *                         to the function is the array item, the second argument is the
+     *                         index in array or the key of the object property The function
+     *                         can return any value. A returned array will be flattened into
+     *                         the resulting array. Within the function, this refers to the
+     *                         global (window) object.
+     * @param  String params   params passado to the function
+     * @return jqXHR
+     */
+    maker_jQuery.map = function ( object, callback, params ) {
+      return $.map( object, function( elementOf, key ) {
+        return executeRuleFromJS( success, [ this, elementOf, key, params ] );
+      });
+    }
+
+    /**
      * Merge the contents of two arrays together into the first array.
      *
      * @param  Object first  The first array-like object to merge, the elements of second added.
