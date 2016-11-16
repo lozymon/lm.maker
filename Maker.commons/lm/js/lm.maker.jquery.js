@@ -98,17 +98,189 @@
     }
 
     /**
+     * Globally disable all animations.
+     *
+     * @param  Object object An object to merge onto the jQuery prototype.
+     * @return Number
+     */
+    maker_jQuery.getFxExtend = function ( object ) {
+      return $.fx.extend(object);
+    }
+
+    /**
+     * Globally disable all animations.
+     *
+     * @return Number
+     */
+    maker_jQuery.getFxInterval = function () {
+      return $.fx.interval;
+    }
+
+    /**
+     * The rate (in milliseconds) at which animations fire.
+     *
+     * @param  Number  value
+     * @return Number
+     */
+    maker_jQuery.setfxInterval = function ( value ) {
+      return $.fx.interval = value;
+    }
+
+    /**
+     * Globally disable all animations.
+     *
+     * @return Boolean
+     */
+    maker_jQuery.getFxOff = function () {
+      return $.fx.off;
+    }
+
+    /**
+     * Globally disable all animations.
+     *
+     * @param  Boolean  value
+     * @return Boolean
+     */
+    maker_jQuery.setFxOff = function ( value ) {
+      return $.fx.off = value;
+    }
+
+    /**
+     * Load data from the server using a HTTP GET request.
+     *
+     * @param  String  url      A string containing the URL to which the request is sent.
+     * @param  Object  data     A plain object or string that is sent to the server with the request.
+     * @param  Fluxo   success  A callback function that is executed if the request succeeds.
+     *                          Required if dataType is provided, but you can use null or
+     *                          jQuery.noop as a placeholder.
+     * @param  Object  params   params passed to the function
+     * @param  String  dataType The type of data expected from the server. Default:
+     *                          Intelligent Guess (xml, json, script, text, html).
+     * @return jqXHR
+     */
+    maker_jQuery.get = function ( url, data, success, params, dataType ) {
+      if ( success ) {
+        return $.get( url, data, dataType );
+      }
+
+      return $.get( url, data, function( data, textStatus, jqXHR ) {
+        return executeRuleFromJS( success, [ this, data, textStatus, jqXHR, params ] );
+      }, dataType);
+    }
+
+    /**
+     * Load JSON-encoded data from the server using a GET HTTP request.
+     *
+     * @param  String  url     The array-like object to search through.
+     * @param  Object  data    A plain object or string that is sent to the server with the request.
+     * @param  Fluxo   success A callback function that is executed if the request succeeds.
+     * @param  Object  params  params passed to the function
+     * @return jqXHR
+     */
+    maker_jQuery.getJSON = function ( url, data, success, params ) {
+      if ( success ) {
+        return $.getJSON( url, data );
+      }
+
+      return $.getJSON( url, data, function( data, textStatus, jqXHR ) {
+        return executeRuleFromJS( success, [ this, data, textStatus, jqXHR, params ] );
+      });
+    }
+
+    /**
+     * Load a JavaScript file from the server using a GET HTTP request,
+     * then execute it.
+     *
+     * @param  Object  url     The array-like object to search through.
+     * @param  Fluxo   success A callback function that is executed if the request succeeds.
+     * @param  Object  params  params passed to the function
+     * @return jqXHR
+     */
+    maker_jQuery.getScript = function ( url, success, params) {
+      if ( success ) {
+        return $.getScript( url );
+      }
+
+      return $.getScript( url, function( script, textStatus, jqXHR ) {
+        return executeRuleFromJS( success, [ this, script, textStatus, jqXHR, params ] );
+      });
+    }
+
+    /**
+     * Execute some JavaScript code globally.
+     *
+     * @param  String  code The JavaScript code to execute.
+     * @return void
+     */
+    maker_jQuery.hasData = function ( code ) {
+      return $.hasData( code );
+    }
+
+    /**
+     * Finds the elements of an array which satisfy a filter function.
+     * The original array is not affected.
+     *
+     * @param  Object  array  The array-like object to search through.
+     * @param  Fluxo   func   The function to process each item against. The first argument
+     *                        to the function is the item, and the second argument is the
+     *                        index. The function should return a Boolean value.
+     *                        this will be the global window object.
+     * @param  Object  params params passed to the function
+     * @param  Boolean invert If "invert" is false, or not provided, then the function
+     *                        returns an array consisting of all elements for which
+     *                        "callback" returns true. If "invert" is true, then the
+     *                        function returns an array consisting of all elements
+     *                        for which "callback" returns false.
+     * @return Array
+     */
+    maker_jQuery.grep = function ( array, func, params, invert ) {
+      return $.grep( array, function( elementOfArray, indexInArray ) {
+        return executeRuleFromJS( func, [ this, elementOfArray, indexInArray, params ] );
+      }, invert);
+    }
+
+    /**
+     * Determine whether an element has any jQuery data associated with it.
+     *
+     * @param  Element element A DOM element to be checked for data.
+     * @return Boolean
+     */
+    maker_jQuery.hasData = function ( element ) {
+      return $.hasData( element );
+    }
+
+    /**
+     * Holds or releases the execution of jQuery's ready event.
+     *
+     * @param  Boolean   html Indicates whether the ready hold is being requested or released
+     * @return undefined
+     */
+    maker_jQuery.holdReady = function ( html ) {
+      return $.holdReady( html );
+    }
+
+    /**
+     * Modify and filter HTML strings passed through jQuery manipulation methods.
+     *
+     * @param  String html The HTML string on which to operate.
+     * @return String
+     */
+    maker_jQuery.htmlPrefilter = function ( html ) {
+      return $.htmlPrefilter( html );
+    }
+
+    /**
      * Search for a specified value within an array and return
      * its index (or -1 if not found).
      *
-     * @param  Object  obj The value to search for.
-     * @param  Array   obj An array through which to search.
-     * @param  Number  obj The index of the array at which to begin the search.
-     *                     The default is 0, which will search the whole array.
-     * @return Boolean
+     * @param  Object  value     The value to search for.
+     * @param  Array   array     An array through which to search.
+     * @param  Number  fromIndex The index of the array at which to begin the search.
+     *                           The default is 0, which will search the whole array.
+     * @return Number
      */
-    maker_jQuery.inArray = function ( obj ) {
-      return $.inArray( obj );
+    maker_jQuery.inArray = function ( value, array, fromIndex ) {
+      return $.inArray( value, array, fromIndex );
     }
 
     /**
