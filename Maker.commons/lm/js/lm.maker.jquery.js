@@ -856,10 +856,14 @@
     }
 
     /**
-     * Insert every element in the set of matched elements to the beginning of the target.
+     * Insert every element in the set of matched elements to the beginning
+     * of the target.
      *
      * @param  jQuery element jQuery element
-     * @param  Object target  A selector, element, HTML string, array of elements, or jQuery object; the matched set of elements will be inserted at the beginning of the element(s) specified by this parameter.
+     * @param  Object target  A selector, element, HTML string, array of elements,
+     *                        or jQuery object; the matched set of elements will
+     *                        be inserted at the beginning of the element(s)
+     *                        specified by this parameter.
      * @return jQuery
      */
     maker_jQuery.prependTo = function ( element, target  ) {
@@ -867,10 +871,13 @@
     }
 
     /**
-     * Get the immediately preceding sibling of each element in the set of matched elements. If a selector is provided, it retrieves the previous sibling only if it matches that selector.
+     * Get the immediately preceding sibling of each element in the set of
+     * matched elements. If a selector is provided, it retrieves the previous
+     * sibling only if it matches that selector.
      *
      * @param  jQuery element  jQuery element
-     * @param  String selector A string containing a selector expression to match elements against.
+     * @param  String selector A string containing a selector expression to
+     *                         match elements against.
      * @return jQuery
      */
     maker_jQuery.prev = function ( element, selector ) {
@@ -878,10 +885,12 @@
     }
 
     /**
-     * Get all preceding siblings of each element in the set of matched elements, optionally filtered by a selector.
+     * Get all preceding siblings of each element in the set of matched elements,
+     * optionally filtered by a selector.
      *
      * @param  jQuery element  jQuery element
-     * @param  String selector A string containing a selector expression to match elements against.
+     * @param  String selector A string containing a selector expression to match
+     *                         elements against.
      * @return jQuery
      */
     maker_jQuery.prevAll = function ( element, selector ) {
@@ -889,12 +898,16 @@
     }
 
     /**
-     * Get all preceding siblings of each element up to but not including the element matched by the selector, DOM node, or jQuery object.
+     * Get all preceding siblings of each element up to but not including the
+     * element matched by the selector, DOM node, or jQuery object.
      *
      * @param  jQuery element  jQuery element
-     * @param  Object selector A string containing a selector expression to indicate where to stop matching preceding sibling elements.
-     *                         or A DOM node or jQuery object indicating where to stop matching preceding sibling elements.
-     * @param  String filter   A string containing a selector expression to match elements against.
+     * @param  Object selector A string containing a selector expression to indicate
+     *                         where to stop matching preceding sibling elements.
+     *                         or A DOM node or jQuery object indicating where to
+     *                         stop matching preceding sibling elements.
+     * @param  String filter   A string containing a selector expression to match
+     *                         elements against.
      * @return jQuery
      */
     maker_jQuery.prevUntil = function ( element, selector, filter ) {
@@ -902,7 +915,8 @@
     }
 
     /**
-     * Return a Promise object to observe when all actions of a certain type bound to the collection, queued or not, have finished.
+     * Return a Promise object to observe when all actions of a certain type
+     * bound to the collection, queued or not, have finished.
      *
      * @param  jQuery element jQuery element
      * @param  String type    The type of queue that needs to be observed.
@@ -952,7 +966,10 @@
      *
      * @param jQuery element      jQuery element
      * @param String propertyName The name of the property to set.
-     * @param Fluxo  handler      A function returning the value to set. Receives the index position of the element in the set and the old property value as arguments. Within the function, the keyword this refers to the current element.
+     * @param Fluxo  handler      A function returning the value to set. Receives
+     *                            the index position of the element in the set and
+     *                            the old property value as arguments. Within the
+     *                            function, the keyword this refers to the current element.
      * @param jQuery params
      * @return jQuery
      */
@@ -966,9 +983,12 @@
      * Add a collection of DOM elements onto the jQuery stack.
      *
      * @param  jQuery element   jQuery element
-     * @param  Array  elements  An array of elements to push onto the stack and make into a new jQuery object.
-     * @param  String name      The name of a jQuery method that generated the array of elements.
-     * @param  Array  argument  The arguments that were passed in to the jQuery method (for serialization).
+     * @param  Array  elements  An array of elements to push onto the stack and
+     *                          make into a new jQuery object.
+     * @param  String name      The name of a jQuery method that generated the
+     *                          array of elements.
+     * @param  Array  argument  The arguments that were passed in to the jQuery
+     *                          method (for serialization).
      * @return jQuery
      */
     maker_jQuery.pushStack = function ( element, elements, name, argument ) {
@@ -979,7 +999,8 @@
      * Show the queue of functions to be executed on the matched elements.
      *
      * @param  jQuery element   jQuery element
-     * @param  String queueName A string containing the name of the queue. Defaults to fx, the standard effects queue.
+     * @param  String queueName A string containing the name of the queue.
+     *                          Defaults to fx, the standard effects queue.
      * @return jQuery
      */
     maker_jQuery.queue = function ( element, queueName ) {
@@ -987,11 +1008,14 @@
     }
 
     /**
-     * Manipulate the queue of functions to be executed, once for each matched element.
+     * Manipulate the queue of functions to be executed,
+     * once for each matched element.
      *
      * @param  jQuery element   jQuery element
-     * @param  String queueName A string containing the name of the queue. Defaults to fx, the standard effects queue.
-     * @param  array  newQueue  An array of functions to replace the current queue contents.
+     * @param  String queueName A string containing the name of the queue.
+     *                          Defaults to fx, the standard effects queue.
+     * @param  array  newQueue  An array of functions to replace the current
+     *                          queue contents.
      * @return jQuery
      */
     maker_jQuery.newQueue = function ( element, queueName, newQueue ) {
@@ -1002,8 +1026,10 @@
      * Manipulate the queue of functions to be executed, once for each matched element.
      *
      * @param  jQuery   element   jQuery element
-     * @param  String   queueName A string containing the name of the queue. Defaults to fx, the standard effects queue.
-     * @param  Fluxo    callback  The new function to add to the queue, with a function to call that will dequeue the next item.
+     * @param  String   queueName A string containing the name of the queue.
+     *                            Defaults to fx, the standard effects queue.
+     * @param  Fluxo    callback  The new function to add to the queue, with a
+     *                            function to call that will dequeue the next item.
      * @param  Object   params    params passed to the function
      * @return jQuery
      */
@@ -1031,7 +1057,8 @@
      * Remove the set of matched elements from the DOM.
      *
      * @param  jQuery element  jQuery element
-     * @param  String selector A selector expression that filters the set of matched elements to be removed.
+     * @param  String selector A selector expression that filters the set of
+     *                         matched elements to be removed.
      * @return jQuery
      */
     maker_jQuery.remove = function ( element,  selector ) {
@@ -1042,7 +1069,8 @@
      * Remove an attribute from each element in the set of matched elements.
      *
      * @param  jQuery element       jQuery element
-     * @param  Strign attributeName An attribute to remove; as of version 1.7, it can be a space-separated list of attributes.
+     * @param  Strign attributeName An attribute to remove; as of version 1.7,
+     *                              it can be a space-separated list of attributes.
      * @return jQuery
      */
     maker_jQuery.removeAttr = function ( element,  attributeName ) {
@@ -1050,10 +1078,13 @@
     }
 
     /**
-     * Remove a single class, multiple classes, or all classes from each element in the set of matched elements.
+     * Remove a single class, multiple classes, or all classes from each
+     * element in the set of matched elements.
      *
      * @param  jQuery element jQuery element
-     * @param  Object object  A string naming the piece of data to delete. or An array or space-separated string naming the pieces of data to delete.
+     * @param  Object object  A string naming the piece of data to delete.
+     *                        or An array or space-separated string naming the
+     *                        pieces of data to delete.
      * @return jQuery
      */
     maker_jQuery.removeClass = function ( element, object ) {
@@ -1061,10 +1092,14 @@
     }
 
     /**
-     * Remove a single class, multiple classes, or all classes from each element in the set of matched elements.
+     * Remove a single class, multiple classes, or all classes from each
+     * element in the set of matched elements.
      *
      * @param  jQuery element jQuery element
-     * @param  Fluxo  handler A function returning one or more space-separated class names to be removed. Receives the index position of the element in the set and the old class value as arguments.
+     * @param  Fluxo  handler A function returning one or more space-separated
+     *                        class names to be removed. Receives the index
+     *                        position of the element in the set and the
+     *                        old class value as arguments.
      * @param  Object params  params passed to the function
      * @return jQuery
      */
@@ -1078,7 +1113,9 @@
      * Remove a property for the set of matched elements.
      *
      * @param  jQuery element jQuery element
-     * @param  Object object  A string naming the piece of data to delete. or An array or space-separated string naming the pieces of data to delete.
+     * @param  Object object  A string naming the piece of data to delete. or An
+     *                        array or space-separated string naming the pieces
+     *                        of data to delete.
      * @return jQuery
      */
     maker_jQuery.removeData = function ( element, object ) {
@@ -1097,10 +1134,13 @@
     }
 
     /**
-     * Replace each element in the set of matched elements with the provided new content and return the set of elements that was removed.
+     * Replace each element in the set of matched elements with the provided
+     * new content and return the set of elements that was removed.
      *
      * @param  jQuery element    jQuery element
-     * @param  Object newContent The content to insert. May be an HTML string, DOM element, array of DOM elements, or jQuery object.
+     * @param  Object newContent The content to insert. May be an HTML string,
+     *                           DOM element, array of DOM elements,
+     *                           or jQuery object.
      * @return jQuery
      */
     maker_jQuery.replaceWith = function ( element, newContent ) {
@@ -1108,10 +1148,12 @@
     }
 
     /**
-     * Replace each element in the set of matched elements with the provided new content and return the set of elements that was removed.
+     * Replace each element in the set of matched elements with the provided
+     * new content and return the set of elements that was removed.
      *
      * @param  jQuery element jQuery element
-     * @param  Fluxo  handler A function that returns content with which to replace the set of matched elements.
+     * @param  Fluxo  handler A function that returns content with which to
+     *                        replace the set of matched elements.
      * @param  Object params  params passed to the function
      * @return jQuery
      */
@@ -1122,7 +1164,8 @@
     }
 
     /**
-     * Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
+     * Bind an event handler to the "resize" JavaScript event,
+     * or trigger that event on an element.
      *
      * @param  jQuery element jQuery element
      * @return jQuery
@@ -1132,7 +1175,8 @@
     }
 
     /**
-     * Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.
+     * Bind an event handler to the "resize" JavaScript event,
+     * or trigger that event on an element.
      *
      * @param  jQuery element jQuery element
      * @param  Fluxo  handler A function to execute each time the event is triggered.
@@ -1146,7 +1190,8 @@
     }
 
     /**
-     * Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
+     * Bind an event handler to the "scroll" JavaScript event,
+     * or trigger that event on an element.
      *
      * @param  jQuery element jQuery element
      * @return jQuery
@@ -1156,7 +1201,8 @@
     }
 
     /**
-     * Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.
+     * Bind an event handler to the "scroll" JavaScript event,
+     * or trigger that event on an element.
      *
      * @param  jQuery element jQuery element
      * @param  Fluxo  handler A function to execute each time the event is triggered.
@@ -1170,7 +1216,8 @@
     }
 
     /**
-     * Get the current horizontal position of the scroll bar for the first element in the set of matched elements.
+     * Get the current horizontal position of the scroll bar for the
+     * first element in the set of matched elements.
      *
      * @param  jQuery element jQuery element
      * @return Number
@@ -1180,7 +1227,8 @@
     }
 
     /**
-     * Set the current horizontal position of the scroll bar for each of the set of matched elements
+     * Set the current horizontal position of the scroll bar for each of
+     * the set of matched elements
      *
      * @param  jQuery element jQuery element
      * @param  Number value   An integer indicating the new position to set the scroll bar to.
@@ -1191,7 +1239,9 @@
     }
 
     /**
-     * Get the current vertical position of the scroll bar for the first element in the set of matched elements or set the vertical position of the scroll bar for every matched element.
+     * Get the current vertical position of the scroll bar for the first
+     * element in the set of matched elements or set the vertical position
+     * of the scroll bar for every matched element.
      *
      * @param  jQuery element jQuery element
      * @return Number
@@ -1201,7 +1251,8 @@
     }
 
     /**
-     * Set the current vertical position of the scroll bar for each of the set of matched elements.
+     * Set the current vertical position of the scroll bar for each of
+     * the set of matched elements.
      *
      * @param  jQuery element jQuery element
      * @param  Number value   A number indicating the new position to set the scroll bar to.
@@ -1212,7 +1263,8 @@
     }
 
     /**
-     * Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
+     * Bind an event handler to the "select" JavaScript event,
+     * or trigger that event on an element.
      *
      * @param  jQuery element jQuery element
      * @return jQuery
@@ -1222,7 +1274,8 @@
     }
 
     /**
-     * Bind an event handler to the "select" JavaScript event, or trigger that event on an element.
+     * Bind an event handler to the "select" JavaScript event,
+     * or trigger that event on an element.
      *
      * @param  jQuery element jQuery element
      * @param  Fluxo  handler A function to execute each time the event is triggered.
@@ -1280,9 +1333,12 @@
      * Display the matched elements.
      *
      * @param  jQuery element  jQuery element
-     * @param  String duration A string or number determining how long the animation will run.
-     * @param  String easing   A string indicating which easing function to use for the transition.
-     * @param  Fluxo  complete A function to call once the animation is complete, called once per matched element.
+     * @param  String duration A string or number determining how long the
+     *                         animation will run.
+     * @param  String easing   A string indicating which easing function to use
+     *                         for the transition.
+     * @param  Fluxo  complete A function to call once the animation is complete,
+     *                         called once per matched element.
      * @param  Object params   Params passed to the function
      * @return jQuery
      */
@@ -1298,9 +1354,12 @@
      *  Display or hide the matched elements with a sliding motion.
      *
      * @param  jQuery element  jQuery element
-     * @param  String duration A string or number determining how long the animation will run.
-     * @param  String easing   A string indicating which easing function to use for the transition.
-     * @param  Fluxo  complete A function to call once the animation is complete, called once per matched element.
+     * @param  String duration A string or number determining how long the
+     *                         animation will run.
+     * @param  String easing   A string indicating which easing function to use
+     *                         for the transition.
+     * @param  Fluxo  complete A function to call once the animation is complete,
+     *                         called once per matched element.
      * @param  Object params   Params pased to function
      * @return jQuery
      */
@@ -1313,10 +1372,12 @@
     }
 
     /**
-     * Get the siblings of each element in the set of matched elements, optionally filtered by a selector.
+     * Get the siblings of each element in the set of matched elements,
+     * optionally filtered by a selector.
      *
      * @param  jQuery   element  jQuery element
-     * @param  Selector selector A string containing a selector expression to match elements against.
+     * @param  Selector selector A string containing a selector expression to
+     *                           match elements against.
      * @return jQuery
      */
     maker_jQuery.siblings = function ( element, selector ) {
@@ -1327,8 +1388,13 @@
      * Reduce the set of matched elements to a subset specified by a range of indices.
      *
      * @param  jQuery  element jQuery element
-     * @param  Integer start   An integer indicating the 0-based position at which the elements begin to be selected. If negative, it indicates an offset from the end of the set.
-     * @param  Integer end     An integer indicating the 0-based position at which the elements stop being selected. If negative, it indicates an offset from the end of the set. If omitted, the range continues until the end of the set.
+     * @param  Integer start   An integer indicating the 0-based position at which
+     *                         the elements begin to be selected. If negative, it
+     *                         indicates an offset from the end of the set.
+     * @param  Integer end     An integer indicating the 0-based position at which
+     *                         the elements stop being selected. If negative, it
+     *                         indicates an offset from the end of the set. If omitted,
+     *                         the range continues until the end of the set.
      * @return jQuery
      */
     maker_jQuery.slice = function ( element, start, end ) {
@@ -1350,9 +1416,12 @@
      *  Display the matched elements with a sliding motion.
      *
      * @param  jQuery element  jQuery element
-     * @param  String duration A string or number determining how long the animation will run.
-     * @param  String easing   A string indicating which easing function to use for the transition.
-     * @param  Fluxo  complete A function to call once the animation is complete, called once per matched element.
+     * @param  String duration A string or number determining how long the
+     *                         animation will run.
+     * @param  String easing   A string indicating which easing function to use
+     *                         for the transition.
+     * @param  Fluxo  complete A function to call once the animation is complete,
+     *                         called once per matched element.
      * @param  Object params   Params pased to function
      * @return jQuery
      */
@@ -1379,9 +1448,12 @@
      *  Display or hide the matched elements with a sliding motion.
      *
      * @param  jQuery element  jQuery element
-     * @param  String duration A string or number determining how long the animation will run.
-     * @param  String easing   A string indicating which easing function to use for the transition.
-     * @param  Fluxo  complete A function to call once the animation is complete, called once per matched element.
+     * @param  String duration A string or number determining how long the
+     *                         animation will run.
+     * @param  String easing   A string indicating which easing function to use
+     *                         for the transition.
+     * @param  Fluxo  complete A function to call once the animation is complete,
+     *                         called once per matched element.
      * @param  Object params   Params pased to function
      * @return jQuery
      */
@@ -1408,9 +1480,12 @@
      *  Hide the matched elements with a sliding motion.
      *
      * @param  jQuery element  jQuery element
-     * @param  String duration A string or number determining how long the animation will run.
-     * @param  String easing   A string indicating which easing function to use for the transition.
-     * @param  Fluxo  complete A function to call once the animation is complete, called once per matched element.
+     * @param  String duration A string or number determining how long the
+     *                         animation will run.
+     * @param  String easing   A string indicating which easing function to use
+     *                         for the transition.
+     * @param  Fluxo  complete A function to call once the animation is complete,
+     *                         called once per matched element.
      * @param  Object params   Params pased to function
      * @return jQuery
      */
@@ -1426,9 +1501,12 @@
      * Stop the currently-running animation on the matched elements.
      *
      * @param  jQuery  element    jQuery element
-     * @param  String  queue      The name of the queue in which to stop animations.
-     * @param  Boolean clearQueue A Boolean indicating whether to remove queued animation as well. Defaults to false.
-     * @param  Boolean jumpToEnd  A Boolean indicating whether to complete the current animation immediately. Defaults to false.
+     * @param  String  queue      The name of the queue in which to stop
+     *                            animations.
+     * @param  Boolean clearQueue A Boolean indicating whether to remove queued
+     *                            animation as well. Defaults to false.
+     * @param  Boolean jumpToEnd  A Boolean indicating whether to complete the
+     *                            current animation immediately. Defaults to false.
      * @return jQuery
      */
     maker_jQuery.stop = function ( element, queue, clearQueue, jumpToEnd ){
@@ -1436,7 +1514,8 @@
     }
 
     /**
-     * Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
+     * Bind an event handler to the "submit" JavaScript event,
+     * or trigger that event on an element.
      *
      * @param  jQuery element jQuery event
      * @param  Fluxo  fluxo   A function to execute each time the event is triggered.
@@ -1450,7 +1529,8 @@
     }
 
     /**
-     * Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.
+     * Bind an event handler to the "submit" JavaScript event,
+     * or trigger that event on an element.
      *
      * @param  jQuery element jQuery element
      * @return String
@@ -1460,7 +1540,8 @@
     }
 
     /**
-     * Get the combined text contents of each element in the set of matched elements, including their descendants.
+     * Get the combined text contents of each element in the set
+     * of matched elements, including their descendants.
      *
      * @param  jQuery element jQuery element
      * @return String
@@ -1470,10 +1551,13 @@
     }
 
     /**
-     * Set the content of each element in the set of matched elements to the specified text.
+     * Set the content of each element in the set of matched elements
+     * to the specified text.
      *
      * @param  jQuery element jQuery element
-     * @param  String text    The text to set as the content of each matched element. When Number or Boolean is supplied, it will be converted to a String representation.
+     * @param  String text    The text to set as the content of each matched element.
+     *                        When Number or Boolean is supplied, it will be converted
+     *                        to a String representation.
      * @return jQuery
      */
     maker_jQuery.setText = function ( element, text ) {
@@ -1481,10 +1565,13 @@
     }
 
     /**
-     * Set the content of each element in the set of matched elements to the specified text.
+     * Set the content of each element in the set of matched
+     * elements to the specified text.
      *
      * @param  jQuery element jQuery element
-     * @param  Fluxo  fluxo   A function returning the text content to set. Receives the index position of the element in the set and the old text value as arguments.
+     * @param  Fluxo  fluxo   A function returning the text content to set.
+     *                        Receives the index position of the element in the
+     *                        set and the old text value as arguments.
      * @param  Object params  params passed to the function
      * @return jQuery
      */
@@ -1530,9 +1617,12 @@
      *  Display or hide the matched elements.
      *
      * @param  jQuery element  jQuery element
-     * @param  String duration A string or number determining how long the animation will run.
-     * @param  String easing   A string indicating which easing function to use for the transition.
-     * @param  Fluxo  complete A function to call once the animation is complete, called once per matched element.
+     * @param  String duration A string or number determining how long the
+     *                         animation will run.
+     * @param  String easing   A string indicating which easing function to use
+     *                         for the transition.
+     * @param  Fluxo  complete A function to call once the animation is complete,
+     *                         called once per matched element.
      * @param  Object params   Params pased to function
      * @return jQuery
      */
@@ -1545,10 +1635,13 @@
     }
 
     /**
-     * Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the state argument.
+     * Add or remove one or more classes from each element in the
+     * set of matched elements, depending on either the class's
+     * presence or the value of the state argument.
      *
      * @param  jQuery element    jQuery element
-     * @param  String className  One or more class names (separated by spaces) to be toggled for each element in the matched set.
+     * @param  String className  One or more class names (separated by spaces)
+     *                           to be toggled for each element in the matched set.
      * @return jQuery
      */
     maker_jQuery.toggleClassName = function ( element, className ) {
@@ -1556,11 +1649,15 @@
     }
 
     /**
-     * Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the state argument.
+     * Add or remove one or more classes from each element in the
+     * set of matched elements, depending on either the class's
+     * presence or the value of the state argument.
      *
      * @param  jQuery          element    jQuery element
-     * @param  String | Fluxo  className  One or more class names (separated by spaces) to be toggled for each element in the matched set.
-     * @param  Boolean         state      A Boolean (not just truthy/falsy) value to determine whether the class should be added or removed.
+     * @param  String | Fluxo  className  One or more class names (separated by spaces)
+     *                                    to be toggled for each element in the matched set.
+     * @param  Boolean         state      A Boolean (not just truthy/falsy) value to
+     *                                    determine whether the class should be added or removed.
      * @return jQuery
      */
     maker_jQuery.toggleClass = function ( element, className, state ) {
@@ -1568,10 +1665,12 @@
     }
 
     /**
-     * Execute all handlers and behaviors attached to the matched elements for the given event type.
+     * Execute all handlers and behaviors attached to the matched
+     * elements for the given event type.
      *
      * @param  jQuery         element         jQuery element
-     * @param  String | Event eventType       A string containing a JavaScript event type, such as click or submit. or A jQuery.Event object.
+     * @param  String | Event eventType       A string containing a JavaScript event type,
+     *                                        such as click or submit. or A jQuery.Event object.
      * @param  Object         extraParameters Additional parameters to pass along to the event handler.
      * @return jQuery
      */
@@ -1583,7 +1682,8 @@
      * Execute all handlers attached to an element for an event.
      *
      * @param  jQuery         element         jQuery element
-     * @param  String | Event eventType       A string containing a JavaScript event type, such as click or submit. or A jQuery.Event object.
+     * @param  String | Event eventType       A string containing a JavaScript event type,
+     *                                        such as click or submit. or A jQuery.Event object.
      * @param  Object         extraParameters Additional parameters to pass along to the event handler.
      * @return Object
      */
@@ -1616,7 +1716,8 @@
      * Remove a previously-attached event handler from the elements.
      *
      * @param  jQuery element   jQuery element
-     * @param  Strign eventType A string containing a JavaScript event type, such as click or submit.
+     * @param  Strign eventType A string containing a JavaScript event type,
+     *                          such as click or submit.
      * @param  Fluxo  handler   The function that is to be no longer executed.
      * @param  Object params    Params thets pased to the function
      * @return jQuery
@@ -1633,8 +1734,10 @@
      * Remove a previously-attached event handler from the elements.
      *
      * @param  jQuery  element   jQuery Object
-     * @param  String  eventType A string containing a JavaScript event type, such as click or submit.
-     * @param  Boolean bool      Unbinds the corresponding 'return false' function that was bound using .bind( eventType, false ).
+     * @param  String  eventType A string containing a JavaScript event type,
+     *                           such as click or submit.
+     * @param  Boolean bool      Unbinds the corresponding 'return false' function
+     *                           that was bound using .bind( eventType, false ).
      * @return jQuery
      */
     maker_jQuery.unbindFalse = function ( element, eventType, bool ) {
@@ -1642,7 +1745,8 @@
     }
 
     /**
-     * Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements.
+     * Remove a handler from the event for all elements which match the current
+     * selector, based upon a specific set of root elements.
      *
      * @url http://api.jquery.com/undelegate/#undelegate
      * @param  jQuery element
@@ -1653,11 +1757,13 @@
     }
 
     /**
-     * Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements.
+     * Remove a handler from the event for all elements which match the current
+     * selector, based upon a specific set of root elements.
      *
      * @url http://api.jquery.com/undelegate/#undelegate-namespace
      * @param  jQuery element
-     * @param  String namespace - A string containing a namespace to unbind all events from.
+     * @param  String namespace A string containing a namespace to unbind all
+     *                          events from.
      * @return jQuery
      */
     maker_jQuery.undelegateNamespace = function ( element, namespace ) {
@@ -1665,12 +1771,15 @@
     }
 
     /**
-     * Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements.
+     * Remove a handler from the event for all elements which match the
+     * current selector, based upon a specific set of root elements.
      *
      * @url http://api.jquery.com/undelegate/#undelegate-selector-events
-     * @param  jQuery element
-     * @param  String selector - A selector which will be used to filter the event results.
-     * @param  PlainObject events - An object of one or more event types and previously bound functions to unbind from them.
+     * @param  jQuery      element
+     * @param  String      selector A selector which will be used to filter the
+     *                              event results.
+     * @param  PlainObject events   An object of one or more event types and
+     *                              previously bound functions to unbind from them.
      * @return jQuery
      */
     maker_jQuery.undelegateEvents = function ( element, selector, events ) {
@@ -1678,12 +1787,15 @@
     }
 
     /**
-     * Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements.
+     * Remove a handler from the event for all elements which match the current
+     * selector, based upon a specific set of root elements.
      *
      * @url http://api.jquery.com/undelegate/#undelegate-selector-eventType
      * @param  jQuery element
-     * @param  String selector - A selector which will be used to filter the event results.
-     * @param  String eventType - A string containing a JavaScript event type, such as "click" or "keydown"
+     * @param  String selector  A selector which will be used to filter the
+     *                          event results.
+     * @param  String eventType A string containing a JavaScript event type,
+     *                          such as "click" or "keydown"
      * @return jQuery
      */
     maker_jQuery.undelegateEventType = function ( element, selector, eventType ) {
@@ -1691,7 +1803,8 @@
     }
 
     /**
-     * Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements.
+     * Remove a handler from the event for all elements which match the current
+     * selector, based upon a specific set of root elements.
      *
      * @url http://api.jquery.com/undelegate/#undelegate-selector-eventType-handler
      * @param  jQuery element
@@ -1708,7 +1821,8 @@
     }
 
     /**
-     * Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.
+     * Remove the parents of the set of matched elements from the DOM,
+     * leaving the matched elements in their place.
      *
      * @param  jQuery element
      * @param  String selector
@@ -1748,7 +1862,8 @@
     }
 
     /**
-     * Get the current computed width for the first element in the set of matched elements
+     * Get the current computed width for the first element in the set of
+     * matched elements
      *
      * @param  jQuery element
      * @return Number
@@ -1815,7 +1930,8 @@
     }
 
     /**
-     * Wrap an HTML structure around the content of each element in the set of matched elements.
+     * Wrap an HTML structure around the content of each element in the set of
+     * matched elements.
      *
      * @param  jQuery element
      * @param  Object wrappingElement
