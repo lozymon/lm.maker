@@ -98,6 +98,142 @@
     }
 
     /**
+     * Merge the contents of two arrays together into the first array.
+     *
+     * @param  Object first  The first array-like object to merge, the elements of second added.
+     * @param  Object second The second array-like object to merge into the first, unaltered.
+     * @return Array
+     */
+    maker_jQuery.merge = function ( first, second ) {
+      return $.merge( first, second );
+    }
+
+    /**
+     * Relinquish jQuery's control of the $ variable.
+     *
+     * @param  Boolean removeAll A Boolean indicating whether to remove all jQuery
+     *                           variables from the global scope (including jQuery itself).
+     * @return String
+     */
+    maker_jQuery.noConflict = function ( removeAll ) {
+      return $.noConflict( removeAll );
+    }
+
+    /**
+     * An empty function.
+     *
+     * @return undefined
+     */
+    maker_jQuery.noop = function () {
+      return $.noop();
+    }
+
+    /**
+     * Return a number representing the current time.
+     *
+     * @return Number
+     */
+    maker_jQuery.now = function () {
+      return $.now();
+    }
+
+    /**
+     * Create a serialized representation of an array, a plain object,
+     * or a jQuery object suitable for use in a URL query string or Ajax request.
+     * In case a jQuery object is passed, it should contain input elements with name/value properties.
+     *
+     * @param  Object  obj         An array, a plain object, or a jQuery object to serialize.
+     * @param  Boolean traditional A Boolean indicating whether to perform a traditional "shallow" serialization.
+     * @return String
+     */
+    maker_jQuery.param = function ( obj, traditional ) {
+      return $.param( obj, traditional );
+    }
+
+    /**
+     * Takes a well-formed JSON string and returns the resulting JavaScript value.
+     *
+     * @param  String  data        HTML string to be parsed
+     * @param  Element context     Document element to serve as the context in
+     *                             which the HTML fragment will be created
+     * @param  Boolean keepScripts A Boolean indicating whether to include
+     *                             scripts passed in the HTML string
+     * @return jqXHR
+     */
+    maker_jQuery.parseHTML = function ( data, context, keepScripts ) {
+      return $.parseHTML( data, context, keepScripts );
+    }
+
+    /**
+     * Takes a well-formed JSON string and returns the resulting JavaScript value.
+     *
+     * @param  String json The JSON string to parse.
+     * @return jqXHR
+     */
+    maker_jQuery.parseJSON = function ( json ) {
+      return $.parseJSON( json );
+    }
+
+    /**
+     * Parses a string into an XML document.
+     *
+     * @param  String data A well-formed XML string to be parsed
+     * @return jqXHR
+     */
+    maker_jQuery.parseXML = function ( data ) {
+      return $.parseXML( data );
+    }
+
+    /**
+     * Takes a function and returns a new one that will always have a particular context.
+     *
+     * @param  String url      A string containing the URL to which the request is sent.
+     * @param  Object data     A plain object or string that is sent to the server
+     *                         with the request.
+     * @param  Fluxo  success  A callback function that is executed if the request
+     *                         succeeds. Required if dataType is provided,
+     *                         but can be null in that case.
+     * @param  String dataType The type of data expected from the server.
+     *                         Default: Intelligent Guess (xml, json, script, text, html).
+     * @return jqXHR
+     */
+    maker_jQuery.post = function ( url, data, success, dataType ) {
+      return $.post( url, data, function( data, textStatus, jqXHR ) {
+        return executeRuleFromJS( success, [ this, data, textStatus, jqXHR ] );
+      }, dataType );
+    }
+
+    /**
+     * Takes a function and returns a new one that will always have a particular context.
+     *
+     * @param  Object settings A set of key/value pairs that configure the Ajax request.
+     *                         All properties except for url are optional. A default can
+     *                         be set for any option with $.ajaxSetup().
+     *                         See jQuery.ajax( settings ) for a complete list of
+     *                         all settings. Type will automatically be set to POST.
+     * @return jqXHR
+     */
+    maker_jQuery.postSettings = function ( settings ) {
+      return $.post( settings );
+    }
+
+    /**
+     * Takes a function and returns a new one that will always have a particular context.
+     *
+     * @param  Fluxo  handler             The function whose context will be changed.
+     * @param  Object context             The object to which the context (this) of the
+     *                                    function should be set.
+     * @param  Object additionalArguments Any number of arguments to be passed to the
+     *                                    function referenced in the function argument.
+     * @return Function
+     */
+    maker_jQuery.proxy = function ( handler, context, additionalArguments ) {
+      return $.proxy( function() {
+        return executeRuleFromJS( handler, [ this, additionalArguments ] );
+      }, context, additionalArguments );
+    }
+
+    /**
      * Show the queue of functions to be executed on the matched element.
      *
      * @param  Element element   A DOM element to inspect for an attached queue.
