@@ -72,9 +72,9 @@
     }
 
     maker_jQuery.each = function ( element, fluxo, params ) {
-        return element.each( function(index, event) {
-            return executeRuleFromJS( fluxo, [ this, index, event, params ] );
-        });
+       return element.each( function(index, event) {
+           return executeRuleFromJS( fluxo, [ this, index, event, params ] );
+       });
     }
 
     maker_jQuery.empty = function ( element ) {
@@ -95,6 +95,129 @@
                 return executeRuleFromJS( complete, [ this, params ] );
             }
         });
+    }
+
+    /**
+     * Hook directly into jQuery to override how particular CSS properties are
+     * retrieved or set, normalize CSS property naming, or create custom properties.
+     *
+     * @return Object
+     */
+    maker_jQuery.cssHooks = function () {
+      return $.cssHooks
+    }
+
+    /**
+     * An object containing all CSS properties that may be used without a unit.
+     * The .css() method uses this object to see if it may append px to unitless values.
+     *
+     * @return Object
+     */
+    maker_jQuery.cssNumber = function () {
+      return $.cssNumber
+    }
+
+    /**
+     * Returns value at named data store for the element, as set by
+     * jQuery.data(element, name, value), or the full data store for the element.
+     *
+     * @param  Element element The DOM element to associate with the data.
+     * @param  String  key     A string naming the piece of data to set.
+     * @return Object
+     */
+    maker_jQuery.getData = function ( element, key ) {
+      return $.data( element, key );
+    }
+
+    /**
+     * Returns value at named data store for the element, as set by
+     * jQuery.data(element, name, value), or the full data store for the element.
+     *
+     * @param  Element element The DOM element to associate with the data.
+     * @param  String  key     A string naming the piece of data to set.
+     * @param  Object  value   The new data value; this can be any Javascript type except undefined.
+     * @return Object
+     */
+    maker_jQuery.setData = function ( element, key, value ) {
+      return $.data( element, key, value );
+    }
+
+    /**
+     * A factory function that returns a chainable utility object with methods
+     * to register multiple callbacks into callback queues, invoke callback
+     * queues, and relay the success or failure state of any synchronous
+     * or asynchronous function.
+     *
+     * @param  Element beforeStart A DOM element from which to remove and execute a queued function.
+     * @return Deferred
+     */
+    maker_jQuery.Deferred = function ( beforeStart ) {
+      return $.Deferred( beforeStart );
+    }
+
+
+    /**
+     * Execute the next function on the queue for the matched element.
+     *
+     * @param  Element element   A DOM element from which to remove and execute a queued function.
+     * @param  String  queueName A string containing the name of the queue. Defaults to fx, the standard effects queue.
+     * @return undefined
+     */
+    maker_jQuery.dequeue = function ( element, queueName ) {
+      return $.dequeue( element, queueName );
+    }
+
+    /**
+     * A generic iterator function, which can be used to seamlessly iterate
+     * over both objects and arrays. Arrays and array-like objects with a
+     * length property (such as a function's arguments object) are iterated
+     * by numeric index, from 0 to length-1. Other objects are iterated
+     * via their named properties.
+     *
+     * @param  Object object  The array to iterate over.
+     * @param  Object fluxo   The function that will be executed on every object.
+     * @param  Object params  params passado para function
+     * @return void
+     */
+    maker_jQuery.each = function ( object, fluxo, params ) {
+        return $.each( object, function(index, value ) {
+            return executeRuleFromJS( fluxo, [ this, index, value, params ] );
+        });
+    }
+
+    /**
+     * Takes a string and throws an exception containing it.
+     *
+     * @param  Object message The message to send out.
+     * @return void
+     */
+    maker_jQuery.error = function ( message  ) {
+      $.error( message  );
+    }
+
+    /**
+     * Escapes any character that has a special meaning in a CSS selector.
+     *
+     * @param  Object selector A string containing a selector expression to escape.
+     * @return Number
+     */
+    maker_jQuery.escapeSelector = function ( selector ) {
+      return $.escapeSelector( selector );
+    }
+
+    /**
+     * Merge the contents of two or more objects together into the first object.
+     *
+     * @param  Boolean deep   If true, the merge becomes recursive (aka. deep copy).
+     * @param  Object target  An object that will receive the new properties if additional
+     *                        objects are passed in or that will extend the jQuery namespace
+     *                        if it is the sole argument.
+     * @param  Object object1 An object containing additional properties to merge in.
+     * @param  Object objectN Additional objects containing properties to merge in.
+     * @return Object
+     */
+    maker_jQuery.extend = function ( deep, target, object1, objectN ) {
+      return $.extend( deep, target, object1, objectN );
     }
 
     /**
