@@ -9,10 +9,6 @@
         event: {},
     }
 
-    maker_jQuery.jQuery = function ( selector ) {
-        return $( selector );
-    }
-
     maker_jQuery.add = function ( element, selector, context ) {
         return element.add( selector, context );
     }
@@ -98,13 +94,108 @@
     }
 
     /**
+     * Accepts a string containing a CSS selector which is then used to match a set of elements.
+     *
+     * @param  Object selector A string containing a selector expression
+     * @return jQuery
+     */
+    maker_jQuery.jQuery = function ( selector ) {
+        return $( selector );
+    }
+
+    /**
+     * A string containing the jQuery version number.
+     *
+     * @return String
+     */
+    maker_jQuery.fnjQuery = function ( url, settings ) {
+      return $.fn.jquery;
+    }
+
+    /**
+     * Set default values for future Ajax requests. Its use is not recommended.
+     *
+     * @param String url      A string containing the URL to which the request is sent.
+     * @param Object settings A set of key/value pairs that configure the Ajax request.
+     *                        All settings are optional. A default can be set for any
+     *                        option with $.ajaxSetup(). See jQuery.ajax( settings )
+     *                        below for a complete list of all settings.
+     * @return void
+     */
+    maker_jQuery.ajax = function ( url, settings ) {
+      return $.ajax( url, settings );
+    }
+
+    /**
+     * Handle custom Ajax options or modify existing options before each
+     * request is sent and before they are processed by $.ajax().
+     *
+     * @param  String dataType An optional string containing one or more space-separated dataTypes
+     * @param  Fluxo  handler  A handler to set default values for future Ajax requests.
+     * @param  Object params   params passado para function
+     * @return undefined
+     */
+    maker_jQuery.ajaxPrefilter = function ( dataType, handler ) {
+        return $.ajaxPrefilter( dataType, function( options, originalOptions, jqXHR ) {
+            return executeRuleFromJS( handler, [ this, options, originalOptions, jqXHR, params ] );
+        });
+    }
+
+    /**
+     * Set default values for future Ajax requests. Its use is not recommended.
+     *
+     * @param String options A set of key/value pairs that configure the default
+     *                       Ajax request. All options are optional.
+     * @return void
+     */
+    maker_jQuery.ajaxSetup = function ( options  ) {
+      return $.ajaxSetup( options  );
+    }
+
+    /**
+     * Creates an object that handles the actual transmission of Ajax data.
+     *
+     * @param  String dataType A string identifying the data type to use
+     * @param  Fluxo  handler  A handler to return the new transport object to use
+     *                         with the data type provided in the first argument.
+     * @param  Object params   params passado para function
+     * @return undefined
+     */
+    maker_jQuery.ajaxTransport = function ( dataType, handler ) {
+        return $.ajaxTransport( dataType, function( options, originalOptions, jqXHR ) {
+            return executeRuleFromJS( handler, [ this, options, originalOptions, jqXHR, params ] );
+        });
+    }
+
+    /**
+     * A multi-purpose callbacks list object that provides a powerful way to manage callback lists.
+     *
+     * @param String flags An optional list of space-separated flags that change how the callback list behaves.
+     * @return Callbacks
+     */
+    maker_jQuery.Callbacks = function ( flags ) {
+      return $.Callbacks( flags );
+    }
+
+    /**
+     * Check to see if a DOM element is a descendant of another DOM element.
+     *
+     * @param  Element container The DOM element that may contain the other element.
+     * @param  Element contained The DOM element that may be contained by (a descendant of) the other element.
+     * @return Boolean
+     */
+    maker_jQuery.contains = function ( container, contained ) {
+      return $.contains( container, contained );
+    }
+
+    /**
      * Hook directly into jQuery to override how particular CSS properties are
      * retrieved or set, normalize CSS property naming, or create custom properties.
      *
      * @return Object
      */
     maker_jQuery.cssHooks = function () {
-      return $.cssHooks
+      return $.cssHooks;
     }
 
     /**
@@ -114,7 +205,7 @@
      * @return Object
      */
     maker_jQuery.cssNumber = function () {
-      return $.cssNumber
+      return $.cssNumber;
     }
 
     /**
