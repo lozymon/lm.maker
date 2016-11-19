@@ -14,7 +14,8 @@
      * Create a new jQuery object with elements added to the set of matched elements.
      *
      * @param jQuery  element
-     * @param Object  selector A string representing a selector expression to find additional elements to add to the set of matched elements.
+     * @param Object  selector A string representing a selector expression to find additional
+     *                         elements to add to the set of matched elements.
      *                         or One or more elements to add to the set of matched elements.
      *                         or An HTML fragment to add to the set of matched elements.
      *                         or An existing jQuery object to add to the set of matched elements.
@@ -23,7 +24,8 @@
      *                         $(selector, context) method.
      * @return jQuery
      */
-    maker_jQuery.add = function ( element, selector, context ) {
+    maker_jQuery.add = function ( element, selector, context )
+    {
         return element.add( selector, context );
     }
 
@@ -36,7 +38,8 @@
      *                           the current set of elements against.
      * @return jQuery
      */
-    maker_jQuery.addBack = function ( element, selector ) {
+    maker_jQuery.addBack = function ( element, selector )
+    {
         return element.addBack( selector );
     }
 
@@ -48,8 +51,9 @@
      *                          to the class attribute of each matched element.
      * @return jQuery
      */
-    maker_jQuery.addClass = function ( element, className ) {
-      return element.addClass( className );
+    maker_jQuery.addClass = function ( element, className )
+    {
+        return element.addClass( className );
     }
 
     /**
@@ -64,10 +68,11 @@
      * @param  Object params  params passed function
      * @return jQuery
      */
-    maker_jQuery.addClassHandler = function ( element, handler, params ) {
-      return element.addClass( function( index, currentClassName ) {
-          return executeRuleFromJS( handler, [ this, index, currentClassName, params ] );
-      });
+    maker_jQuery.addClassHandler = function ( element, handler, params )
+    {
+        return element.addClass( function( index, currentClassName ) {
+            return executeRuleFromJS( handler, [ this, index, currentClassName, params ] );
+        });
     }
 
     /**
@@ -80,8 +85,9 @@
      *                        element in the set of matched elements.
      * @return jQuery
      */
-    maker_jQuery.after = function ( element, content ) {
-      return element.after( content );
+    maker_jQuery.after = function ( element, content )
+    {
+        return element.after( content );
     }
 
     /**
@@ -97,10 +103,11 @@
      * @param  Object params  params passed function
      * @return jQuery
      */
-    maker_jQuery.afterHandler = function ( element, handler, params ) {
-      return element.after( function( index, html ) {
-          return executeRuleFromJS( handler, [ this, index, html, params ] );
-      });
+    maker_jQuery.afterHandler = function ( element, handler, params )
+    {
+        return element.after( function( index, html ) {
+            return executeRuleFromJS( handler, [ this, index, html, params ] );
+        });
     }
 
     /**
@@ -112,10 +119,11 @@
      * @param  Object params  params passed function
      * @return jQuery
      */
-    maker_jQuery.ajaxComplete = function ( element, handler, params ) {
-      return element.ajaxComplete( function(event, jqXHR, ajaxOptions ) {
-          return executeRuleFromJS( handler, [ this, event, jqXHR, ajaxOptions, params ] );
-      });
+    maker_jQuery.ajaxComplete = function ( element, handler, params )
+    {
+        return element.ajaxComplete( function(event, jqXHR, ajaxOptions ) {
+            return executeRuleFromJS( handler, [ this, event, jqXHR, ajaxOptions, params ] );
+        });
     }
 
     /**
@@ -127,10 +135,11 @@
      * @param  Object params  params passed function
      * @return jQuery
      */
-    maker_jQuery.ajaxError = function ( element, handler, params ) {
-      return element.ajaxError( function(event, jqXHR, ajaxOptions, thrownError ) {
-          return executeRuleFromJS( handler, [ this, event, jqXHR, ajaxOptions, thrownError, params ] );
-      });
+    maker_jQuery.ajaxError = function ( element, handler, params )
+    {
+        return element.ajaxError( function(event, jqXHR, ajaxOptions, thrownError ) {
+            return executeRuleFromJS( handler, [ this, event, jqXHR, ajaxOptions, thrownError, params ] );
+        });
     }
 
     /**
@@ -142,10 +151,11 @@
      * @param  Object params  params passed function
      * @return jQuery
      */
-    maker_jQuery.ajaxSend = function ( element, handler, params ) {
-      return element.ajaxSend( function(event, jqXHR, ajaxOptions ) {
-          return executeRuleFromJS( handler, [ this, event, jqXHR, ajaxOptions, params ] );
-      });
+    maker_jQuery.ajaxSend = function ( element, handler, params )
+    {
+        return element.ajaxSend( function(event, jqXHR, ajaxOptions ) {
+            return executeRuleFromJS( handler, [ this, event, jqXHR, ajaxOptions, params ] );
+        });
     }
 
     /**
@@ -157,10 +167,11 @@
      * @param  Object params  params passed function
      * @return jQuery
      */
-    maker_jQuery.ajaxStart = function ( element, handler, params ) {
-      return element.ajaxStart( function() {
-          return executeRuleFromJS( handler, [ this, params ] );
-      });
+    maker_jQuery.ajaxStart = function ( element, handler, params )
+    {
+        return element.ajaxStart( function() {
+            return executeRuleFromJS( handler, [ this, params ] );
+        });
     }
 
     /**
@@ -172,10 +183,11 @@
      * @param  Object params  params passed function
      * @return jQuery
      */
-    maker_jQuery.ajaxStop = function ( element, handler, params ) {
-      return element.ajaxStop( function() {
-          return executeRuleFromJS( handler, [ this, params ] );
-      });
+    maker_jQuery.ajaxStop = function ( element, handler, params )
+    {
+        return element.ajaxStop( function() {
+            return executeRuleFromJS( handler, [ this, params ] );
+        });
     }
 
     /**
@@ -187,10 +199,11 @@
      * @param  Object params  params passed function
      * @return jQuery
      */
-    maker_jQuery.ajaxSuccess = function ( element, handler, params ) {
-      return element.ajaxSuccess( function(event, jqXHR, ajaxOptions, data) {
-          return executeRuleFromJS( handler, [ this, event, jqXHR, ajaxOptions, data, params ] );
-      });
+    maker_jQuery.ajaxSuccess = function ( element, handler, params )
+    {
+        return element.ajaxSuccess( function(event, jqXHR, ajaxOptions, data) {
+            return executeRuleFromJS( handler, [ this, event, jqXHR, ajaxOptions, data, params ] );
+        });
     }
 
     /**
@@ -204,12 +217,13 @@
      * @param  Object params     params passed to function
      * @return jQuery
      */
-    maker_jQuery.animate = function ( element, properties, duration, easing, complete, params ) {
-      return element.animate( properties, duration, easing, function() {
-        if ( complete ) {
-          return executeRuleFromJS( complete, [ this, params ] );
-        }
-      });
+    maker_jQuery.animate = function ( element, properties, duration, easing, complete, params )
+    {
+        return element.animate( properties, duration, easing, function() {
+            if ( complete ) {
+                return executeRuleFromJS( complete, [ this, params ] );
+            }
+        });
     }
 
     /**
@@ -220,7 +234,8 @@
      * @param  Obejct options    A map of additional options to pass to the method.
      * @return jQuery
      */
-    maker_jQuery.animateOptions = function ( element, properties, options ) {
+    maker_jQuery.animateOptions = function ( element, properties, options )
+    {
       return element.animate( properties, options );
     }
 
@@ -234,8 +249,9 @@
      *                        each element in the set of matched elements.
      * @return jQuery
      */
-    maker_jQuery.append = function ( element, content ) {
-      return element.append( content );
+    maker_jQuery.append = function ( element, content )
+    {
+        return element.append( content );
     }
 
     /**
@@ -248,8 +264,9 @@
      *                        by this parameter.
      * @return jQuery
      */
-    maker_jQuery.appendTo = function ( element, target ) {
-      return element.appendTo( target );
+    maker_jQuery.appendTo = function ( element, target )
+    {
+        return element.appendTo( target );
     }
 
 
@@ -261,8 +278,9 @@
      * @param  String attributeName The name of the attribute to get.
      * @return String
      */
-    maker_jQuery.getAttr = function ( element, attributeName ) {
-      return element.attr( attributeName );
+    maker_jQuery.getAttr = function ( element, attributeName )
+    {
+        return element.attr( attributeName );
     }
 
     /**
@@ -274,8 +292,9 @@
      *                              specified attribute will be removed (as in .removeAttr()).
      * @return jQuery
      */
-    maker_jQuery.setAttr = function ( element, attributeName, value ) {
-      return element.attr( attributeName, value );
+    maker_jQuery.setAttr = function ( element, attributeName, value )
+    {
+        return element.attr( attributeName, value );
     }
 
     /**
@@ -290,10 +309,11 @@
      * @param  Object params        params passed function
      * @return jQuery
      */
-    maker_jQuery.setAttrHandler = function ( element, attributeName, fluxo, params ) {
-      return element.attr( attributeName, function(index, attr) {
-          return executeRuleFromJS( fluxo, [ this, index, attr, params ] );
-      });
+    maker_jQuery.setAttrHandler = function ( element, attributeName, fluxo, params )
+    {
+        return element.attr( attributeName, function(index, attr) {
+            return executeRuleFromJS( fluxo, [ this, index, attr, params ] );
+        });
     }
 
     /**
@@ -306,8 +326,9 @@
      *                         element in the set of matched elements.
      * @return jQuery
      */
-    maker_jQuery.before = function ( element, content ) {
-      return element.before( content );
+    maker_jQuery.before = function ( element, content )
+    {
+        return element.before( content );
     }
 
     /**
@@ -324,10 +345,11 @@
      * @param  Object  params  params passed to function
      * @return jQuery
      */
-    maker_jQuery.beforeHandler = function ( element, handler, params ) {
-      return element.before( function( index, html ) {
-          return executeRuleFromJS( handler, [ this, index, html, params ] );
-      });
+    maker_jQuery.beforeHandler = function ( element, handler, params )
+    {
+        return element.before( function( index, html ) {
+            return executeRuleFromJS( handler, [ this, index, html, params ] );
+        });
     }
 
     /**
@@ -337,8 +359,9 @@
      * @param  Object  events  An object containing one or more DOM event types and functions to execute for them.
      * @return jQuery
      */
-    maker_jQuery.bind = function ( element, events ) {
-      return element.bind( events );
+    maker_jQuery.bind = function ( element, events )
+    {
+        return element.bind( events );
     }
 
     /**
@@ -350,23 +373,26 @@
      * @param  Boolean preventBubble Setting the third argument to false will attach a function that prevents the default action from occurring and stops the event from bubbling. The default is true.
      * @return jQuery
      */
-    maker_jQuery.bindPreventBubble = function ( element, eventType, eventData, preventBubble ) {
-      return element.bind( eventType, eventData, preventBubble );
+    maker_jQuery.bindPreventBubble = function ( element, eventType, eventData, preventBubble )
+    {
+        return element.bind( eventType, eventData, preventBubble );
     }
 
     /**
      * Attach a handler to an event for the elements
      *
      * @param  jQuery  element
-     * @param  String  eventType A string containing one or more DOM event types, such as "click" or "submit," or custom event names.
+     * @param  String  eventType A string containing one or more DOM event types, such as
+     *                           "click" or "submit," or custom event names.
      * @param  Fluxo   handler   A function to execute each time the event is triggered.
      * @param  Object  eventData An object containing data that will be passed to the event handler.
      * @return jQuery
      */
-    maker_jQuery.bindHandler = function ( element, handler, eventData ) {
-      return element.bind( eventData, function( eventObject ) {
-          return executeRuleFromJS( handler, [ this, eventObject, eventData ] );
-      });
+    maker_jQuery.bindHandler = function ( element, handler, eventData )
+    {
+        return element.bind( eventData, function( eventObject ) {
+            return executeRuleFromJS( handler, [ this, eventObject, eventData ] );
+        });
     }
 
     /**
@@ -377,14 +403,15 @@
      * @param  String  params  An object containing data that will be passed to the event handler.
      * @return jQuery
      */
-    maker_jQuery.blur = function ( element, handler, params ) {
-      if ( handler ) {
-        return element.blur( params, function( eventObject ) {
-            return executeRuleFromJS( handler, [ this, eventObject, params ] );
-        });
-      }
+    maker_jQuery.blur = function ( element, handler, params )
+    {
+        if ( handler ) {
+            return element.blur( params, function( eventObject ) {
+                return executeRuleFromJS( handler, [ this, eventObject, params ] );
+            });
+        }
 
-      return element.blur();
+        return element.blur();
     }
 
     /**
@@ -395,10 +422,11 @@
      * @param  Object    params     params passed to function
      * @return Callbacks
      */
-    maker_jQuery.callbacks.add = function ( callbacks, handler, params ) {
-      return callbacks.add( function() {
-          return executeRuleFromJS( handler, [ this, params ] );
-      });
+    maker_jQuery.callbacks.add = function ( callbacks, handler, params )
+    {
+        return callbacks.add( function() {
+            return executeRuleFromJS( handler, [ this, params ] );
+        });
     }
 
     /**
@@ -407,8 +435,9 @@
      * @param  Callbacks callbacks
      * @return Boolean
      */
-    maker_jQuery.callbacks.disable = function ( callbacks ) {
-      return callbacks.disable();
+    maker_jQuery.callbacks.disable = function ( callbacks )
+    {
+        return callbacks.disable();
     }
 
     /**
@@ -417,8 +446,9 @@
      * @param  Callbacks callbacks
      * @return Boolean
      */
-    maker_jQuery.callbacks.disabled = function ( callbacks ) {
-      return callbacks.disabled();
+    maker_jQuery.callbacks.disabled = function ( callbacks )
+    {
+        return callbacks.disabled();
     }
 
     /**
@@ -427,19 +457,20 @@
      * @param  Callbacks callbacks
      * @return Boolean
      */
-    maker_jQuery.callbacks.empty = function ( callbacks ) {
-      return callbacks.empty();
+    maker_jQuery.callbacks.empty = function ( callbacks )
+    {
+        return callbacks.empty();
     }
 
     /**
-     * Call all callbacks in a list with the given context and arguments.
+     * Determine if the callbacks have already been called at least once.
      *
      * @param  Callbacks callbacks
-     * @param  Object    arguments The argument or list of arguments to pass back to the callback list.
      * @return Callbacks
      */
-    maker_jQuery.callbacks.fire = function ( callbacks, arguments {
-      return callbacks.fire( arguments;
+    maker_jQuery.callbacks.fire = function ( callbacks )
+    {
+        return callbacks.fire();
     }
 
     /**
@@ -448,8 +479,9 @@
      * @param  Callbacks callbacks
      * @return Boolean
      */
-    maker_jQuery.callbacks.fired = function ( callbacks ) {
-      return callbacks.fired();
+    maker_jQuery.callbacks.fired = function ( callbacks )
+    {
+        return callbacks.fired();
     }
 
     /**
@@ -460,8 +492,9 @@
      * @param  Object    args      An argument, or array of arguments, to pass to the callbacks in the list.
      * @return Callbacks
      */
-    maker_jQuery.callbacks.fireWith = function ( callbacks, context, args ) {
-      return callbacks.fireWith( context, args );
+    maker_jQuery.callbacks.fireWith = function ( callbacks, context, args )
+    {
+        return callbacks.fireWith( context, args );
     }
 
     /**
@@ -473,14 +506,15 @@
      * @param  Object    params    params passed to function
      * @return Boolean
      */
-    maker_jQuery.callbacks.has = function ( callbacks, handler, params ) {
-      if ( handler ) {
-        return callbacks.has(function () {
-            return executeRuleFromJS( handler, [ this, params ] );
-        });
-      }
+    maker_jQuery.callbacks.has = function ( callbacks, handler, params )
+    {
+        if ( handler ) {
+            return callbacks.has(function () {
+                return executeRuleFromJS( handler, [ this, params ] );
+            });
+        }
 
-      return callbacks.has();
+        return callbacks.has();
     }
 
     /**
@@ -489,8 +523,9 @@
      * @param  Callbacks callbacks
      * @return Callbacks
      */
-    maker_jQuery.callbacks.lock = function ( callbacks ) {
-      return callbacks.lock();
+    maker_jQuery.callbacks.lock = function ( callbacks )
+    {
+        return callbacks.lock();
     }
 
     /**
@@ -499,8 +534,9 @@
      * @param  Callbacks callbacks
      * @return Boolean
      */
-    maker_jQuery.callbacks.locked = function ( callbacks ) {
-      return callbacks.locked();
+    maker_jQuery.callbacks.locked = function ( callbacks )
+    {
+        return callbacks.locked();
     }
 
     /**
@@ -511,10 +547,11 @@
      * @param  Object    params     params passed to function
      * @return Callbacks
      */
-    maker_jQuery.callbacks.remove = function ( callbacks, handler, params ) {
-      return callbacks.remove( function() {
-          return executeRuleFromJS( handler, [ this, params ] );
-      });
+    maker_jQuery.callbacks.remove = function ( callbacks, handler, params )
+    {
+        return callbacks.remove( function() {
+            return executeRuleFromJS( handler, [ this, params ] );
+        });
     }
 
     /**
@@ -526,14 +563,15 @@
      * @param  Object eventData An object containing data that will be passed to the event handler.
      * @return jQuery
      */
-    maker_jQuery.change = function ( element, handler, eventData ) {
-      if ( handler ) {
-        return element.change( eventData, function( event ) {
-            return executeRuleFromJS( handler, [ this, event, eventData ] );
-        });
-      }
+    maker_jQuery.change = function ( element, handler, eventData )
+    {
+        if ( handler ) {
+            return element.change( eventData, function( event ) {
+                return executeRuleFromJS( handler, [ this, event, eventData ] );
+            });
+        }
 
-      return element.change();
+        return element.change();
     }
 
     /**
@@ -544,7 +582,8 @@
      * @param  Selector selector A string containing a selector expression to match elements against.
      * @return jQuery
      */
-    maker_jQuery.children = function ( element, selector ) {
+    maker_jQuery.children = function ( element, selector )
+    {
         return element.children( selector );
     }
 
@@ -556,7 +595,8 @@
      *                          to fx, the standard effects queue.
      * @return jQuery
      */
-    maker_jQuery.clearQueue = function ( element, queueName ) {
+    maker_jQuery.clearQueue = function ( element, queueName )
+    {
         return element.clearQueue( queueName );
     }
 
@@ -569,14 +609,15 @@
      * @param  Object eventData An object containing data that will be passed to the event handler.
      * @return jQuery
      */
-    maker_jQuery.click = function ( element, handler, eventData ) {
-      if ( handler ) {
-        return element.click( eventData, function( event ) {
-            return executeRuleFromJS( handler, [ this, event, eventData ] );
-        });
-      }
+    maker_jQuery.click = function ( element, handler, eventData )
+    {
+        if ( handler ) {
+            return element.click( eventData, function( event ) {
+                return executeRuleFromJS( handler, [ this, event, eventData ] );
+            });
+        }
 
-      return element.click();
+        return element.click();
     }
 
     /**
@@ -592,7 +633,8 @@
      *                                       argument's value (which defaults to false).
      * @return Deferred
      */
-    maker_jQuery.clone = function ( element, withDataAndEvents , deepWithDataAndEvents ) {
+    maker_jQuery.clone = function ( element, withDataAndEvents , deepWithDataAndEvents )
+    {
         return element.clone( withDataAndEvents , deepWithDataAndEvents );
     }
 
@@ -608,7 +650,8 @@
      * @param  Element context  A DOM element within which a matching element may be found.
      * @return jQuery | Array
      */
-    maker_jQuery.closest = function ( element, selector, context ) {
+    maker_jQuery.closest = function ( element, selector, context )
+    {
         return element.closest( selector, context );
     }
 
@@ -619,7 +662,8 @@
      * @param  jQuery  element
      * @return String
      */
-    maker_jQuery.contents = function ( element ) {
+    maker_jQuery.contents = function ( element )
+    {
         return element.contents();
     }
 
@@ -628,7 +672,8 @@
      *
      * @return Element
      */
-    maker_jQuery.context = function ( element, propertyName ) {
+    maker_jQuery.context = function ( element, propertyName )
+    {
         return element.context
     }
 
@@ -640,14 +685,15 @@
      * @param  String  params  An object containing data that will be passed to the event handler.
      * @return jQuery
      */
-    maker_jQuery.contextmenu = function ( element, handler, params ) {
-      if ( handler ) {
-        return element.contextmenu( params, function( eventObject ) {
-            return executeRuleFromJS( handler, [ this, eventObject, params ] );
-        });
-      }
+    maker_jQuery.contextmenu = function ( element, handler, params )
+    {
+        if ( handler ) {
+            return element.contextmenu( params, function( eventObject ) {
+                return executeRuleFromJS( handler, [ this, eventObject, params ] );
+            });
+        }
 
-      return element.contextmenu();
+        return element.contextmenu();
     }
 
     /**
@@ -657,7 +703,8 @@
      * @param  Object  propertyName  A CSS property. or An array of one or more CSS properties.
      * @return String
      */
-    maker_jQuery.getCss = function ( element, propertyName ) {
+    maker_jQuery.getCss = function ( element, propertyName )
+    {
         return element.css( propertyName );
     }
 
@@ -669,8 +716,9 @@
      * @param  Object  value        A value to set for the property.
      * @return jQuery
      */
-    maker_jQuery.setCss = function ( element, propertyName, value) {
-      return element.css( propertyName, value );
+    maker_jQuery.setCss = function ( element, propertyName, value)
+    {
+        return element.css( propertyName, value );
     }
 
     /**
@@ -680,8 +728,9 @@
      * @param  String  properties An object of property-value pairs to set.
      * @return jQuery
      */
-    maker_jQuery.setCssProperties = function ( element, properties) {
-      return element.css( properties );
+    maker_jQuery.setCssProperties = function ( element, properties)
+    {
+        return element.css( properties );
     }
 
     /**
@@ -693,10 +742,11 @@
      * @param  String  params
      * @return jQuery
      */
-    maker_jQuery.setCssHandler = function ( element, propertyName, handler, params ) {
-      return element.css( propertyName, function( index, value ) {
-          return executeRuleFromJS( handler, [ this, index, value, params ] );
-      });
+    maker_jQuery.setCssHandler = function ( element, propertyName, handler, params )
+    {
+        return element.css( propertyName, function( index, value ) {
+            return executeRuleFromJS( handler, [ this, index, value, params ] );
+        });
     }
 
     /**
@@ -707,12 +757,13 @@
      * @param  String key     Name of the data stored.
      * @return Object
      */
-    maker_jQuery.getData = function ( element, key ) {
-      if ( key ) {
-        return element.data( key );
-      }
+    maker_jQuery.getData = function ( element, key )
+    {
+        if ( key ) {
+            return element.data( key );
+        }
 
-      return element.data();
+        return element.data();
     }
 
     /**
@@ -723,8 +774,9 @@
      * @param  Object value   The new data value; this can be any Javascript type except undefined.
      * @return jQuery
      */
-    maker_jQuery.setData = function ( element, key, value ) {
-      return element.data( key, value );
+    maker_jQuery.setData = function ( element, key, value )
+    {
+        return element.data( key, value );
     }
 
     /**
@@ -735,14 +787,15 @@
      * @param  Object eventData An object containing data that will be passed to the event handler.
      * @return jQuery
      */
-    maker_jQuery.dblclick = function ( element, handler, eventData ) {
-      if ( handler ) {
-        return element.dblclick( function( event ) {
-            return executeRuleFromJS( handler, [ this, event, eventData ] );
-        });
-      }
+    maker_jQuery.dblclick = function ( element, handler, eventData )
+    {
+        if ( handler ) {
+            return element.dblclick( function( event ) {
+                return executeRuleFromJS( handler, [ this, event, eventData ] );
+            });
+        }
 
-      return element.dblclick();
+        return element.dblclick();
     }
 
     /**
@@ -753,7 +806,8 @@
      * @param  Object   params          params passado to function
      * @return Deferred
      */
-    maker_jQuery.always = function ( deferred, alwaysCallbacks, params ) {
+    maker_jQuery.always = function ( deferred, alwaysCallbacks, params )
+    {
         return deferred.always( function() {
             return executeRuleFromJS( alwaysCallbacks, [ this, params ] );
         });
@@ -767,7 +821,8 @@
      * @param  Object   params     params passado to function
      * @return Deferred
      */
-    maker_jQuery.catch = function ( deferred, failFilter, params ) {
+    maker_jQuery.catch = function ( deferred, failFilter, params )
+    {
         return deferred.catch( function() {
             return executeRuleFromJS( failFilter, [ this, params ] );
         });
@@ -781,7 +836,8 @@
      * @param  Object   params        params passado to function
      * @return Deferred
      */
-    maker_jQuery.done = function ( deferred, doneCallbacks, params ) {
+    maker_jQuery.done = function ( deferred, doneCallbacks, params )
+    {
         return deferred.done( function() {
             return executeRuleFromJS( doneCallbacks, [ this, params ] );
         });
@@ -795,7 +851,8 @@
      * @param  Object   params        params passado to function
      * @return Deferred
      */
-    maker_jQuery.fail = function ( deferred, failCallbacks, params ) {
+    maker_jQuery.fail = function ( deferred, failCallbacks, params )
+    {
         return deferred.fail( function() {
             return executeRuleFromJS( failCallbacks, [ this, params ] );
         });
@@ -808,7 +865,8 @@
      * @param  Object   args     Optional arguments that are passed to the progressCallbacks.
      * @return Deferred
      */
-    maker_jQuery.notify = function ( deferred, args ) {
+    maker_jQuery.notify = function ( deferred, args )
+    {
         return deferred.notify( args );
     }
 
@@ -820,7 +878,8 @@
      * @param  Array    args     An optional array of arguments that are passed to the progressCallbacks.
      * @return Deferred
      */
-    maker_jQuery.notifyWith = function ( deferred, context, args ) {
+    maker_jQuery.notifyWith = function ( deferred, context, args )
+    {
         return deferred.notifyWith( context, args );
     }
 
@@ -834,19 +893,20 @@
      * @param  Object   params         params passado to function
      * @return Promise
      */
-    maker_jQuery.pipe = function ( deferred, doneFilter, failFilter, progressFilter, params ) {
+    maker_jQuery.pipe = function ( deferred, doneFilter, failFilter, progressFilter, params )
+    {
         return deferred.pipe( function() {
-          if ( doneFilter ) {
-            return executeRuleFromJS( doneFilter, [ this, params ] );
-          }
+            if ( doneFilter ) {
+                return executeRuleFromJS( doneFilter, [ this, params ] );
+            }
         }, function() {
-          if ( failFilter ) {
-            return executeRuleFromJS( failFilter, [ this, params ] );
-          }
+            if ( failFilter ) {
+                return executeRuleFromJS( failFilter, [ this, params ] );
+            }
         }, function() {
-          if ( progressFilter ) {
-            return executeRuleFromJS( progressFilter, [ this, params ] );
-          }
+            if ( progressFilter ) {
+                return executeRuleFromJS( progressFilter, [ this, params ] );
+            }
         });
     }
 
@@ -858,7 +918,8 @@
      * @param  Object   params            params passado to function
      * @return Deferred
      */
-    maker_jQuery.progress = function ( deferred, progressCallbacks, params ) {
+    maker_jQuery.progress = function ( deferred, progressCallbacks, params )
+    {
         return deferred.progress( function() {
             return executeRuleFromJS( progressCallbacks, [ this, params ] );
         });
@@ -871,7 +932,8 @@
      * @param  Object   target     Object onto which the promise methods have to be attached
      * @return Deferred
      */
-    maker_jQuery.promise = function ( deferred, target ) {
+    maker_jQuery.promise = function ( deferred, target )
+    {
         return deferred.promise( target );
     }
 
@@ -882,7 +944,8 @@
      * @param  Array    args     Optional arguments that are passed to the failCallbacks.
      * @return Deferred
      */
-    maker_jQuery.reject = function ( deferred, args ) {
+    maker_jQuery.reject = function ( deferred, args )
+    {
         return deferred.reject( args );
     }
 
@@ -894,7 +957,8 @@
      * @param  Array    args     An optional array of arguments that are passed to the failCallbacks.
      * @return Deferred
      */
-    maker_jQuery.rejectWith = function ( deferred, context, args ) {
+    maker_jQuery.rejectWith = function ( deferred, context, args )
+    {
         return deferred.rejectWith( context, args );
     }
 
@@ -905,7 +969,8 @@
      * @param  Array    args     Optional arguments that are passed to the doneCallbacks.
      * @return Deferred
      */
-    maker_jQuery.resolve = function ( deferred, args ) {
+    maker_jQuery.resolve = function ( deferred, args )
+    {
         return deferred.resolve( args );
     }
 
@@ -917,7 +982,8 @@
      * @param  Array    args     An optional array of arguments that are passed to the doneCallbacks.
      * @return Deferred
      */
-    maker_jQuery.resolveWith = function ( deferred, context, args ) {
+    maker_jQuery.resolveWith = function ( deferred, context, args )
+    {
         return deferred.resolveWith( context, args );
     }
 
@@ -927,7 +993,8 @@
      * @param  Deferred deferred
      * @return String
      */
-    maker_jQuery.state = function ( deferred ) {
+    maker_jQuery.state = function ( deferred )
+    {
         return deferred.state();
     }
 
@@ -941,19 +1008,20 @@
      * @param  Object   params         params passado to function
      * @return Promise
      */
-    maker_jQuery.then = function ( deferred, doneFilter, failFilter, progressFilter, params ) {
+    maker_jQuery.then = function ( deferred, doneFilter, failFilter, progressFilter, params )
+    {
         return deferred.then( function() {
-          if ( doneFilter ) {
-            return executeRuleFromJS( doneFilter, [ this, params ] );
-          }
+            if ( doneFilter ) {
+                return executeRuleFromJS( doneFilter, [ this, params ] );
+            }
         }, function() {
-          if ( failFilter ) {
-            return executeRuleFromJS( failFilter, [ this, params ] );
-          }
+            if ( failFilter ) {
+                return executeRuleFromJS( failFilter, [ this, params ] );
+            }
         }, function() {
-          if ( progressFilter ) {
-            return executeRuleFromJS( progressFilter, [ this, params ] );
-          }
+            if ( progressFilter ) {
+                return executeRuleFromJS( progressFilter, [ this, params ] );
+            }
         });
     }
 
@@ -965,7 +1033,8 @@
      * @param  String  queueName A string containing the name of the queue. Defaults to fx, the standard effects queue.
      * @return jQuery
      */
-    maker_jQuery.delay = function ( element, duration, queueName ) {
+    maker_jQuery.delay = function ( element, duration, queueName )
+    {
         return element.delay( duration, queueName );
     }
 
@@ -981,7 +1050,8 @@
      * @param  Object params    params passado to function
      * @return jQuery
      */
-    maker_jQuery.delegate = function ( element, selector, eventType, handler, params ) {
+    maker_jQuery.delegate = function ( element, selector, eventType, handler, params )
+    {
         return element.delegate( selector, eventType, params,  function( eventObject ) {
            return executeRuleFromJS( handler, [ this, eventObject, params ] );
         });
@@ -995,7 +1065,8 @@
      * @param  Object  events    A plain object of one or more event types and functions to execute for them.
      * @return jQuery
      */
-    maker_jQuery.delegateEvent = function ( element, selector, events ) {
+    maker_jQuery.delegateEvent = function ( element, selector, events )
+    {
         return element.delegate( selector, events );
     }
 
@@ -1006,7 +1077,8 @@
      * @param  String  queueName A string containing the name of the queue. Defaults to fx, the standard effects queue.
      * @return jQuery
      */
-    maker_jQuery.dequeue = function ( element, queueName ) {
+    maker_jQuery.dequeue = function ( element, queueName )
+    {
         return element.dequeue( queueName );
     }
 
@@ -1017,7 +1089,8 @@
      * @param  Selector selector A selector expression that filters the set of matched elements to be removed.
      * @return jQuery
      */
-    maker_jQuery.detach = function ( element, selector ) {
+    maker_jQuery.detach = function ( element, selector )
+    {
         return element.detach( selector );
     }
 
@@ -1029,10 +1102,11 @@
      * @param  Onject params  params passado to function
      * @return jQuery
      */
-    maker_jQuery.each = function ( element, fluxo, params ) {
-       return element.each( function( index, element ) {
-           return executeRuleFromJS( fluxo, [ this, index, element, params ] );
-       });
+    maker_jQuery.each = function ( element, fluxo, params )
+    {
+        return element.each( function( index, element ) {
+            return executeRuleFromJS( fluxo, [ this, index, element, params ] );
+        });
     }
 
     /**
@@ -1041,7 +1115,8 @@
      * @param  jQuery element jQuery
      * @return jQuery
      */
-    maker_jQuery.empty = function ( element ) {
+    maker_jQuery.empty = function ( element )
+    {
         return element.empty();
     }
 
@@ -1052,7 +1127,8 @@
      * @param  jQuery element jQuery
      * @return jQuery
      */
-    maker_jQuery.end = function ( element ) {
+    maker_jQuery.end = function ( element )
+    {
         return element.end();
     }
 
@@ -1064,7 +1140,8 @@
      *                         counting backwards from the last element in the set.
      * @return jQuery
      */
-    maker_jQuery.eq = function ( element, index ) {
+    maker_jQuery.eq = function ( element, index )
+    {
         return element.eq( index );
     }
 
@@ -1075,7 +1152,8 @@
      * @param  Object  options   A map of additional options to pass to the method.
      * @return jQuery
      */
-    maker_jQuery.fadeInOptions = function ( element, options ) {
+    maker_jQuery.fadeInOptions = function ( element, options )
+    {
         return element.fadeIn( options );
     }
 
@@ -1089,7 +1167,8 @@
      * @param  Object  params    params passado to function
      * @return jQuery
      */
-    maker_jQuery.fadeIn = function ( element, duration, easing, complete, params ) {
+    maker_jQuery.fadeIn = function ( element, duration, easing, complete, params )
+    {
         return element.fadeIn( duration, easing, function( ) {
             return executeRuleFromJS( complete, [ this, params ] );
         });
@@ -1102,7 +1181,8 @@
      * @param  Object  options   A map of additional options to pass to the method.
      * @return jQuery
      */
-    maker_jQuery.fadeOutOptions = function ( element, options ) {
+    maker_jQuery.fadeOutOptions = function ( element, options )
+    {
         return element.fadeOut( options );
     }
 
@@ -1116,7 +1196,8 @@
      * @param  Object  params    params passado to function
      * @return jQuery
      */
-    maker_jQuery.fadeOut = function ( element, duration, easing, complete, params ) {
+    maker_jQuery.fadeOut = function ( element, duration, easing, complete, params )
+    {
         return element.fadeOut( duration, easing, function( ) {
             return executeRuleFromJS( complete, [ this, params ] );
         });
@@ -1133,7 +1214,8 @@
      * @param  Object  params    params passado to function
      * @return jQuery
      */
-    maker_jQuery.fadeToggle = function ( element, duration, opacity, easing, complete, params ) {
+    maker_jQuery.fadeToggle = function ( element, duration, opacity, easing, complete, params )
+    {
         return element.fadeToggle( duration, opacity, easing, function( ) {
             return executeRuleFromJS( complete, [ this, params ] );
         });
@@ -1146,7 +1228,8 @@
      * @param  Object  options   A map of additional options to pass to the method.
      * @return jQuery
      */
-    maker_jQuery.fadeToggleOptions = function ( element, options ) {
+    maker_jQuery.fadeToggleOptions = function ( element, options )
+    {
         return element.fadeToggle( options );
     }
 
@@ -1160,7 +1243,8 @@
      * @param  Object  params    params passado to function
      * @return jQuery
      */
-    maker_jQuery.fadeToggle = function ( element, duration, easing, complete, params ) {
+    maker_jQuery.fadeToggle = function ( element, duration, easing, complete, params )
+    {
         return element.fadeToggle( duration, easing, function( ) {
             return executeRuleFromJS( complete, [ this, params ] );
         });
@@ -1175,7 +1259,8 @@
      *                           or An existing jQuery object to match the current set of elements against.
      * @return jQuery
      */
-    maker_jQuery.filter = function ( element, selector ) {
+    maker_jQuery.filter = function ( element, selector )
+    {
         return element.filter( selector );
     }
 
@@ -1187,7 +1272,8 @@
      * @param  Object  params    params passado to function
      * @return jQuery
      */
-    maker_jQuery.filterHandler = function ( element, fluxo, params ) {
+    maker_jQuery.filterHandler = function ( element, fluxo, params )
+    {
         return element.filter( params, function( index, element ) {
             return executeRuleFromJS( fluxo, [ this, index, element, params ] );
         });
@@ -1202,7 +1288,8 @@
      *                           or An element or a jQuery object to match elements against.
      * @return jQuery
      */
-    maker_jQuery.find = function ( element, selector ) {
+    maker_jQuery.find = function ( element, selector )
+    {
         return element.find( selector );
     }
 
@@ -1214,7 +1301,8 @@
      * @param  String  queue     The name of the queue in which to stop animations.
      * @return jQuery
      */
-    maker_jQuery.finish = function ( element, queue ) {
+    maker_jQuery.finish = function ( element, queue )
+    {
         return element.finish( queue );
     }
 
@@ -1224,7 +1312,8 @@
      * @param  Element element   A jQuery element
      * @return jQuery
      */
-    maker_jQuery.first = function ( element ) {
+    maker_jQuery.first = function ( element )
+    {
         return element.first();
     }
 
@@ -1234,7 +1323,8 @@
      * @param  Element element   A jQuery element
      * @return jQuery
      */
-    maker_jQuery.focus = function ( element ) {
+    maker_jQuery.focus = function ( element )
+    {
         return element.focus();
     }
 
@@ -1246,7 +1336,8 @@
      * @param  Object  params    params passado to function
      * @return jQuery
      */
-    maker_jQuery.focusHandler = function ( element, fluxo, params ) {
+    maker_jQuery.focusHandler = function ( element, fluxo, params )
+    {
         return element.focus( params, function( eventObject ) {
             return executeRuleFromJS( fluxo, [ this, eventObject, params ] );
         });
@@ -1260,7 +1351,8 @@
      * @param  Integer index     A zero-based integer indicating which element to retrieve.
      * @return Element
      */
-    maker_jQuery.get = function ( element, index ) {
+    maker_jQuery.get = function ( element, index )
+    {
         return element.get( index );
     }
 
@@ -1273,7 +1365,8 @@
      *                           or A DOM element to match elements against.
      * @return Booelan
      */
-    maker_jQuery.has = function ( element, selector ) {
+    maker_jQuery.has = function ( element, selector )
+    {
         return element.has( selector );
     }
 
@@ -1284,7 +1377,8 @@
      * @param  String  className The class name to search for.
      * @return Booelan
      */
-    maker_jQuery.hasClass = function ( element, className  ) {
+    maker_jQuery.hasClass = function ( element, className  )
+    {
         return element.hasClass( className  );
     }
 
@@ -1296,7 +1390,8 @@
      *                           with an optional unit of measure appended (as a string).
      * @return Number
      */
-    maker_jQuery.setHeight = function ( element, value ) {
+    maker_jQuery.setHeight = function ( element, value )
+    {
         return element.height( value );
     }
 
@@ -1311,7 +1406,8 @@
      * @param  Object  params    params passado to function
      * @return jQuery
      */
-    maker_jQuery.setHeightHandler = function ( element, fluxo, params ) {
+    maker_jQuery.setHeightHandler = function ( element, fluxo, params )
+    {
         return element.height( function( index, height ) {
             return executeRuleFromJS( fluxo, [ this, index, height, params ] );
         });
@@ -1322,7 +1418,8 @@
      *
      * @return Integer
      */
-    maker_jQuery.hide = function ( element ) {
+    maker_jQuery.hide = function ( element )
+    {
         return element.hide();
     }
 
@@ -1334,7 +1431,8 @@
      * @param  Object  options   A map of additional options to pass to the method.
      * @return jQuery
      */
-    maker_jQuery.hideOptions = function ( element, options ) {
+    maker_jQuery.hideOptions = function ( element, options )
+    {
         return element.hide( options );
     }
 
@@ -1349,7 +1447,8 @@
      * @param  Object  params    params passado to function
      * @return jQuery
      */
-    maker_jQuery.hide = function ( element, duration, easing, complete, params ) {
+    maker_jQuery.hide = function ( element, duration, easing, complete, params )
+    {
         return element.hide( duration, easing, function( ) {
             return executeRuleFromJS( complete, [ this, params ] );
         });
@@ -1367,7 +1466,8 @@
      * @param  Object  paramsTwo params passado to function
      * @return jQuery
      */
-    maker_jQuery.hoverTwo = function ( element, fluxo, params, fluxoTwo, paramsTwo ) {
+    maker_jQuery.hoverTwo = function ( element, fluxo, params, fluxoTwo, paramsTwo )
+    {
         return element.hover( function( eventObject ) {
             return executeRuleFromJS( fluxo, [ this, eventObject, params ] );
         }, function( eventObject ) {
@@ -1384,7 +1484,8 @@
      * @param  Object  params    params passado to function
      * @return jQuery
      */
-    maker_jQuery.hover = function ( element, fluxo, params ) {
+    maker_jQuery.hover = function ( element, fluxo, params )
+    {
         return element.hover( function( eventObject ) {
             return executeRuleFromJS( fluxo, [ this, eventObject, params ] );
         });
@@ -1395,7 +1496,8 @@
      *
      * @return Integer
      */
-    maker_jQuery.getHtml = function ( element ) {
+    maker_jQuery.getHtml = function ( element )
+    {
         return element.html();
     }
 
@@ -1406,7 +1508,8 @@
      * @param  Object  value    A string of HTML to set as the content of each matched element.
      * @return jQuery
      */
-    maker_jQuery.setHtml = function ( element, htmlString ) {
+    maker_jQuery.setHtml = function ( element, htmlString )
+    {
         return element.html( htmlString );
     }
 
@@ -1422,7 +1525,8 @@
      * @param  Object  params   params passado to function
      * @return jQuery
      */
-    maker_jQuery.setInnerHeightHandler = function ( element, fluxo, params ) {
+    maker_jQuery.setInnerHeightHandler = function ( element, fluxo, params )
+    {
         return element.html( function( index, oldhtml ) {
             return executeRuleFromJS( fluxo, [ this, index, oldhtml, params ] );
         });
@@ -1433,7 +1537,8 @@
      *
      * @return Integer
      */
-    maker_jQuery.getIndex = function ( element ) {
+    maker_jQuery.getIndex = function ( element )
+    {
         return element.index();
     }
 
@@ -1445,7 +1550,8 @@
      *                          or The DOM element or first element within the jQuery object to look for.
      * @return Integer
      */
-    maker_jQuery.setIndex = function ( element, selector ) {
+    maker_jQuery.setIndex = function ( element, selector )
+    {
         return element.index( selector );
     }
 
@@ -1455,7 +1561,8 @@
      *
      * @return Number
      */
-    maker_jQuery.getInnerHeight = function ( element ) {
+    maker_jQuery.getInnerHeight = function ( element )
+    {
         return element.innerHeight();
     }
 
@@ -1468,7 +1575,8 @@
      *                          appended (as a string).
      * @return jQuery
      */
-    maker_jQuery.setInnerHeight = function ( element, value ) {
+    maker_jQuery.setInnerHeight = function ( element, value )
+    {
         return element.innerHeight( value );
     }
 
@@ -1482,7 +1590,8 @@
      *                          to the current element in the set.
      * @return jQuery
      */
-    maker_jQuery.setInnerHeightHandler = function ( element, fluxo, params ) {
+    maker_jQuery.setInnerHeightHandler = function ( element, fluxo, params )
+    {
         return element.innerHeight( function( index, height  ) {
             return executeRuleFromJS( fluxo, [ this, index, height, params ] );
         });
@@ -1497,7 +1606,8 @@
      *                          inserted after the element(s) specified by this parameter.
      * @return jQuery
      */
-    maker_jQuery.insertAfter = function ( element, target ) {
+    maker_jQuery.insertAfter = function ( element, target )
+    {
         return element.insertAfter( target );
     }
 
@@ -1510,7 +1620,8 @@
      *                          inserted before the element(s) specified by this parameter.
      * @return jQuery
      */
-    maker_jQuery.insertBefore = function ( element, target ) {
+    maker_jQuery.insertBefore = function ( element, target )
+    {
         return element.insertBefore( target );
     }
 
@@ -1525,7 +1636,8 @@
      *                          or One or more elements to match the current set of elements against.
      * @return Boolean
      */
-    maker_jQuery.is = function ( element, selector ) {
+    maker_jQuery.is = function ( element, selector )
+    {
         return element.is( selector );
     }
 
@@ -1543,7 +1655,8 @@
      * @param  Object params   params passado to the function
      * @return undefined
      */
-    maker_jQuery.isFunction = function ( element, fluxo, params ) {
+    maker_jQuery.isFunction = function ( element, fluxo, params )
+    {
         return element.is( function( index, element ) {
             return executeRuleFromJS( fluxo, [ this, index, element, params ] );
         });
@@ -1556,7 +1669,8 @@
      * @param  Object selector A string containing a selector expression
      * @return jQuery
      */
-    maker_jQuery.jQuery = function ( selector ) {
+    maker_jQuery.jQuery = function ( selector )
+    {
         return $( selector );
     }
 
@@ -1565,8 +1679,9 @@
      *
      * @return String
      */
-    maker_jQuery.fnjQuery = function ( url, settings ) {
-      return $.fn.jquery;
+    maker_jQuery.fnjQuery = function ( url, settings )
+    {
+        return $.fn.jquery;
     }
 
     /**
@@ -1579,8 +1694,9 @@
      *                        below for a complete list of all settings.
      * @return void
      */
-    maker_jQuery.ajax = function ( url, settings ) {
-      return $.ajax( url, settings );
+    maker_jQuery.ajax = function ( url, settings )
+    {
+        return $.ajax( url, settings );
     }
 
     /**
@@ -1592,7 +1708,8 @@
      * @param  Object params   params passado para function
      * @return undefined
      */
-    maker_jQuery.ajaxPrefilter = function ( dataType, handler ) {
+    maker_jQuery.ajaxPrefilter = function ( dataType, handler )
+    {
         return $.ajaxPrefilter( dataType, function( options, originalOptions, jqXHR ) {
             return executeRuleFromJS( handler, [ this, options, originalOptions, jqXHR, params ] );
         });
@@ -1605,8 +1722,9 @@
      *                       Ajax request. All options are optional.
      * @return void
      */
-    maker_jQuery.ajaxSetup = function ( options  ) {
-      return $.ajaxSetup( options  );
+    maker_jQuery.ajaxSetup = function ( options  )
+    {
+        return $.ajaxSetup( options  );
     }
 
     /**
@@ -1618,7 +1736,8 @@
      * @param  Object params   params passado para function
      * @return undefined
      */
-    maker_jQuery.ajaxTransport = function ( dataType, handler ) {
+    maker_jQuery.ajaxTransport = function ( dataType, handler )
+    {
         return $.ajaxTransport( dataType, function( options, originalOptions, jqXHR ) {
             return executeRuleFromJS( handler, [ this, options, originalOptions, jqXHR, params ] );
         });
@@ -1630,8 +1749,9 @@
      * @param String flags An optional list of space-separated flags that change how the callback list behaves.
      * @return Callbacks
      */
-    maker_jQuery.Callbacks = function ( flags ) {
-      return $.Callbacks( flags );
+    maker_jQuery.Callbacks = function ( flags )
+    {
+        return $.Callbacks( flags );
     }
 
     /**
@@ -1641,8 +1761,9 @@
      * @param  Element contained The DOM element that may be contained by (a descendant of) the other element.
      * @return Boolean
      */
-    maker_jQuery.contains = function ( container, contained ) {
-      return $.contains( container, contained );
+    maker_jQuery.contains = function ( container, contained )
+    {
+        return $.contains( container, contained );
     }
 
     /**
@@ -1651,8 +1772,9 @@
      *
      * @return Object
      */
-    maker_jQuery.cssHooks = function () {
-      return $.cssHooks;
+    maker_jQuery.cssHooks = function ()
+    {
+        return $.cssHooks;
     }
 
     /**
@@ -1661,8 +1783,9 @@
      *
      * @return Object
      */
-    maker_jQuery.cssNumber = function () {
-      return $.cssNumber;
+    maker_jQuery.cssNumber = function ()
+    {
+        return $.cssNumber;
     }
 
     /**
@@ -1673,8 +1796,9 @@
      * @param  String  key     A string naming the piece of data to set.
      * @return Object
      */
-    maker_jQuery.getData = function ( element, key ) {
-      return $.data( element, key );
+    maker_jQuery.getData = function ( element, key )
+    {
+        return $.data( element, key );
     }
 
     /**
@@ -1686,8 +1810,9 @@
      * @param  Object  value   The new data value; this can be any Javascript type except undefined.
      * @return Object
      */
-    maker_jQuery.setData = function ( element, key, value ) {
-      return $.data( element, key, value );
+    maker_jQuery.setData = function ( element, key, value )
+    {
+        return $.data( element, key, value );
     }
 
     /**
@@ -1699,8 +1824,9 @@
      * @param  Element beforeStart A DOM element from which to remove and execute a queued function.
      * @return Deferred
      */
-    maker_jQuery.Deferred = function ( beforeStart ) {
-      return $.Deferred( beforeStart );
+    maker_jQuery.Deferred = function ( beforeStart )
+    {
+        return $.Deferred( beforeStart );
     }
 
 
@@ -1711,8 +1837,9 @@
      * @param  String  queueName A string containing the name of the queue. Defaults to fx, the standard effects queue.
      * @return undefined
      */
-    maker_jQuery.dequeue = function ( element, queueName ) {
-      return $.dequeue( element, queueName );
+    maker_jQuery.dequeue = function ( element, queueName )
+    {
+        return $.dequeue( element, queueName );
     }
 
     /**
@@ -1727,7 +1854,8 @@
      * @param  Object params  params passado para function
      * @return void
      */
-    maker_jQuery.each = function ( object, fluxo, params ) {
+    maker_jQuery.each = function ( object, fluxo, params )
+    {
         return $.each( object, function(index, value ) {
             return executeRuleFromJS( fluxo, [ this, index, value, params ] );
         });
@@ -1739,8 +1867,9 @@
      * @param  Object message The message to send out.
      * @return void
      */
-    maker_jQuery.error = function ( message  ) {
-      $.error( message  );
+    maker_jQuery.error = function ( message  )
+    {
+        $.error( message  );
     }
 
     /**
@@ -1749,8 +1878,9 @@
      * @param  Object selector A string containing a selector expression to escape.
      * @return Number
      */
-    maker_jQuery.escapeSelector = function ( selector ) {
-      return $.escapeSelector( selector );
+    maker_jQuery.escapeSelector = function ( selector )
+    {
+        return $.escapeSelector( selector );
     }
 
     /**
@@ -1764,8 +1894,9 @@
      * @param  Object objectN Additional objects containing properties to merge in.
      * @return Object
      */
-    maker_jQuery.extend = function ( deep, target, object1, objectN ) {
-      return $.extend( deep, target, object1, objectN );
+    maker_jQuery.extend = function ( deep, target, object1, objectN )
+    {
+        return $.extend( deep, target, object1, objectN );
     }
 
     /**
@@ -1774,8 +1905,9 @@
      * @param  Object object An object to merge onto the jQuery prototype.
      * @return Number
      */
-    maker_jQuery.getFxExtend = function ( object ) {
-      return $.fx.extend(object);
+    maker_jQuery.getFxExtend = function ( object )
+    {
+        return $.fx.extend(object);
     }
 
     /**
@@ -1783,8 +1915,9 @@
      *
      * @return Number
      */
-    maker_jQuery.getFxInterval = function () {
-      return $.fx.interval;
+    maker_jQuery.getFxInterval = function ()
+    {
+        return $.fx.interval;
     }
 
     /**
@@ -1793,8 +1926,9 @@
      * @param  Number  value
      * @return Number
      */
-    maker_jQuery.setfxInterval = function ( value ) {
-      return $.fx.interval = value;
+    maker_jQuery.setfxInterval = function ( value )
+    {
+        return $.fx.interval = value;
     }
 
     /**
@@ -1802,8 +1936,9 @@
      *
      * @return Boolean
      */
-    maker_jQuery.getFxOff = function () {
-      return $.fx.off;
+    maker_jQuery.getFxOff = function ()
+    {
+        return $.fx.off;
     }
 
     /**
@@ -1812,8 +1947,9 @@
      * @param  Boolean  value
      * @return Boolean
      */
-    maker_jQuery.setFxOff = function ( value ) {
-      return $.fx.off = value;
+    maker_jQuery.setFxOff = function ( value )
+    {
+        return $.fx.off = value;
     }
 
     /**
@@ -1829,14 +1965,15 @@
      *                          Intelligent Guess (xml, json, script, text, html).
      * @return jqXHR
      */
-    maker_jQuery.get = function ( url, data, success, params, dataType ) {
-      if ( success ) {
-        return $.get( url, data, dataType );
-      }
+    maker_jQuery.get = function ( url, data, success, params, dataType )
+    {
+        if ( success ) {
+            return $.get( url, data, dataType );
+        }
 
-      return $.get( url, data, function( data, textStatus, jqXHR ) {
-        return executeRuleFromJS( success, [ this, data, textStatus, jqXHR, params ] );
-      }, dataType);
+        return $.get( url, data, function( data, textStatus, jqXHR ) {
+            return executeRuleFromJS( success, [ this, data, textStatus, jqXHR, params ] );
+        }, dataType);
     }
 
     /**
@@ -1848,14 +1985,15 @@
      * @param  Object  params  params passed to the function
      * @return jqXHR
      */
-    maker_jQuery.getJSON = function ( url, data, success, params ) {
-      if ( success ) {
-        return $.getJSON( url, data );
-      }
+    maker_jQuery.getJSON = function ( url, data, success, params )
+    {
+        if ( success ) {
+            return $.getJSON( url, data );
+        }
 
-      return $.getJSON( url, data, function( data, textStatus, jqXHR ) {
-        return executeRuleFromJS( success, [ this, data, textStatus, jqXHR, params ] );
-      });
+        return $.getJSON( url, data, function( data, textStatus, jqXHR ) {
+            return executeRuleFromJS( success, [ this, data, textStatus, jqXHR, params ] );
+        });
     }
 
     /**
@@ -1867,14 +2005,15 @@
      * @param  Object  params  params passed to the function
      * @return jqXHR
      */
-    maker_jQuery.getScript = function ( url, success, params) {
-      if ( success ) {
-        return $.getScript( url );
-      }
+    maker_jQuery.getScript = function ( url, success, params)
+    {
+        if ( success ) {
+            return $.getScript( url );
+        }
 
-      return $.getScript( url, function( script, textStatus, jqXHR ) {
-        return executeRuleFromJS( success, [ this, script, textStatus, jqXHR, params ] );
-      });
+        return $.getScript( url, function( script, textStatus, jqXHR ) {
+            return executeRuleFromJS( success, [ this, script, textStatus, jqXHR, params ] );
+        });
     }
 
     /**
@@ -1883,8 +2022,9 @@
      * @param  String  code The JavaScript code to execute.
      * @return void
      */
-    maker_jQuery.hasData = function ( code ) {
-      return $.hasData( code );
+    maker_jQuery.hasData = function ( code )
+    {
+        return $.hasData( code );
     }
 
     /**
@@ -1904,10 +2044,11 @@
      *                        for which "callback" returns false.
      * @return Array
      */
-    maker_jQuery.grep = function ( array, func, params, invert ) {
-      return $.grep( array, function( elementOfArray, indexInArray ) {
-        return executeRuleFromJS( func, [ this, elementOfArray, indexInArray, params ] );
-      }, invert);
+    maker_jQuery.grep = function ( array, func, params, invert )
+    {
+        return $.grep( array, function( elementOfArray, indexInArray ) {
+            return executeRuleFromJS( func, [ this, elementOfArray, indexInArray, params ] );
+        }, invert);
     }
 
     /**
@@ -1916,8 +2057,9 @@
      * @param  Element element A DOM element to be checked for data.
      * @return Boolean
      */
-    maker_jQuery.hasData = function ( element ) {
-      return $.hasData( element );
+    maker_jQuery.hasData = function ( element )
+    {
+        return $.hasData( element );
     }
 
     /**
@@ -1926,8 +2068,9 @@
      * @param  Boolean   html Indicates whether the ready hold is being requested or released
      * @return undefined
      */
-    maker_jQuery.holdReady = function ( html ) {
-      return $.holdReady( html );
+    maker_jQuery.holdReady = function ( html )
+    {
+        return $.holdReady( html );
     }
 
     /**
@@ -1936,8 +2079,9 @@
      * @param  String html The HTML string on which to operate.
      * @return String
      */
-    maker_jQuery.htmlPrefilter = function ( html ) {
-      return $.htmlPrefilter( html );
+    maker_jQuery.htmlPrefilter = function ( html )
+    {
+        return $.htmlPrefilter( html );
     }
 
     /**
@@ -1950,8 +2094,9 @@
      *                           The default is 0, which will search the whole array.
      * @return Number
      */
-    maker_jQuery.inArray = function ( value, array, fromIndex ) {
-      return $.inArray( value, array, fromIndex );
+    maker_jQuery.inArray = function ( value, array, fromIndex )
+    {
+        return $.inArray( value, array, fromIndex );
     }
 
     /**
@@ -1960,8 +2105,9 @@
      * @param  Object  obj Object to test whether or not it is an array.
      * @return Boolean
      */
-    maker_jQuery.isArray = function ( obj ) {
-      return $.isArray( obj );
+    maker_jQuery.isArray = function ( obj )
+    {
+        return $.isArray( obj );
     }
 
     /**
@@ -1970,8 +2116,9 @@
      * @param  Object  obj The object that will be checked to see if it's empty.
      * @return Boolean
      */
-    maker_jQuery.isEmptyObject = function ( obj ) {
-      return $.isEmptyObject( obj );
+    maker_jQuery.isEmptyObject = function ( obj )
+    {
+        return $.isEmptyObject( obj );
     }
 
     /**
@@ -1980,8 +2127,9 @@
      * @param  Object  obj Object to test whether or not it is a function.
      * @return Boolean
      */
-    maker_jQuery.isFunction = function ( obj ) {
-      return $.isFunction( obj );
+    maker_jQuery.isFunction = function ( obj )
+    {
+        return $.isFunction( obj );
     }
 
     /**
@@ -1990,8 +2138,9 @@
      * @param  Object  value The value to be tested.
      * @return Boolean
      */
-    maker_jQuery.isNumeric = function ( value ) {
-      return $.isNumeric( value );
+    maker_jQuery.isNumeric = function ( value )
+    {
+        return $.isNumeric( value );
     }
 
     /**
@@ -2000,8 +2149,9 @@
      * @param  Object  obj The object that will be checked to see if it's a plain object.
      * @return Boolean
      */
-    maker_jQuery.isPlainObject = function ( obj ) {
-      return $.isPlainObject( obj );
+    maker_jQuery.isPlainObject = function ( obj )
+    {
+        return $.isPlainObject( obj );
     }
 
     /**
@@ -2010,8 +2160,9 @@
      * @param  Element obj Object to test whether or not it is a window.
      * @return Boolean
      */
-    maker_jQuery.isWindow = function ( obj ) {
-      return $.isWindow( obj );
+    maker_jQuery.isWindow = function ( obj )
+    {
+        return $.isWindow( obj );
     }
 
     /**
@@ -2020,8 +2171,9 @@
      * @param  Element node The DOM node that will be checked to see if it's in an XML document.
      * @return Boolean
      */
-    maker_jQuery.isXMLDoc = function ( node ) {
-      return $.isXMLDoc( node );
+    maker_jQuery.isXMLDoc = function ( node )
+    {
+        return $.isXMLDoc( node );
     }
 
     /**
@@ -2030,8 +2182,9 @@
      * @param  Object obj Any object to turn into a native Array.
      * @return Array
      */
-    maker_jQuery.makeArray = function ( obj ) {
-      return $.makeArray( obj );
+    maker_jQuery.makeArray = function ( obj )
+    {
+        return $.makeArray( obj );
     }
 
     /**
@@ -2048,10 +2201,11 @@
      * @param  String params   params passado to the function
      * @return jqXHR
      */
-    maker_jQuery.map = function ( object, callback, params ) {
-      return $.map( object, function( elementOf, key ) {
-        return executeRuleFromJS( success, [ this, elementOf, key, params ] );
-      });
+    maker_jQuery.map = function ( object, callback, params )
+    {
+        return $.map( object, function( elementOf, key ) {
+            return executeRuleFromJS( success, [ this, elementOf, key, params ] );
+        });
     }
 
     /**
@@ -2061,8 +2215,9 @@
      * @param  Object second The second array-like object to merge into the first, unaltered.
      * @return Array
      */
-    maker_jQuery.merge = function ( first, second ) {
-      return $.merge( first, second );
+    maker_jQuery.merge = function ( first, second )
+    {
+        return $.merge( first, second );
     }
 
     /**
@@ -2072,8 +2227,9 @@
      *                           variables from the global scope (including jQuery itself).
      * @return String
      */
-    maker_jQuery.noConflict = function ( removeAll ) {
-      return $.noConflict( removeAll );
+    maker_jQuery.noConflict = function ( removeAll )
+    {
+        return $.noConflict( removeAll );
     }
 
     /**
@@ -2081,8 +2237,9 @@
      *
      * @return undefined
      */
-    maker_jQuery.noop = function () {
-      return $.noop();
+    maker_jQuery.noop = function ()
+    {
+        return $.noop();
     }
 
     /**
@@ -2090,8 +2247,9 @@
      *
      * @return Number
      */
-    maker_jQuery.now = function () {
-      return $.now();
+    maker_jQuery.now = function ()
+    {
+        return $.now();
     }
 
     /**
@@ -2103,8 +2261,9 @@
      * @param  Boolean traditional A Boolean indicating whether to perform a traditional "shallow" serialization.
      * @return String
      */
-    maker_jQuery.param = function ( obj, traditional ) {
-      return $.param( obj, traditional );
+    maker_jQuery.param = function ( obj, traditional )
+    {
+        return $.param( obj, traditional );
     }
 
     /**
@@ -2117,8 +2276,9 @@
      *                             scripts passed in the HTML string
      * @return jqXHR
      */
-    maker_jQuery.parseHTML = function ( data, context, keepScripts ) {
-      return $.parseHTML( data, context, keepScripts );
+    maker_jQuery.parseHTML = function ( data, context, keepScripts )
+    {
+        return $.parseHTML( data, context, keepScripts );
     }
 
     /**
@@ -2127,8 +2287,9 @@
      * @param  String json The JSON string to parse.
      * @return jqXHR
      */
-    maker_jQuery.parseJSON = function ( json ) {
-      return $.parseJSON( json );
+    maker_jQuery.parseJSON = function ( json )
+    {
+        return $.parseJSON( json );
     }
 
     /**
@@ -2137,8 +2298,9 @@
      * @param  String data A well-formed XML string to be parsed
      * @return jqXHR
      */
-    maker_jQuery.parseXML = function ( data ) {
-      return $.parseXML( data );
+    maker_jQuery.parseXML = function ( data )
+    {
+        return $.parseXML( data );
     }
 
     /**
@@ -2154,10 +2316,11 @@
      *                         Default: Intelligent Guess (xml, json, script, text, html).
      * @return jqXHR
      */
-    maker_jQuery.post = function ( url, data, success, dataType ) {
-      return $.post( url, data, function( data, textStatus, jqXHR ) {
-        return executeRuleFromJS( success, [ this, data, textStatus, jqXHR ] );
-      }, dataType );
+    maker_jQuery.post = function ( url, data, success, dataType )
+    {
+        return $.post( url, data, function( data, textStatus, jqXHR ) {
+            return executeRuleFromJS( success, [ this, data, textStatus, jqXHR ] );
+        }, dataType );
     }
 
     /**
@@ -2170,8 +2333,9 @@
      *                         all settings. Type will automatically be set to POST.
      * @return jqXHR
      */
-    maker_jQuery.postSettings = function ( settings ) {
-      return $.post( settings );
+    maker_jQuery.postSettings = function ( settings )
+    {
+        return $.post( settings );
     }
 
     /**
@@ -2184,10 +2348,11 @@
      *                                    function referenced in the function argument.
      * @return Function
      */
-    maker_jQuery.proxy = function ( handler, context, additionalArguments ) {
-      return $.proxy( function() {
-        return executeRuleFromJS( handler, [ this, additionalArguments ] );
-      }, context, additionalArguments );
+    maker_jQuery.proxy = function ( handler, context, additionalArguments )
+    {
+        return $.proxy( function() {
+            return executeRuleFromJS( handler, [ this, additionalArguments ] );
+        }, context, additionalArguments );
     }
 
     /**
@@ -2198,8 +2363,9 @@
      *                           Defaults to fx, the standard effects queue.
      * @return Array
      */
-    maker_jQuery.getQueue = function ( element, queueName ) {
-      return $.queue( element, queueName );
+    maker_jQuery.getQueue = function ( element, queueName )
+    {
+        return $.queue( element, queueName );
     }
 
     /**
@@ -2211,8 +2377,9 @@
      * @param  Array   newQueue  An array of functions to replace the current queue contents.
      * @return jQuery
      */
-    maker_jQuery.setQueue = function ( element, queueName, newQueue ) {
-      return $.queue( element, queueName, newQueue );
+    maker_jQuery.setQueue = function ( element, queueName, newQueue )
+    {
+        return $.queue( element, queueName, newQueue );
     }
 
     /**
@@ -2225,10 +2392,11 @@
      * @param  Object  params    params passed to the function
      * @return jQuery
      */
-    maker_jQuery.setQueue = function ( element, queueName, callback ) {
-      return $.queue( duration, easing, function() {
-        return executeRuleFromJS( callback, [ this, params ] );
-      });
+    maker_jQuery.setQueue = function ( element, queueName, callback )
+    {
+        return $.queue( duration, easing, function() {
+            return executeRuleFromJS( callback, [ this, params ] );
+        });
     }
 
     /**
@@ -2237,8 +2405,9 @@
      * @param  Error error An error thrown in the function wrapped in jQuery().
      * @return Selector
      */
-    maker_jQuery.readyException = function ( error ) {
-      return $.readyException( error );
+    maker_jQuery.readyException = function ( error )
+    {
+        return $.readyException( error );
     }
 
     /**
@@ -2248,8 +2417,9 @@
      * @param  String  name    A string naming the piece of data to remove.
      * @return String
      */
-    maker_jQuery.removeData = function ( element, name ) {
-      return $.removeData( element, name );
+    maker_jQuery.removeData = function ( element, name )
+    {
+        return $.removeData( element, name );
     }
 
     /**
@@ -2262,12 +2432,13 @@
      * @param  Object params   params passado to the function
      * @return jQuery
      */
-    maker_jQuery.speed = function ( duration, easing, complete, params ) {
-      return $.speed( duration, easing, function() {
-        if ( complete ) {
-          return executeRuleFromJS( complete, [ this, params ] );
-        }
-      });
+    maker_jQuery.speed = function ( duration, easing, complete, params )
+    {
+        return $.speed( duration, easing, function() {
+            if ( complete ) {
+                return executeRuleFromJS( complete, [ this, params ] );
+            }
+        });
     }
 
     /**
@@ -2280,8 +2451,9 @@
      *
      * @return Object
      */
-    maker_jQuery.support = function () {
-      return $.support;
+    maker_jQuery.support = function ()
+    {
+        return $.support;
     }
 
     /**
@@ -2290,8 +2462,9 @@
      * @param  Object str The string to trim.
      * @return String
      */
-    maker_jQuery.trim = function ( str ) {
-      return $.trim( str );
+    maker_jQuery.trim = function ( str )
+    {
+        return $.trim( str );
     }
 
     /**
@@ -2300,8 +2473,9 @@
      * @param  Object obj Object to get the internal JavaScript [[Class]] of.
      * @return String
      */
-    maker_jQuery.type = function ( obj ) {
-      return $.type( obj );
+    maker_jQuery.type = function ( obj )
+    {
+        return $.type( obj );
     }
 
     /**
@@ -2311,8 +2485,9 @@
      * @param  Array arr The Array of DOM elements.
      * @return Array
      */
-    maker_jQuery.unique = function ( arr ) {
-      return $.unique( arr );
+    maker_jQuery.unique = function ( arr )
+    {
+        return $.unique( arr );
     }
 
     /**
@@ -2322,8 +2497,9 @@
      * @param  Array arr The Array of DOM elements.
      * @return Array
      */
-    maker_jQuery.uniqueSort = function ( arr ) {
-      return $.uniqueSort( arr );
+    maker_jQuery.uniqueSort = function ( arr )
+    {
+        return $.uniqueSort( arr );
     }
 
     /**
@@ -2333,8 +2509,9 @@
      * @param  Deferred deferreds Zero or more Deferred objects, or plain JavaScript objects.
      * @return jQuery
      */
-    maker_jQuery.when = function ( deferreds ) {
-      return $.when( deferreds );
+    maker_jQuery.when = function ( deferreds )
+    {
+        return $.when( deferreds );
     }
 
     /**
@@ -2343,8 +2520,9 @@
      * @param  jQuery element  jQuery element
      * @return jQuery
      */
-    maker_jQuery.last = function ( element ) {
-      return element.last();
+    maker_jQuery.last = function ( element )
+    {
+        return element.last();
     }
 
     /**
@@ -2356,12 +2534,13 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.keydown = function ( element, handler, params ) {
-      return element.keydown( function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, params ] );
-        }
-      });
+    maker_jQuery.keydown = function ( element, handler, params )
+    {
+        return element.keydown( function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, params ] );
+            }
+        });
     }
 
     /**
@@ -2373,12 +2552,13 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.keypress = function ( element, handler, params ) {
-      return element.keypress( function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, params ] );
-        }
-      });
+    maker_jQuery.keypress = function ( element, handler, params )
+    {
+        return element.keypress( function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, params ] );
+            }
+        });
     }
 
     /**
@@ -2390,12 +2570,13 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.keyup = function ( element, handler, params ) {
-      return element.keyup( function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, params ] );
-        }
-      });
+    maker_jQuery.keyup = function ( element, handler, params )
+    {
+        return element.keyup( function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, params ] );
+            }
+        });
     }
 
     /**
@@ -2404,8 +2585,9 @@
      * @param  jQuery element  jQuery element
      * @return jQuery
      */
-    maker_jQuery.last = function ( element ) {
-      return element.last();
+    maker_jQuery.last = function ( element )
+    {
+        return element.last();
     }
 
     /**
@@ -2414,8 +2596,9 @@
      * @param  jQuery element  jQuery element
      * @return Integer
      */
-    maker_jQuery.length = function ( element ) {
-      return element.length;
+    maker_jQuery.length = function ( element )
+    {
+        return element.length;
     }
 
     /**
@@ -2427,12 +2610,13 @@
      * @param  Fluxo  complete A callback function that is executed when the request completes.
      * @return jQuery
      */
-    maker_jQuery.load = function ( element, url, data, complete ) {
-      return element.load( url, data, function( responseText, textStatus, jqXHR ) {
-        if ( complete ) {
-          return executeRuleFromJS( complete, [ this, responseText, textStatus, jqXHR, params ] );
-        }
-      });
+    maker_jQuery.load = function ( element, url, data, complete )
+    {
+        return element.load( url, data, function( responseText, textStatus, jqXHR ) {
+            if ( complete ) {
+                return executeRuleFromJS( complete, [ this, responseText, textStatus, jqXHR, params ] );
+            }
+        });
     }
 
     /**
@@ -2445,12 +2629,13 @@
      * @param  Object params   params passed to the function
      * @return jQuery
      */
-    maker_jQuery.map = function ( element, callback, params ) {
-      return element.map( function( index, domElement ) {
-        if ( callback ) {
-          return executeRuleFromJS( callback, [ this, index, domElement, params ] );
-        }
-      });
+    maker_jQuery.map = function ( element, callback, params )
+    {
+        return element.map( function( index, domElement ) {
+            if ( callback ) {
+                return executeRuleFromJS( callback, [ this, index, domElement, params ] );
+            }
+        });
     }
 
     /**
@@ -2462,12 +2647,13 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.mousedown = function ( element, handler, params ) {
-      return element.mousedown( function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, params ] );
-        }
-      });
+    maker_jQuery.mousedown = function ( element, handler, params )
+    {
+        return element.mousedown( function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, params ] );
+            }
+        });
     }
 
     /**
@@ -2479,12 +2665,13 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.mouseenter = function ( element, handler, params ) {
-      return element.mouseenter( function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, params ] );
-        }
-      });
+    maker_jQuery.mouseenter = function ( element, handler, params )
+    {
+        return element.mouseenter( function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, params ] );
+            }
+        });
     }
 
     /**
@@ -2496,12 +2683,13 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.mouseleave = function ( element, handler, params ) {
-      return element.mouseleave( function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, params ] );
-        }
-      });
+    maker_jQuery.mouseleave = function ( element, handler, params )
+    {
+        return element.mouseleave( function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, params ] );
+            }
+        });
     }
 
     /**
@@ -2513,12 +2701,13 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.mousemove = function ( element, handler, params ) {
-      return element.mousemove( function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, params ] );
-        }
-      });
+    maker_jQuery.mousemove = function ( element, handler, params )
+    {
+        return element.mousemove( function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, params ] );
+            }
+        });
     }
 
     /**
@@ -2530,12 +2719,13 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.mouseout = function ( element, handler, params ) {
-      return element.mouseout( function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, params ] );
-        }
-      });
+    maker_jQuery.mouseout = function ( element, handler, params )
+    {
+        return element.mouseout( function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, params ] );
+            }
+        });
     }
 
     /**
@@ -2547,12 +2737,13 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.mouseover = function ( element, handler, params ) {
-      return element.mouseover( function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, params ] );
-        }
-      });
+    maker_jQuery.mouseover = function ( element, handler, params )
+    {
+        return element.mouseover( function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, params ] );
+            }
+        });
     }
 
     /**
@@ -2564,12 +2755,13 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.mouseup = function ( element, handler, params ) {
-      return element.mouseup( function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, params ] );
-        }
-      });
+    maker_jQuery.mouseup = function ( element, handler, params )
+    {
+        return element.mouseup( function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, params ] );
+            }
+        });
     }
 
     /**
@@ -2580,8 +2772,9 @@
      * @param  String selector A string containing a selector expression to match elements against.
      * @return jQuery
      */
-    maker_jQuery.next = function ( element, selector ) {
-      return element.next( selector );
+    maker_jQuery.next = function ( element, selector )
+    {
+        return element.next( selector );
     }
 
     /**
@@ -2592,8 +2785,9 @@
      * @param  String selector A string containing a selector expression to match elements against.
      * @return jQuery
      */
-    maker_jQuery.nextAll = function ( element, selector ) {
-      return element.nextAll( selector );
+    maker_jQuery.nextAll = function ( element, selector )
+    {
+        return element.nextAll( selector );
     }
 
     /**
@@ -2609,8 +2803,9 @@
      *                         elements against.
      * @return jQuery
      */
-    maker_jQuery.nextUntil = function ( element, selector, filter ) {
-      return element.nextUntil( selector, filter );
+    maker_jQuery.nextUntil = function ( element, selector, filter )
+    {
+        return element.nextUntil( selector, filter );
     }
 
     /**
@@ -2623,8 +2818,9 @@
      *                         set of elements against.
      * @return jQuery
      */
-    maker_jQuery.not = function ( element, selector ) {
-      return element.not( selector );
+    maker_jQuery.not = function ( element, selector )
+    {
+        return element.not( selector );
     }
 
     /**
@@ -2639,12 +2835,13 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.notHandler = function ( element, handler, params ) {
-      return element.not( function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, params ] );
-        }
-      });
+    maker_jQuery.notHandler = function ( element, handler, params )
+    {
+        return element.not( function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, params ] );
+            }
+        });
     }
 
     /**
@@ -2660,12 +2857,13 @@
      * @param  Object params   params passed to the function
      * @return jQuery
      */
-    maker_jQuery.off = function ( element, events, selector, handler, params ) {
-      return element.off( events, selector, function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, params ] );
-        }
-      });
+    maker_jQuery.off = function ( element, events, selector, handler, params )
+    {
+        return element.off( events, selector, function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, params ] );
+            }
+        });
     }
 
     /**
@@ -2675,7 +2873,8 @@
      * @param  jQuery element jQuery element
      * @return Object
      */
-    maker_jQuery.getOffset = function ( element ) {
+    maker_jQuery.getOffset = function ( element )
+    {
         return element.offset();
     }
 
@@ -2688,8 +2887,9 @@
      *                            coordinates for the elements.
      * @return jQuery
      */
-    maker_jQuery.setOffset = function ( element, coordinates ) {
-      return element.offset( coordinates );
+    maker_jQuery.setOffset = function ( element, coordinates )
+    {
+        return element.offset( coordinates );
     }
 
     /**
@@ -2704,10 +2904,11 @@
      * @param jQuery params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.setOffsetHandler = function ( element, handler, params ) {
-      return element.offset( function( index, coords ) {
-        return executeRuleFromJS( handler, [ this, index, coords, params ] );
-      });
+    maker_jQuery.setOffsetHandler = function ( element, handler, params )
+    {
+        return element.offset( function( index, coords ) {
+            return executeRuleFromJS( handler, [ this, index, coords, params ] );
+        });
     }
 
     /**
@@ -2716,7 +2917,8 @@
      * @param  jQuery element jQuery element
      * @return jQuery
      */
-    maker_jQuery.offsetParent = function ( element ) {
+    maker_jQuery.offsetParent = function ( element )
+    {
         return element.offsetParent();
     }
 
@@ -2737,12 +2939,13 @@
      *                         for a function that simply does return false.
      * @return jQuery
      */
-    maker_jQuery.on = function ( element, events, selector, data, handler ) {
-      return element.on( events, selector, data, function( event ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, event, data ] );
-        }
-      });
+    maker_jQuery.on = function ( element, events, selector, data, handler )
+    {
+        return element.on( events, selector, data, function( event ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, event, data ] );
+            }
+        });
     }
 
     /**
@@ -2763,12 +2966,13 @@
      *                         for a function that simply does return false.
      * @return jQuery
      */
-    maker_jQuery.one = function ( element, events, selector, data, handler ) {
-      return element.one( events, selector, data, function( eventObject ) {
-        if ( handler ) {
-          return executeRuleFromJS( handler, [ this, eventObject, data ] );
-        }
-      });
+    maker_jQuery.one = function ( element, events, selector, data, handler )
+    {
+        return element.one( events, selector, data, function( eventObject ) {
+            if ( handler ) {
+                return executeRuleFromJS( handler, [ this, eventObject, data ] );
+            }
+        });
     }
 
     /**
@@ -2782,8 +2986,9 @@
      *                               element's margin in the calculation.
      * @return jQuery
      */
-    maker_jQuery.getOuterHeight = function ( element, includeMargin  ) {
-      return element.outerHeight( includeMargin  );
+    maker_jQuery.getOuterHeight = function ( element, includeMargin  )
+    {
+        return element.outerHeight( includeMargin );
     }
 
     /**
@@ -2795,8 +3000,9 @@
      *                        measure appended (as a string).
      * @return jQuery
      */
-    maker_jQuery.setOuterHeight = function ( element, value  ) {
-      return element.outerHeight( value  );
+    maker_jQuery.setOuterHeight = function ( element, value )
+    {
+        return element.outerHeight( value );
     }
 
     /**
@@ -2810,10 +3016,11 @@
      * @param jQuery params
      * @return jQuery
      */
-    maker_jQuery.setOuterHeightHandler = function ( element, handler, params ) {
-      return element.outerHeight( function( index, height ) {
-        return executeRuleFromJS( handler, [ this, index, height, params ] );
-      });
+    maker_jQuery.setOuterHeightHandler = function ( element, handler, params )
+    {
+        return element.outerHeight( function( index, height ) {
+            return executeRuleFromJS( handler, [ this, index, height, params ] );
+        });
     }
 
     /**
@@ -2825,8 +3032,9 @@
      *                               element's margin in the calculation.
      * @return jQuery
      */
-    maker_jQuery.getOuterWidth = function ( element, includeMargin  ) {
-      return element.outerWidth( includeMargin  );
+    maker_jQuery.getOuterWidth = function ( element, includeMargin )
+    {
+        return element.outerWidth( includeMargin );
     }
 
     /**
@@ -2838,8 +3046,9 @@
      *                        appended (as a string).
      * @return jQuery
      */
-    maker_jQuery.setOuterWidth = function ( element, value  ) {
-      return element.outerWidth( value  );
+    maker_jQuery.setOuterWidth = function ( element, value )
+    {
+        return element.outerWidth( value );
     }
 
     /**
@@ -2853,10 +3062,11 @@
      * @param jQuery params
      * @return jQuery
      */
-    maker_jQuery.setOuterWidthHandler = function ( element, handler, params ) {
-      return element.outerWidth( function( index, width ) {
-        return executeRuleFromJS( handler, [ this, index, width, params ] );
-      });
+    maker_jQuery.setOuterWidthHandler = function ( element, handler, params )
+    {
+        return element.outerWidth( function( index, width ) {
+            return executeRuleFromJS( handler, [ this, index, width, params ] );
+        });
     }
 
     /**
@@ -2868,8 +3078,9 @@
      *                         elements against.
      * @return jQuery
      */
-    maker_jQuery.parent = function ( element, selector ) {
-      return element.parent( selector );
+    maker_jQuery.parent = function ( element, selector )
+    {
+        return element.parent( selector );
     }
 
     /**
@@ -2881,8 +3092,9 @@
      *                         elements against.
      * @return jQuery
      */
-    maker_jQuery.parents = function ( element, selector ) {
-      return element.parents( selector );
+    maker_jQuery.parents = function ( element, selector )
+    {
+        return element.parents( selector );
     }
 
     /**
@@ -2899,8 +3111,9 @@
      *                           elements against.
      * @return jQuery
      */
-    maker_jQuery.parentsUntil = function ( element, selector, filter ) {
-      return element.parentsUntil( selector, filter );
+    maker_jQuery.parentsUntil = function ( element, selector, filter )
+    {
+        return element.parentsUntil( selector, filter );
     }
 
     /**
@@ -2910,8 +3123,9 @@
      * @param  jQuery element  jQuery element
      * @return Object
      */
-    maker_jQuery.position = function ( element ) {
-      return element.position();
+    maker_jQuery.position = function ( element )
+    {
+        return element.position();
     }
 
     /**
@@ -2924,8 +3138,9 @@
      *                           beginning of each element in the set of matched elements.
      * @return jQuery
      */
-    maker_jQuery.prepend = function ( element, properties ) {
-      return element.prepend( properties );
+    maker_jQuery.prepend = function ( element, properties )
+    {
+        return element.prepend( properties );
     }
 
     /**
@@ -2942,10 +3157,11 @@
      * @param jQuery params
      * @return jQuery
      */
-    maker_jQuery.prependHandler = function ( element, handler, params ) {
-      return element.prepend( function( elementOfArray, obj ) {
-        return executeRuleFromJS( handler, [ this, elementOfArray, obj, params ] );
-      });
+    maker_jQuery.prependHandler = function ( element, handler, params )
+    {
+        return element.prepend( function( elementOfArray, obj ) {
+            return executeRuleFromJS( handler, [ this, elementOfArray, obj, params ] );
+        });
     }
 
     /**
@@ -2959,8 +3175,9 @@
      *                        specified by this parameter.
      * @return jQuery
      */
-    maker_jQuery.prependTo = function ( element, target  ) {
-      return element.prependTo( target  );
+    maker_jQuery.prependTo = function ( element, target )
+    {
+        return element.prependTo( target );
     }
 
     /**
@@ -2973,8 +3190,9 @@
      *                         match elements against.
      * @return jQuery
      */
-    maker_jQuery.prev = function ( element, selector ) {
-      return element.prev( selector );
+    maker_jQuery.prev = function ( element, selector )
+    {
+        return element.prev( selector );
     }
 
     /**
@@ -2986,8 +3204,9 @@
      *                         elements against.
      * @return jQuery
      */
-    maker_jQuery.prevAll = function ( element, selector ) {
-      return element.prevAll( selector );
+    maker_jQuery.prevAll = function ( element, selector )
+    {
+        return element.prevAll( selector );
     }
 
     /**
@@ -3003,8 +3222,9 @@
      *                         elements against.
      * @return jQuery
      */
-    maker_jQuery.prevUntil = function ( element, selector, filter ) {
-      return element.prevUntil( selector, filter );
+    maker_jQuery.prevUntil = function ( element, selector, filter )
+    {
+        return element.prevUntil( selector, filter );
     }
 
     /**
@@ -3016,8 +3236,9 @@
      * @param  String target  Object onto which the promise methods have to be attached
      * @return Promise
      */
-    maker_jQuery.promise = function ( element, type, target ) {
-      return element.promise( type, target );
+    maker_jQuery.promise = function ( element, type, target )
+    {
+        return element.promise( type, target );
     }
 
     /**
@@ -3027,8 +3248,9 @@
      * @param  String propertyName  The name of the property to get.
      * @return Object
      */
-    maker_jQuery.getProp = function ( element, propertyName ) {
-      return element.prop( propertyName );
+    maker_jQuery.getProp = function ( element, propertyName )
+    {
+        return element.prop( propertyName );
     }
 
     /**
@@ -3039,8 +3261,9 @@
      * @param  String value         A value to set for the property.
      * @return jQuery
      */
-    maker_jQuery.setProp = function ( element, propertyName, value ) {
-      return element.prop( propertyName, value );
+    maker_jQuery.setProp = function ( element, propertyName, value )
+    {
+        return element.prop( propertyName, value );
     }
 
     /**
@@ -3050,8 +3273,9 @@
      * @param  String properties  An object of property-value pairs to set.
      * @return jQuery
      */
-    maker_jQuery.setPropProperties = function ( element, properties ) {
-      return element.prop( properties );
+    maker_jQuery.setPropProperties = function ( element, properties )
+    {
+        return element.prop( properties );
     }
 
     /**
@@ -3066,10 +3290,11 @@
      * @param jQuery params
      * @return jQuery
      */
-    maker_jQuery.setPropHandler = function ( element, propertyName, handler, params ) {
-      return element.queue( function( index, oldPropertyValue ) {
-        return executeRuleFromJS( handler, [ this, index, oldPropertyValue, params ] );
-      });
+    maker_jQuery.setPropHandler = function ( element, propertyName, handler, params )
+    {
+        return element.queue( function( index, oldPropertyValue ) {
+            return executeRuleFromJS( handler, [ this, index, oldPropertyValue, params ] );
+        });
     }
 
     /**
@@ -3084,8 +3309,9 @@
      *                          method (for serialization).
      * @return jQuery
      */
-    maker_jQuery.pushStack = function ( element, elements, name, argument ) {
-      return element.pushStack( elements, name, argument );
+    maker_jQuery.pushStack = function ( element, elements, name, argument )
+    {
+        return element.pushStack( elements, name, argument );
     }
 
     /**
@@ -3096,8 +3322,9 @@
      *                          Defaults to fx, the standard effects queue.
      * @return jQuery
      */
-    maker_jQuery.queue = function ( element, queueName ) {
-      return element.queue( queueName );
+    maker_jQuery.queue = function ( element, queueName )
+    {
+        return element.queue( queueName );
     }
 
     /**
@@ -3111,8 +3338,9 @@
      *                          queue contents.
      * @return jQuery
      */
-    maker_jQuery.newQueue = function ( element, queueName, newQueue ) {
-      return element.queue( queueName, newQueue );
+    maker_jQuery.newQueue = function ( element, queueName, newQueue )
+    {
+        return element.queue( queueName, newQueue );
     }
 
     /**
@@ -3126,10 +3354,11 @@
      * @param  Object   params    params passed to the function
      * @return jQuery
      */
-    maker_jQuery.queueCallback = function ( element, queueName, callback, params ) {
-      return element.queue( function( next ) {
-        return executeRuleFromJS( callback, [ this, next, params ] );
-      });
+    maker_jQuery.queueCallback = function ( element, queueName, callback, params )
+    {
+        return element.queue( function( next ) {
+            return executeRuleFromJS( callback, [ this, next, params ] );
+        });
     }
 
     /**
@@ -3140,10 +3369,11 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.ready = function ( element, handler, params ) {
-     return element.ready( function() {
-       return executeRuleFromJS( handler, [ this, params ] );
-     });
+    maker_jQuery.ready = function ( element, handler, params )
+    {
+        return element.ready( function() {
+            return executeRuleFromJS( handler, [ this, params ] );
+        });
     }
 
     /**
@@ -3154,8 +3384,9 @@
      *                         matched elements to be removed.
      * @return jQuery
      */
-    maker_jQuery.remove = function ( element,  selector ) {
-     return element.remove( selector );
+    maker_jQuery.remove = function ( element,  selector )
+    {
+        return element.remove( selector );
     }
 
     /**
@@ -3166,8 +3397,9 @@
      *                              it can be a space-separated list of attributes.
      * @return jQuery
      */
-    maker_jQuery.removeAttr = function ( element,  attributeName ) {
-      return element.removeAttr( attributeName );
+    maker_jQuery.removeAttr = function ( element,  attributeName )
+    {
+        return element.removeAttr( attributeName );
     }
 
     /**
@@ -3180,8 +3412,9 @@
      *                        pieces of data to delete.
      * @return jQuery
      */
-    maker_jQuery.removeClass = function ( element, object ) {
-      return element.removeClass( object );
+    maker_jQuery.removeClass = function ( element, object )
+    {
+        return element.removeClass( object );
     }
 
     /**
@@ -3196,10 +3429,11 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.removeClassHandler = function ( element, handler, params ) {
-     return element.removeClass( function( index, className ) {
-       return executeRuleFromJS( handler, [ this, index, className, params ] );
-     });
+    maker_jQuery.removeClassHandler = function ( element, handler, params )
+    {
+        return element.removeClass( function( index, className ) {
+            return executeRuleFromJS( handler, [ this, index, className, params ] );
+        });
     }
 
     /**
@@ -3211,8 +3445,9 @@
      *                        of data to delete.
      * @return jQuery
      */
-    maker_jQuery.removeData = function ( element, object ) {
-      return element.removeData( object );
+    maker_jQuery.removeData = function ( element, object )
+    {
+        return element.removeData( object );
     }
 
     /**
@@ -3222,8 +3457,9 @@
      * @param  String propertyName The name of the property to remove.
      * @return jQuery
      */
-    maker_jQuery.removeProp = function ( element, propertyName ) {
-      return element.removeProp( propertyName );
+    maker_jQuery.removeProp = function ( element, propertyName )
+    {
+        return element.removeProp( propertyName );
     }
 
     /**
@@ -3236,8 +3472,9 @@
      *                           or jQuery object.
      * @return jQuery
      */
-    maker_jQuery.replaceWith = function ( element, newContent ) {
-      return element.replaceWith( newContent );
+    maker_jQuery.replaceWith = function ( element, newContent )
+    {
+        return element.replaceWith( newContent );
     }
 
     /**
@@ -3250,10 +3487,11 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.replaceWithHandler = function ( element, handler, params ) {
-      return element.replaceWith( function() {
-        return executeRuleFromJS( handler, [ this, params ] );
-      });
+    maker_jQuery.replaceWithHandler = function ( element, handler, params )
+    {
+        return element.replaceWith( function() {
+            return executeRuleFromJS( handler, [ this, params ] );
+        });
     }
 
     /**
@@ -3263,8 +3501,9 @@
      * @param  jQuery element jQuery element
      * @return jQuery
      */
-    maker_jQuery.resize = function ( element ) {
-      return element.resize();
+    maker_jQuery.resize = function ( element )
+    {
+        return element.resize();
     }
 
     /**
@@ -3276,10 +3515,11 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.resizeHandler = function ( element, handler, params ) {
-      return element.resize( function( event ) {
-        return executeRuleFromJS( handler, [ this, event, params ] );
-      });
+    maker_jQuery.resizeHandler = function ( element, handler, params )
+    {
+        return element.resize( function( event ) {
+            return executeRuleFromJS( handler, [ this, event, params ] );
+        });
     }
 
     /**
@@ -3289,8 +3529,9 @@
      * @param  jQuery element jQuery element
      * @return jQuery
      */
-    maker_jQuery.scroll = function ( element ) {
-      return element.scroll();
+    maker_jQuery.scroll = function ( element )
+    {
+        return element.scroll();
     }
 
     /**
@@ -3302,10 +3543,11 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.scrollHandler = function ( element, handler, params ) {
-      return element.scroll( function( event ) {
-        return executeRuleFromJS( handler, [ this, event, params ] );
-      });
+    maker_jQuery.scrollHandler = function ( element, handler, params )
+    {
+        return element.scroll( function( event ) {
+            return executeRuleFromJS( handler, [ this, event, params ] );
+        });
     }
 
     /**
@@ -3315,8 +3557,9 @@
      * @param  jQuery element jQuery element
      * @return Number
      */
-    maker_jQuery.getScrollLeft = function ( element ) {
-      return element.scrollLeft();
+    maker_jQuery.getScrollLeft = function ( element )
+    {
+        return element.scrollLeft();
     }
 
     /**
@@ -3327,8 +3570,9 @@
      * @param  Number value   An integer indicating the new position to set the scroll bar to.
      * @return jQuery
      */
-    maker_jQuery.setScrollLeft = function ( element, value ) {
-      return element.scrollLeft( value );
+    maker_jQuery.setScrollLeft = function ( element, value )
+    {
+        return element.scrollLeft( value );
     }
 
     /**
@@ -3339,8 +3583,9 @@
      * @param  jQuery element jQuery element
      * @return Number
      */
-    maker_jQuery.getScrollTop = function ( element ) {
-      return element.scrollTop();
+    maker_jQuery.getScrollTop = function ( element )
+    {
+        return element.scrollTop();
     }
 
     /**
@@ -3351,8 +3596,9 @@
      * @param  Number value   A number indicating the new position to set the scroll bar to.
      * @return jQuery
      */
-    maker_jQuery.setScrollTop = function ( element, value ) {
-      return element.scrollTop( value );
+    maker_jQuery.setScrollTop = function ( element, value )
+    {
+        return element.scrollTop( value );
     }
 
     /**
@@ -3362,8 +3608,9 @@
      * @param  jQuery element jQuery element
      * @return jQuery
      */
-    maker_jQuery.select = function ( element ) {
-      return element.select();
+    maker_jQuery.select = function ( element )
+    {
+        return element.select();
     }
 
     /**
@@ -3375,10 +3622,11 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.selectHandler = function ( element, handler, params ) {
-      return element.select( function( event ) {
-        return executeRuleFromJS( handler, [ this, event, params ] );
-      });
+    maker_jQuery.selectHandler = function ( element, handler, params )
+    {
+        return element.select( function( event ) {
+            return executeRuleFromJS( handler, [ this, event, params ] );
+        });
     }
 
     /**
@@ -3387,8 +3635,9 @@
      * @param  jQuery element jQuery element
      * @return String
      */
-    maker_jQuery.serialize = function ( element ) {
-      return element.serialize();
+    maker_jQuery.serialize = function ( element )
+    {
+        return element.serialize();
     }
 
     /**
@@ -3397,8 +3646,9 @@
      * @param  jQuery element jQuery element
      * @return Array
      */
-    maker_jQuery.serializeArray = function ( element ) {
-      return element.serializeArray();
+    maker_jQuery.serializeArray = function ( element )
+    {
+        return element.serializeArray();
     }
 
     /**
@@ -3407,8 +3657,9 @@
      * @param  jQuery  element  jQuery element
      * @return jQuery
      */
-    maker_jQuery.show = function ( element ) {
-       return element.show();
+    maker_jQuery.show = function ( element )
+    {
+        return element.show();
     }
 
     /**
@@ -3418,8 +3669,9 @@
      * @param  Object  element  A map of additional options to pass to the method.
      * @return jQuery
      */
-    maker_jQuery.showOptions = function ( element, options ) {
-       return element.show( options );
+    maker_jQuery.showOptions = function ( element, options )
+    {
+        return element.show( options );
     }
 
     /**
@@ -3435,12 +3687,13 @@
      * @param  Object params   Params passed to the function
      * @return jQuery
      */
-    maker_jQuery.showDuration = function ( element, duration, easing, complete, params ) {
-       return element.slideToggle( duration ,easing ,function() {
-         if ( complete ) {
-           return executeRuleFromJS( complete, [ this, params ] );
-         }
-       });
+    maker_jQuery.showDuration = function ( element, duration, easing, complete, params )
+    {
+        return element.slideToggle( duration ,easing ,function() {
+            if ( complete ) {
+                return executeRuleFromJS( complete, [ this, params ] );
+            }
+        });
     }
 
     /**
@@ -3456,12 +3709,13 @@
      * @param  Object params   Params pased to function
      * @return jQuery
      */
-    maker_jQuery.slideToggle = function ( element, duration ,easing ,complete, params ) {
-       return element.slideToggle( duration ,easing ,function() {
-         if ( complete ) {
-           return executeRuleFromJS( complete, [ this, params ] );
-         }
-       });
+    maker_jQuery.slideToggle = function ( element, duration ,easing ,complete, params )
+    {
+        return element.slideToggle( duration ,easing ,function() {
+            if ( complete ) {
+                return executeRuleFromJS( complete, [ this, params ] );
+            }
+        });
     }
 
     /**
@@ -3473,7 +3727,8 @@
      *                           match elements against.
      * @return jQuery
      */
-    maker_jQuery.siblings = function ( element, selector ) {
+    maker_jQuery.siblings = function ( element, selector )
+    {
         return element.siblings( selector );
     }
 
@@ -3490,7 +3745,8 @@
      *                         the range continues until the end of the set.
      * @return jQuery
      */
-    maker_jQuery.slice = function ( element, start, end ) {
+    maker_jQuery.slice = function ( element, start, end )
+    {
         return element.slice( start, end );
     }
 
@@ -3501,8 +3757,9 @@
      * @param  Object  options  A map of additional options to pass to the method.
      * @return jQuery
      */
-    maker_jQuery.slideDownOptions = function ( element, options ) {
-       return element.slideDown( options );
+    maker_jQuery.slideDownOptions = function ( element, options )
+    {
+        return element.slideDown( options );
     }
 
     /**
@@ -3518,12 +3775,13 @@
      * @param  Object params   Params pased to function
      * @return jQuery
      */
-    maker_jQuery.slideDown = function ( element, duration ,easing ,complete, params ) {
-       return element.slideDown( duration ,easing ,function() {
-         if ( complete ) {
-           return executeRuleFromJS( complete, [ this, params ] );
-         }
-       });
+    maker_jQuery.slideDown = function ( element, duration ,easing ,complete, params )
+    {
+        return element.slideDown( duration ,easing ,function() {
+            if ( complete ) {
+                return executeRuleFromJS( complete, [ this, params ] );
+            }
+        });
     }
 
     /**
@@ -3533,8 +3791,9 @@
      * @param  Object  options  A map of additional options to pass to the method.
      * @return jQuery
      */
-    maker_jQuery.slideToggleOptions = function ( element, options ) {
-       return element.slideToggle( options );
+    maker_jQuery.slideToggleOptions = function ( element, options )
+    {
+        return element.slideToggle( options );
     }
 
     /**
@@ -3550,12 +3809,13 @@
      * @param  Object params   Params pased to function
      * @return jQuery
      */
-    maker_jQuery.slideToggle = function ( element, duration ,easing ,complete, params ) {
-       return element.slideToggle( duration ,easing ,function() {
-         if ( complete ) {
-           return executeRuleFromJS( complete, [ this, params ] );
-         }
-       });
+    maker_jQuery.slideToggle = function ( element, duration ,easing ,complete, params )
+    {
+        return element.slideToggle( duration ,easing ,function() {
+            if ( complete ) {
+                return executeRuleFromJS( complete, [ this, params ] );
+            }
+        });
     }
 
     /**
@@ -3565,8 +3825,9 @@
      * @param  Object  options  A map of additional options to pass to the method.
      * @return jQuery
      */
-    maker_jQuery.slideUpOptions = function ( element, options ) {
-       return element.slideUp( options );
+    maker_jQuery.slideUpOptions = function ( element, options )
+    {
+        return element.slideUp( options );
     }
 
     /**
@@ -3582,12 +3843,13 @@
      * @param  Object params   Params pased to function
      * @return jQuery
      */
-    maker_jQuery.slideUp = function ( element, duration ,easing ,complete, params ) {
-       return element.slideUp( duration ,easing ,function() {
-         if ( complete ) {
-           return executeRuleFromJS( complete, [ this, params ] );
-         }
-       });
+    maker_jQuery.slideUp = function ( element, duration ,easing ,complete, params )
+    {
+        return element.slideUp( duration ,easing ,function() {
+            if ( complete ) {
+                return executeRuleFromJS( complete, [ this, params ] );
+            }
+        });
     }
 
     /**
@@ -3602,7 +3864,8 @@
      *                            current animation immediately. Defaults to false.
      * @return jQuery
      */
-    maker_jQuery.stop = function ( element, queue, clearQueue, jumpToEnd ){
+    maker_jQuery.stop = function ( element, queue, clearQueue, jumpToEnd )
+    {
         return element.stop( queue, clearQueue, jumpToEnd );
     }
 
@@ -3615,9 +3878,10 @@
      * @param  Object params  Params passed to the function
      * @return jQuery
      */
-    maker_jQuery.submit = function ( element, fluxo, params ) {
+    maker_jQuery.submit = function ( element, fluxo, params )
+    {
         return element.submit( function( event ) {
-          return executeRuleFromJS( fluxo, [ this, event, params ] );
+            return executeRuleFromJS( fluxo, [ this, event, params ] );
         });
     }
 
@@ -3628,7 +3892,8 @@
      * @param  jQuery element jQuery element
      * @return String
      */
-    maker_jQuery.submit = function ( element ) {
+    maker_jQuery.submit = function ( element )
+    {
         return element.submit();
     }
 
@@ -3639,7 +3904,8 @@
      * @param  jQuery element jQuery element
      * @return String
      */
-    maker_jQuery.getText = function ( element ) {
+    maker_jQuery.getText = function ( element )
+    {
         return element.text();
     }
 
@@ -3653,7 +3919,8 @@
      *                        to a String representation.
      * @return jQuery
      */
-    maker_jQuery.setText = function ( element, text ) {
+    maker_jQuery.setText = function ( element, text )
+    {
         return element.text( text );
     }
 
@@ -3668,9 +3935,10 @@
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.setTextWithFluxo = function ( element, fluxo ) {
+    maker_jQuery.setTextWithFluxo = function ( element, fluxo )
+    {
         return element.text( function( index, txt ) {
-          return executeRuleFromJS( fluxo, [ this, index, txt, params ] );
+            return executeRuleFromJS( fluxo, [ this, index, txt, params ] );
         });
     }
 
@@ -3680,8 +3948,9 @@
      * @param  jQuery  element  jQuery element
      * @return Array
      */
-    maker_jQuery.toArray = function ( element ) {
-       return element.toArray();
+    maker_jQuery.toArray = function ( element )
+    {
+        return element.toArray();
     }
 
     /**
@@ -3691,8 +3960,9 @@
      * @param  Boolean display  Use true to show the element or false to hide it.
      * @return jQuery
      */
-    maker_jQuery.toggle = function ( element, display ) {
-       return element.toggle( display );
+    maker_jQuery.toggle = function ( element, display )
+    {
+        return element.toggle( display );
     }
 
     /**
@@ -3702,8 +3972,9 @@
      * @param  Object  options  A map of additional options to pass to the method.
      * @return jQuery
      */
-    maker_jQuery.toggleOptions = function ( element, options ) {
-       return element.toggle( options );
+    maker_jQuery.toggleOptions = function ( element, options )
+    {
+        return element.toggle( options );
     }
 
     /**
@@ -3719,12 +3990,13 @@
      * @param  Object params   Params pased to function
      * @return jQuery
      */
-    maker_jQuery.toggleOptions = function ( element, duration ,easing ,complete, params ) {
-       return element.toggle( duration ,easing ,function() {
-         if ( complete ) {
-           return executeRuleFromJS( complete, [ this, params ] );
-         }
-       });
+    maker_jQuery.toggleOptions = function ( element, duration ,easing ,complete, params )
+    {
+        return element.toggle( duration ,easing ,function() {
+            if ( complete ) {
+                return executeRuleFromJS( complete, [ this, params ] );
+            }
+        });
     }
 
     /**
@@ -3737,8 +4009,9 @@
      *                           to be toggled for each element in the matched set.
      * @return jQuery
      */
-    maker_jQuery.toggleClassName = function ( element, className ) {
-       return element.toggleClass( className );
+    maker_jQuery.toggleClassName = function ( element, className )
+    {
+        return element.toggleClass( className );
     }
 
     /**
@@ -3753,8 +4026,9 @@
      *                                    determine whether the class should be added or removed.
      * @return jQuery
      */
-    maker_jQuery.toggleClass = function ( element, className, state ) {
-       return element.toggleClass( state );
+    maker_jQuery.toggleClass = function ( element, className, state )
+    {
+        return element.toggleClass( state );
     }
 
     /**
@@ -3767,7 +4041,8 @@
      * @param  Object         extraParameters Additional parameters to pass along to the event handler.
      * @return jQuery
      */
-    maker_jQuery.trigger = function ( element, eventType, extraParameters ) {
+    maker_jQuery.trigger = function ( element, eventType, extraParameters )
+    {
         return element.trigger( eventType, extraParameters );
     }
 
@@ -3780,7 +4055,8 @@
      * @param  Object         extraParameters Additional parameters to pass along to the event handler.
      * @return Object
      */
-    maker_jQuery.triggerHandler = function ( element, eventType, extraParameters ) {
+    maker_jQuery.triggerHandler = function ( element, eventType, extraParameters )
+    {
         return element.triggerHandler( eventType, extraParameters );
     }
 
@@ -3791,7 +4067,8 @@
      * @param  Event  event   A jQuery.Event object.
      * @return jQuery
      */
-    maker_jQuery.unbindEvent = function ( element, event ) {
+    maker_jQuery.unbindEvent = function ( element, event )
+    {
         return element.unbind( event );
     }
 
@@ -3801,7 +4078,8 @@
      * @param  jQuery element jQuery Element
      * @return jQuery
      */
-    maker_jQuery.unbind = function ( element ) {
+    maker_jQuery.unbind = function ( element )
+    {
         return element.unbind();
     }
 
@@ -3815,7 +4093,8 @@
      * @param  Object params    Params thets pased to the function
      * @return jQuery
      */
-    maker_jQuery.unbindHandler = function ( element, eventType, handler, params ) {
+    maker_jQuery.unbindHandler = function ( element, eventType, handler, params )
+    {
         return element.unbind( eventType, eventType, function( event ) {
             if ( complete ) {
                 return executeRuleFromJS( handler, [ this, event, params ] );
@@ -3833,7 +4112,8 @@
      *                           that was bound using .bind( eventType, false ).
      * @return jQuery
      */
-    maker_jQuery.unbindFalse = function ( element, eventType, bool ) {
+    maker_jQuery.unbindFalse = function ( element, eventType, bool )
+    {
         return element.unbind( eventType, bool );
     }
 
@@ -3845,8 +4125,9 @@
      * @param  jQuery element
      * @return jQuery
      */
-    maker_jQuery.undelegate = function ( element ) {
-      return element.undelegate();
+    maker_jQuery.undelegate = function ( element )
+    {
+        return element.undelegate();
     }
 
     /**
@@ -3859,8 +4140,9 @@
      *                          events from.
      * @return jQuery
      */
-    maker_jQuery.undelegateNamespace = function ( element, namespace ) {
-      return element.undelegate( namespace );
+    maker_jQuery.undelegateNamespace = function ( element, namespace )
+    {
+        return element.undelegate( namespace );
     }
 
     /**
@@ -3875,8 +4157,9 @@
      *                              previously bound functions to unbind from them.
      * @return jQuery
      */
-    maker_jQuery.undelegateEvents = function ( element, selector, events ) {
-      return element.undelegate( selector, events );
+    maker_jQuery.undelegateEvents = function ( element, selector, events )
+    {
+        return element.undelegate( selector, events );
     }
 
     /**
@@ -3891,8 +4174,9 @@
      *                          such as "click" or "keydown"
      * @return jQuery
      */
-    maker_jQuery.undelegateEventType = function ( element, selector, eventType ) {
-      return element.undelegate( selector, eventType );
+    maker_jQuery.undelegateEventType = function ( element, selector, eventType )
+    {
+        return element.undelegate( selector, eventType );
     }
 
     /**
@@ -3907,10 +4191,11 @@
      * @param  Object params
      * @return jQuery
      */
-    maker_jQuery.undelegateHandler = function ( element, selector, eventType, handler, params ) {
-      return element.undelegate( selector, eventType, function( event ) {
-        return executeRuleFromJS( handler, [ this, event, params ] );
-      });
+    maker_jQuery.undelegateHandler = function ( element, selector, eventType, handler, params )
+    {
+        return element.undelegate( selector, eventType, function( event ) {
+            return executeRuleFromJS( handler, [ this, event, params ] );
+        });
     }
 
     /**
@@ -3921,7 +4206,8 @@
      * @param  String selector
      * @return Object
      */
-    maker_jQuery.unwrap = function ( element, selector ) {
+    maker_jQuery.unwrap = function ( element, selector )
+    {
         return element.unwrap( selector );
     }
 
@@ -3931,7 +4217,8 @@
      * @param  jQuery element
      * @return Object
      */
-    maker_jQuery.val = function ( element ) {
+    maker_jQuery.val = function ( element )
+    {
         return element.val();
     }
 
@@ -3944,7 +4231,8 @@
      * @param  Object params
      * @return jQuery
      */
-    maker_jQuery.val = function ( element, value, fluxo, params ) {
+    maker_jQuery.val = function ( element, value, fluxo, params )
+    {
         if ( fluxo ) {
             return element.val( function(index, val) {
                 return executeRuleFromJS( fluxo, [ this, index, val, params ] );
@@ -3961,7 +4249,8 @@
      * @param  jQuery element
      * @return Number
      */
-    maker_jQuery.getWidth = function ( element ) {
+    maker_jQuery.getWidth = function ( element )
+    {
         return element.width();
     }
 
@@ -3974,7 +4263,8 @@
      * @param  Object params
      * @return jQuery
      */
-    maker_jQuery.setWidth = function ( element, value, fluxo, params ) {
+    maker_jQuery.setWidth = function ( element, value, fluxo, params )
+    {
         if ( fluxo ) {
             return element.width( function(index, val) {
                 return executeRuleFromJS( fluxo, [ this, index, val, params ] );
@@ -3993,14 +4283,15 @@
      * @param  Object params
      * @return jQuery
      */
-    maker_jQuery.wrap = function ( element, wrappingElement, fluxo, params ) {
-      if ( fluxo ) {
-          return element.wrap( function( index ) {
-            return executeRuleFromJS( fluxo, [ this, index, params ] );
-          });
-      }
+    maker_jQuery.wrap = function ( element, wrappingElement, fluxo, params )
+    {
+        if ( fluxo ) {
+            return element.wrap( function( index ) {
+                return executeRuleFromJS( fluxo, [ this, index, params ] );
+            });
+        }
 
-      return return element.wrap( wrappingElement );
+        return return element.wrap( wrappingElement );
     }
 
     /**
@@ -4012,14 +4303,15 @@
      * @param  Object params
      * @return jQuery
      */
-    maker_jQuery.wrapAll = function ( element, wrappingElement, fluxo, params ) {
-      if ( fluxo ) {
-          return element.wrapAll( function( index ) {
-            return executeRuleFromJS( fluxo, [ this, index, params ] );
-          });
-      }
+    maker_jQuery.wrapAll = function ( element, wrappingElement, fluxo, params )
+    {
+        if ( fluxo ) {
+            return element.wrapAll( function( index ) {
+                return executeRuleFromJS( fluxo, [ this, index, params ] );
+            });
+        }
 
-      return return element.wrapAll( wrappingElement );
+        return return element.wrapAll( wrappingElement );
     }
 
     /**
@@ -4032,14 +4324,15 @@
      * @param  Object params
      * @return jQuery
      */
-    maker_jQuery.wrapInner = function ( element, wrappingElement, fluxo, params ) {
-      if ( fluxo ) {
-          return element.wrapInner( function( index ) {
-            return executeRuleFromJS( fluxo, [ this, index, params ] );
-          });
-      }
+    maker_jQuery.wrapInner = function ( element, wrappingElement, fluxo, params )
+    {
+        if ( fluxo ) {
+            return element.wrapInner( function( index ) {
+                return executeRuleFromJS( fluxo, [ this, index, params ] );
+            });
+        }
 
-      return return element.wrapInner( wrappingElement );
+        return return element.wrapInner( wrappingElement );
     }
 
     /**
@@ -4048,7 +4341,8 @@
      * @param  Evemt event
      * @return Element
      */
-    maker_jQuery.event.currentTarget = function ( event ) {
+    maker_jQuery.event.currentTarget = function ( event )
+    {
         return event.currentTarget;
     }
 
@@ -4058,7 +4352,8 @@
      * @param  Evemt event
      * @return Object
      */
-    maker_jQuery.event.data = function ( event ) {
+    maker_jQuery.event.data = function ( event )
+    {
         return event.data;
     }
 
@@ -4068,7 +4363,8 @@
      * @param  Evemt event
      * @return Boolean
      */
-    maker_jQuery.event.delegateTarget = function ( event ) {
+    maker_jQuery.event.delegateTarget = function ( event )
+    {
         return event.delegateTarget;
     }
 
@@ -4078,7 +4374,8 @@
      * @param  Evemt event
      * @return Boolean
      */
-    maker_jQuery.event.isDefaultPrevented = function ( event ) {
+    maker_jQuery.event.isDefaultPrevented = function ( event )
+    {
         return event.isDefaultPrevented();
     }
 
@@ -4088,7 +4385,8 @@
      * @param  Evemt event
      * @return Boolean
      */
-    maker_jQuery.event.isImmediatePropagationStopped = function ( event ) {
+    maker_jQuery.event.isImmediatePropagationStopped = function ( event )
+    {
         return event.isImmediatePropagationStopped();
     }
 
@@ -4098,7 +4396,8 @@
      * @param  Evemt event
      * @return Boolean
      */
-    maker_jQuery.event.isPropagationStopped = function ( event ) {
+    maker_jQuery.event.isPropagationStopped = function ( event )
+    {
         return event.isPropagationStopped();
     }
 
@@ -4108,7 +4407,8 @@
      * @param  Evemt event
      * @return Boolean
      */
-    maker_jQuery.event.metaKey = function ( event ) {
+    maker_jQuery.event.metaKey = function ( event )
+    {
         return event.metaKey;
     }
 
@@ -4118,7 +4418,8 @@
      * @param  Evemt event
      * @return String
      */
-    maker_jQuery.event.namespaceReturns = function ( event ) {
+    maker_jQuery.event.namespaceReturns = function ( event )
+    {
         return event.namespaceReturns;
     }
 
@@ -4128,7 +4429,8 @@
      * @param  Evemt event
      * @return Number
      */
-    maker_jQuery.event.pageX = function ( event ) {
+    maker_jQuery.event.pageX = function ( event )
+    {
         return event.pageX;
     }
 
@@ -4138,7 +4440,8 @@
      * @param  Evemt event
      * @return Number
      */
-    maker_jQuery.event.pageY = function ( event ) {
+    maker_jQuery.event.pageY = function ( event )
+    {
         return event.pageY;
     }
 
@@ -4148,7 +4451,8 @@
      * @param  Evemt event
      * @return undefined
      */
-    maker_jQuery.event.preventDefault = function ( event ) {
+    maker_jQuery.event.preventDefault = function ( event )
+    {
         return event.preventDefault();
     }
 
@@ -4158,7 +4462,8 @@
      * @param  Evemt event
      * @return Element
      */
-    maker_jQuery.event.relatedTargetReturns = function ( event ) {
+    maker_jQuery.event.relatedTargetReturns = function ( event )
+    {
         return event.relatedTargetReturns;
     }
 
@@ -4168,7 +4473,8 @@
      * @param  Evemt event
      * @return Object
      */
-    maker_jQuery.event.result = function ( event ) {
+    maker_jQuery.event.result = function ( event )
+    {
         return event.result;
     }
 
@@ -4178,7 +4484,8 @@
      * @param  Evemt event
      * @return void
      */
-    maker_jQuery.event.stopImmediatePropagation = function ( event ) {
+    maker_jQuery.event.stopImmediatePropagation = function ( event )
+    {
         event.stopImmediatePropagation();
     }
 
@@ -4188,7 +4495,8 @@
      * @param  Evemt event
      * @return void
      */
-    maker_jQuery.event.stopPropagation = function ( event ) {
+    maker_jQuery.event.stopPropagation = function ( event )
+    {
         event.stopPropagation();
     }
 
@@ -4198,7 +4506,8 @@
      * @param  Evemt event
      * @return Element
      */
-    maker_jQuery.event.target = function ( event ) {
+    maker_jQuery.event.target = function ( event )
+    {
         return event.target;
     }
 
@@ -4208,7 +4517,8 @@
      * @param  Evemt event
      * @return Number
      */
-    maker_jQuery.event.timeStamp = function ( event ) {
+    maker_jQuery.event.timeStamp = function ( event )
+    {
         return event.timeStamp;
     }
 
@@ -4218,7 +4528,8 @@
      * @param  Evemt event
      * @return String
      */
-    maker_jQuery.event.type = function ( event ) {
+    maker_jQuery.event.type = function ( event )
+    {
         return event.type;
     }
 
@@ -4228,7 +4539,8 @@
      * @param  Evemt event
      * @return Number
      */
-    maker_jQuery.event.which = function ( event ) {
+    maker_jQuery.event.which = function ( event )
+    {
         return event.which;
     }
 
