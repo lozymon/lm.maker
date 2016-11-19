@@ -4291,7 +4291,7 @@
             });
         }
 
-        return return element.wrap( wrappingElement );
+        return element.wrap( wrappingElement );
     }
 
     /**
@@ -4311,7 +4311,7 @@
             });
         }
 
-        return return element.wrapAll( wrappingElement );
+        return element.wrapAll( wrappingElement );
     }
 
     /**
@@ -4332,7 +4332,7 @@
             });
         }
 
-        return return element.wrapInner( wrappingElement );
+        return element.wrapInner( wrappingElement );
     }
 
     /**
