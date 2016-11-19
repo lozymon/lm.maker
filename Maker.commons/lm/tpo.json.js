@@ -1,4 +1,4 @@
-var lm.tpo = [
+lm.tpo = [
     {
         "sort":10,                  // object is sorted by this integer
         "description":"jquery",     // add a description
