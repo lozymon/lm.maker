@@ -7,53 +7,611 @@
         author: 'Kim Andre Furevikstrand',
         email: 'lozymon@gmail.com',
         event: {},
+        callbacks: {},
     }
 
+    /**
+     * Create a new jQuery object with elements added to the set of matched elements.
+     *
+     * @param jQuery  element
+     * @param Object  selector A string representing a selector expression to find additional elements to add to the set of matched elements.
+     *                         or One or more elements to add to the set of matched elements.
+     *                         or An HTML fragment to add to the set of matched elements.
+     *                         or An existing jQuery object to add to the set of matched elements.
+     * @param Element context  The point in the document at which the selector should
+     *                         begin matching; similar to the context argument of the
+     *                         $(selector, context) method.
+     * @return jQuery
+     */
     maker_jQuery.add = function ( element, selector, context ) {
         return element.add( selector, context );
     }
 
+    /**
+     * Add the previous set of elements on the stack to the current set,
+     * optionally filtered by a selector.
+     *
+     * @param  jQuery   element
+     * @param  Selector selector A string containing a selector expression to match
+     *                           the current set of elements against.
+     * @return jQuery
+     */
     maker_jQuery.addBack = function ( element, selector ) {
         return element.addBack( selector );
     }
 
-    maker_jQuery.addClass = function ( element, obj, params ) {
-        if ( lm.isFunction( obj ) ) {
-            return element.addClass( function(index) {
-                return executeRuleFromJS( obj, [ this, index, params ] );
-            });
-        }
-        return element.addClass( obj );
+    /**
+     * Adds the specified class(es) to each element in the set of matched elements.
+     *
+     * @param  jQuery element
+     * @param String  className One or more space-separated classes to be added
+     *                          to the class attribute of each matched element.
+     * @return jQuery
+     */
+    maker_jQuery.addClass = function ( element, className ) {
+      return element.addClass( className );
     }
 
-    maker_jQuery.attr = function ( element, attributeName, value, fluxo ) {
-        if ( fluxo ) {
-            return element.attr( attributeName, function(index, val) {
-                return executeRuleFromJS( fluxo, [ this, value, index, val ] );
-            });
-        }
-        return element.attr( attributeName, value );
+    /**
+     * Adds the specified class(es) to each element in the set of matched elements.
+     *
+     * @param  jQuery element
+     * @param Fluxo   handler A function returning one or more space-separated class
+     *                names to be added to the existing class name(s). Receives the
+     *                index position of the element in the set and the existing class
+     *                name(s) as arguments. Within the function, this refers to the
+     *                current element in the set.
+     * @param  Object params  params passed function
+     * @return jQuery
+     */
+    maker_jQuery.addClassHandler = function ( element, handler, params ) {
+      return element.addClass( function( index, currentClassName ) {
+          return executeRuleFromJS( handler, [ this, index, currentClassName, params ] );
+      });
     }
 
-    maker_jQuery.change = function ( element, eventData, handler ) {
-        return element.change( function( event ) {
-            return executeRuleFromJS( handler, [ this, event, eventData ] );
-        });
+    /**
+     * Insert content, specified by the parameter, after each element in the
+     * set of matched elements.
+     *
+     * @param  jQuery element
+     * @param  Fluxo  content HTML string, DOM element, text node, array of elements
+     *                        and text nodes, or jQuery object to insert after each
+     *                        element in the set of matched elements.
+     * @return jQuery
+     */
+    maker_jQuery.after = function ( element, content ) {
+      return element.after( content );
     }
 
-    maker_jQuery.click = function ( element, eventData, handler ) {
-        return element.click( function( event ) {
-            return executeRuleFromJS( handler, [ this, event, eventData ] );
-        });
+    /**
+     * Insert content, specified by the parameter, after each element in the
+     * set of matched elements.
+     *
+     * @param  jQuery element
+     * @param  Fluxo  handler A function that returns an HTML string, DOM element(s),
+     *                        text node(s), or jQuery object to insert after each element
+     *                        in the set of matched elements. Receives the index position
+     *                        of the element in the set as an argument. Within the function,
+     *                        this refers to the current element in the set.
+     * @param  Object params  params passed function
+     * @return jQuery
+     */
+    maker_jQuery.afterHandler = function ( element, handler, params ) {
+      return element.after( function( index, html ) {
+          return executeRuleFromJS( handler, [ this, index, html, params ] );
+      });
     }
 
+    /**
+     * Register a handler to be called when Ajax requests complete.
+     * This is an AjaxEvent.
+     *
+     * @param  jQuery element
+     * @param  Fluxo  handler The function to be invoked.
+     * @param  Object params  params passed function
+     * @return jQuery
+     */
+    maker_jQuery.ajaxComplete = function ( element, handler, params ) {
+      return element.ajaxComplete( function(event, jqXHR, ajaxOptions ) {
+          return executeRuleFromJS( handler, [ this, event, jqXHR, ajaxOptions, params ] );
+      });
+    }
+
+    /**
+     * Register a handler to be called when Ajax requests complete with an error.
+     * This is an Ajax Event.
+     *
+     * @param  jQuery element
+     * @param  Fluxo  handler The function to be invoked.
+     * @param  Object params  params passed function
+     * @return jQuery
+     */
+    maker_jQuery.ajaxError = function ( element, handler, params ) {
+      return element.ajaxError( function(event, jqXHR, ajaxOptions, thrownError ) {
+          return executeRuleFromJS( handler, [ this, event, jqXHR, ajaxOptions, thrownError, params ] );
+      });
+    }
+
+    /**
+     * Attach a function to be executed before an Ajax request is sent.
+     * This is an Ajax Event.
+     *
+     * @param  jQuery element
+     * @param  Fluxo  handler The function to be invoked.
+     * @param  Object params  params passed function
+     * @return jQuery
+     */
+    maker_jQuery.ajaxSend = function ( element, handler, params ) {
+      return element.ajaxSend( function(event, jqXHR, ajaxOptions ) {
+          return executeRuleFromJS( handler, [ this, event, jqXHR, ajaxOptions, params ] );
+      });
+    }
+
+    /**
+     * Register a handler to be called when all Ajax requests have completed.
+     * This is an Ajax Event.
+     *
+     * @param  jQuery element
+     * @param  Fluxo  handler The function to be invoked.
+     * @param  Object params  params passed function
+     * @return jQuery
+     */
+    maker_jQuery.ajaxStart = function ( element, handler, params ) {
+      return element.ajaxStart( function() {
+          return executeRuleFromJS( handler, [ this, params ] );
+      });
+    }
+
+    /**
+     * Register a handler to be called when all Ajax requests have completed.
+     * This is an Ajax Event.
+     *
+     * @param  jQuery element
+     * @param  Fluxo  handler The function to be invoked.
+     * @param  Object params  params passed function
+     * @return jQuery
+     */
+    maker_jQuery.ajaxStop = function ( element, handler, params ) {
+      return element.ajaxStop( function() {
+          return executeRuleFromJS( handler, [ this, params ] );
+      });
+    }
+
+    /**
+     * Attach a function to be executed whenever an Ajax request completes
+     * successfully. This is an Ajax Event.
+     *
+     * @param  jQuery element
+     * @param  Fluxo  handler The function to be invoked.
+     * @param  Object params  params passed function
+     * @return jQuery
+     */
+    maker_jQuery.ajaxSuccess = function ( element, handler, params ) {
+      return element.ajaxSuccess( function(event, jqXHR, ajaxOptions, data) {
+          return executeRuleFromJS( handler, [ this, event, jqXHR, ajaxOptions, data, params ] );
+      });
+    }
+
+    /**
+     * Perform a custom animation of a set of CSS properties.
+     *
+     * @param  jQuery element
+     * @param  Object properties An object of CSS properties and values that the animation will move toward.
+     * @param  String duration   A string or number determining how long the animation will run.
+     * @param  String easing     A string indicating which easing function to use for the transition.
+     * @param  Fluxo  complete   A function to call once the animation is complete, called once per matched element.
+     * @param  Object params     params passed to function
+     * @return jQuery
+     */
     maker_jQuery.animate = function ( element, properties, duration, easing, complete, params ) {
-        return element.animate( properties, duration, easing, function() {
-            if ( complete ) {
-                return executeRuleFromJS( complete, [ this, params ] );
-            }
-        });
+      return element.animate( properties, duration, easing, function() {
+        if ( complete ) {
+          return executeRuleFromJS( complete, [ this, params ] );
+        }
+      });
     }
+
+    /**
+     * Perform a custom animation of a set of CSS properties.
+     *
+     * @param  jQuery element
+     * @param  Object properties An object of CSS properties and values that the animation will move toward.
+     * @param  Obejct options    A map of additional options to pass to the method.
+     * @return jQuery
+     */
+    maker_jQuery.animateOptions = function ( element, properties, options ) {
+      return element.animate( properties, options );
+    }
+
+    /**
+     * Insert content, specified by the parameter, to the end of each element
+     * in the set of matched elements.
+     *
+     * @param  jQuery element
+     * @param  Object content DOM element, text node, array of elements and text nodes,
+     *                        HTML string, or jQuery object to insert at the end of
+     *                        each element in the set of matched elements.
+     * @return jQuery
+     */
+    maker_jQuery.append = function ( element, content ) {
+      return element.append( content );
+    }
+
+    /**
+     * Insert every element in the set of matched elements to the end of the target.
+     *
+     * @param  jQuery element
+     * @param  String target  A selector, element, HTML string, array of elements,
+     *                        or jQuery object; the matched set of elements will
+     *                        be inserted at the end of the element(s) specified
+     *                        by this parameter.
+     * @return jQuery
+     */
+    maker_jQuery.appendTo = function ( element, target ) {
+      return element.appendTo( target );
+    }
+
+
+    /**
+     * Get the value of an attribute for the first element in
+     * the set of matched elements.
+     *
+     * @param  jQuery element
+     * @param  String attributeName The name of the attribute to get.
+     * @return String
+     */
+    maker_jQuery.getAttr = function ( element, attributeName ) {
+      return element.attr( attributeName );
+    }
+
+    /**
+     * Set one or more attributes for the set of matched elements.
+     *
+     * @param  jQuery element
+     * @param  String attributeName The name of the attribute to set.
+     * @param  String value         A value to set for the attribute. If null, the
+     *                              specified attribute will be removed (as in .removeAttr()).
+     * @return jQuery
+     */
+    maker_jQuery.setAttr = function ( element, attributeName, value ) {
+      return element.attr( attributeName, value );
+    }
+
+    /**
+     * Set one or more attributes for the set of matched elements.
+     *
+     * @param  jQuery element
+     * @param  String attributeName The name of the attribute to set.
+     * @param  Fluxo  fluxo         A function returning the value to set. this is
+     *                              the current element. Receives the index position
+     *                              of the element in the set and the old attribute
+     *                              value as arguments.
+     * @param  Object params        params passed function
+     * @return jQuery
+     */
+    maker_jQuery.setAttrHandler = function ( element, attributeName, fluxo, params ) {
+      return element.attr( attributeName, function(index, attr) {
+          return executeRuleFromJS( fluxo, [ this, index, attr, params ] );
+      });
+    }
+
+    /**
+     * Insert content, specified by the parameter, before each element
+     * in the set of matched elements.
+     *
+     * @param  jQuery  element
+     * @param  Object  content HTML string, DOM element, text node, array of elements
+     *                         and text nodes, or jQuery object to insert before each
+     *                         element in the set of matched elements.
+     * @return jQuery
+     */
+    maker_jQuery.before = function ( element, content ) {
+      return element.before( content );
+    }
+
+    /**
+     * Insert content, specified by the parameter, before each element
+     * in the set of matched elements.
+     *
+     * @param  jQuery  element
+     * @param  Fluxo   handler A function that returns an HTML string, DOM element(s),
+     *                         text node(s), or jQuery object to insert before each
+     *                         element in the set of matched elements. Receives the
+     *                         index position of the element in the set as an argument.
+     *                         Within the function, this refers to the current element
+     *                         in the set.
+     * @param  Object  params  params passed to function
+     * @return jQuery
+     */
+    maker_jQuery.beforeHandler = function ( element, handler, params ) {
+      return element.before( function( index, html ) {
+          return executeRuleFromJS( handler, [ this, index, html, params ] );
+      });
+    }
+
+    /**
+     * Attach a handler to an event for the elements
+     *
+     * @param  jQuery  element
+     * @param  Object  events  An object containing one or more DOM event types and functions to execute for them.
+     * @return jQuery
+     */
+    maker_jQuery.bind = function ( element, events ) {
+      return element.bind( events );
+    }
+
+    /**
+     * Attach a handler to an event for the elements
+     *
+     * @param  jQuery  element
+     * @param  String  eventType     A string containing one or more DOM event types, such as "click" or "submit," or custom event names.
+     * @param  Object  eventData     An object containing data that will be passed to the event handler.
+     * @param  Boolean preventBubble Setting the third argument to false will attach a function that prevents the default action from occurring and stops the event from bubbling. The default is true.
+     * @return jQuery
+     */
+    maker_jQuery.bindPreventBubble = function ( element, eventType, eventData, preventBubble ) {
+      return element.bind( eventType, eventData, preventBubble );
+    }
+
+    /**
+     * Attach a handler to an event for the elements
+     *
+     * @param  jQuery  element
+     * @param  String  eventType A string containing one or more DOM event types, such as "click" or "submit," or custom event names.
+     * @param  Fluxo   handler   A function to execute each time the event is triggered.
+     * @param  Object  eventData An object containing data that will be passed to the event handler.
+     * @return jQuery
+     */
+    maker_jQuery.bindHandler = function ( element, handler, eventData ) {
+      return element.bind( eventData, function( eventObject ) {
+          return executeRuleFromJS( handler, [ this, eventObject, eventData ] );
+      });
+    }
+
+    /**
+     * Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
+     *
+     * @param  jQuery  element
+     * @param  String  handler A function to execute each time the event is triggered.
+     * @param  String  params  An object containing data that will be passed to the event handler.
+     * @return jQuery
+     */
+    maker_jQuery.blur = function ( element, handler, params ) {
+      if ( handler ) {
+        return element.blur( params, function( eventObject ) {
+            return executeRuleFromJS( handler, [ this, eventObject, params ] );
+        });
+      }
+
+      return element.blur();
+    }
+
+    /**
+     * Add a callback or a collection of callbacks to a callback list.
+     *
+     * @param  Callbacks callbacks
+     * @param  Fluxo     handler    A function, or array of functions, that are to be added to the callback list.
+     * @param  Object    params     params passed to function
+     * @return Callbacks
+     */
+    maker_jQuery.callbacks.add = function ( callbacks, handler, params ) {
+      return callbacks.add( function() {
+          return executeRuleFromJS( handler, [ this, params ] );
+      });
+    }
+
+    /**
+     * Disable a callback list from doing anything more.
+     *
+     * @param  Callbacks callbacks
+     * @return Boolean
+     */
+    maker_jQuery.callbacks.disable = function ( callbacks ) {
+      return callbacks.disable();
+    }
+
+    /**
+     * Determine if the callbacks list has been disabled.
+     *
+     * @param  Callbacks callbacks
+     * @return Boolean
+     */
+    maker_jQuery.callbacks.disabled = function ( callbacks ) {
+      return callbacks.disabled();
+    }
+
+    /**
+     * Remove all of the callbacks from a list.
+     *
+     * @param  Callbacks callbacks
+     * @return Boolean
+     */
+    maker_jQuery.callbacks.empty = function ( callbacks ) {
+      return callbacks.empty();
+    }
+
+    /**
+     * Call all callbacks in a list with the given context and arguments.
+     *
+     * @param  Callbacks callbacks
+     * @param  Object    arguments The argument or list of arguments to pass back to the callback list.
+     * @return Callbacks
+     */
+    maker_jQuery.callbacks.fire = function ( callbacks, arguments {
+      return callbacks.fire( arguments;
+    }
+
+    /**
+     * Determine if the callbacks have already been called at least once.
+     *
+     * @param  Callbacks callbacks
+     * @return Boolean
+     */
+    maker_jQuery.callbacks.fired = function ( callbacks ) {
+      return callbacks.fired();
+    }
+
+    /**
+     * Call all callbacks in a list with the given context and arguments.
+     *
+     * @param  Callbacks callbacks
+     * @param  Object    context   A reference to the context in which the callbacks in the list should be fired.
+     * @param  Object    args      An argument, or array of arguments, to pass to the callbacks in the list.
+     * @return Callbacks
+     */
+    maker_jQuery.callbacks.fireWith = function ( callbacks, context, args ) {
+      return callbacks.fireWith( context, args );
+    }
+
+    /**
+     * Determine whether or not the list has any callbacks attached.
+     * If a callback is provided as an argument, determine whether it is in a list.
+     *
+     * @param  Callbacks callbacks
+     * @param  Fluco     handler   The callback to search for.
+     * @param  Object    params    params passed to function
+     * @return Boolean
+     */
+    maker_jQuery.callbacks.has = function ( callbacks, handler, params ) {
+      if ( handler ) {
+        return callbacks.has(function () {
+            return executeRuleFromJS( handler, [ this, params ] );
+        });
+      }
+
+      return callbacks.has();
+    }
+
+    /**
+     * Lock a callback list in its current state.
+     *
+     * @param  Callbacks callbacks
+     * @return Callbacks
+     */
+    maker_jQuery.callbacks.lock = function ( callbacks ) {
+      return callbacks.lock();
+    }
+
+    /**
+     * Determine if the callbacks list has been locked.
+     *
+     * @param  Callbacks callbacks
+     * @return Boolean
+     */
+    maker_jQuery.callbacks.locked = function ( callbacks ) {
+      return callbacks.locked();
+    }
+
+    /**
+     * Remove a callback or a collection of callbacks from a callback list.
+     *
+     * @param  Callbacks callbacks
+     * @param  Fluxo     handler    A function, or array of functions, that are to be removed from the callback list.
+     * @param  Object    params     params passed to function
+     * @return Callbacks
+     */
+    maker_jQuery.callbacks.remove = function ( callbacks, handler, params ) {
+      return callbacks.remove( function() {
+          return executeRuleFromJS( handler, [ this, params ] );
+      });
+    }
+
+    /**
+     * Bind an event handler to the "change" JavaScript event, or trigger that
+     * event on an element.
+     *
+     * @param  jQuery element
+     * @param  Fluxo  handler   A function to execute each time the event is triggered.
+     * @param  Object eventData An object containing data that will be passed to the event handler.
+     * @return jQuery
+     */
+    maker_jQuery.change = function ( element, handler, eventData ) {
+      if ( handler ) {
+        return element.change( eventData, function( event ) {
+            return executeRuleFromJS( handler, [ this, event, eventData ] );
+        });
+      }
+
+      return element.change();
+    }
+
+    /**
+     * Get the children of each element in the set of matched elements,
+     * optionally filtered by a selector.
+     *
+     * @param  jQuery   element
+     * @param  Selector selector A string containing a selector expression to match elements against.
+     * @return jQuery
+     */
+    maker_jQuery.children = function ( element, selector ) {
+        return element.children( selector );
+    }
+
+    /**
+     * Remove from the queue all items that have not yet been run.
+     *
+     * @param  jQuery element
+     * @param  String queueName A string containing the name of the queue. Defaults
+     *                          to fx, the standard effects queue.
+     * @return jQuery
+     */
+    maker_jQuery.clearQueue = function ( element, queueName ) {
+        return element.clearQueue( queueName );
+    }
+
+    /**
+     * Bind an event handler to the "click" JavaScript event, or trigger that
+     * event on an element.
+     *
+     * @param  jQuery element
+     * @param  Fluxo  handler   A function to execute each time the event is triggered.
+     * @param  Object eventData An object containing data that will be passed to the event handler.
+     * @return jQuery
+     */
+    maker_jQuery.click = function ( element, handler, eventData ) {
+      if ( handler ) {
+        return element.click( eventData, function( event ) {
+            return executeRuleFromJS( handler, [ this, event, eventData ] );
+        });
+      }
+
+      return element.click();
+    }
+
+    /**
+     * Create a deep copy of the set of matched elements.
+     *
+     * @param  jQuery  element
+     * @param  Boolean withDataAndEvents     A Boolean indicating whether event handlers
+     *                                       should be copied along with the elements.
+     *                                       As of jQuery 1.4, element data will be copied as well.
+     * @param  Boolean deepWithDataAndEvents A Boolean indicating whether event handlers
+     *                                       and data for all children of the cloned element should
+     *                                       be copied. By default its value matches the first
+     *                                       argument's value (which defaults to false).
+     * @return Deferred
+     */
+    maker_jQuery.clone = function ( element, withDataAndEvents , deepWithDataAndEvents ) {
+        return element.clone( withDataAndEvents , deepWithDataAndEvents );
+    }
+
+    /**
+     * For each element in the set, get the first element that matches the selector
+     * by testing the element itself and traversing up through its ancestors in the DOM tree.
+     *
+     * @param  jQuery  element
+     * @param  Object  selector A string containing a selector expression to match elements against.
+     *                          or A jQuery object to match elements against.
+     *                          or An element to match elements against.
+     *                          or An array or string containing a selector expression to match elements against (can also be a jQuery object).
+     * @param  Element context  A DOM element within which a matching element may be found.
+     * @return jQuery | Array
+     */
+    maker_jQuery.closest = function ( element, selector, context ) {
+        return element.closest( selector, context );
+    }
+
 
     /**
      * Get the children of each element in the set of matched elements, including text and comment nodes.
