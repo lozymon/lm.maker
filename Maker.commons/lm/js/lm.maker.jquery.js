@@ -47,32 +47,144 @@
         });
     }
 
-    maker_jQuery.dblclick = function ( element, eventData, handler ) {
-        return element.dblclick( function( event ) {
-            return executeRuleFromJS( handler, [ this, event, eventData ] );
-        });
-    }
-
-    maker_jQuery.css = function ( element, propertyName, value, fluxo ) {
-        if ( fluxo ) {
-            return element.css( propertyName, function(index, val) {
-                return executeRuleFromJS( fluxo, [ this, value, index, val ] );
-            });
-        }
-
-        if ( value ) {
-            return element.css( propertyName, value );
-        }
-
-        return element.css( propertyName );
-    }
-
     maker_jQuery.animate = function ( element, properties, duration, easing, complete, params ) {
         return element.animate( properties, duration, easing, function() {
             if ( complete ) {
                 return executeRuleFromJS( complete, [ this, params ] );
             }
         });
+    }
+
+    /**
+     * Get the children of each element in the set of matched elements, including text and comment nodes.
+     *
+     * @param  jQuery  element
+     * @return String
+     */
+    maker_jQuery.contents = function ( element ) {
+        return element.contents();
+    }
+
+    /**
+     * The DOM node context originally passed to jQuery(); if none was passed then context will likely be the document
+     *
+     * @return Element
+     */
+    maker_jQuery.context = function ( element, propertyName ) {
+        return element.context
+    }
+
+    /**
+     * Bind an event handler to the "contextmenu" JavaScript event, or trigger that event on an element.
+     *
+     * @param  jQuery  element
+     * @param  String  handler A function to execute each time the event is triggered.
+     * @param  String  params  An object containing data that will be passed to the event handler.
+     * @return jQuery
+     */
+    maker_jQuery.contextmenu = function ( element, handler, params ) {
+      if ( handler ) {
+        return element.contextmenu( params, function( eventObject ) {
+            return executeRuleFromJS( handler, [ this, eventObject, params ] );
+        });
+      }
+
+      return element.contextmenu();
+    }
+
+    /**
+     * Get the computed style properties for the first element in the set of matched elements.
+     *
+     * @param  jQuery  element
+     * @param  Object  propertyName  A CSS property. or An array of one or more CSS properties.
+     * @return String
+     */
+    maker_jQuery.getCss = function ( element, propertyName ) {
+        return element.css( propertyName );
+    }
+
+    /**
+     * Set one or more CSS properties for the set of matched elements.
+     *
+     * @param  jQuery  element
+     * @param  String  propertyName A CSS property name.
+     * @param  Object  value        A value to set for the property.
+     * @return jQuery
+     */
+    maker_jQuery.setCss = function ( element, propertyName, value) {
+      return element.css( propertyName, value );
+    }
+
+    /**
+     * Set one or more CSS properties for the set of matched elements.
+     *
+     * @param  jQuery  element
+     * @param  String  properties An object of property-value pairs to set.
+     * @return jQuery
+     */
+    maker_jQuery.setCssProperties = function ( element, properties) {
+      return element.css( properties );
+    }
+
+    /**
+     * Set one or more CSS properties for the set of matched elements.
+     *
+     * @param  jQuery  element
+     * @param  String  propertyName
+     * @param  String  handler
+     * @param  String  params
+     * @return jQuery
+     */
+    maker_jQuery.setCssHandler = function ( element, propertyName, handler, params ) {
+      return element.css( propertyName, function( index, value ) {
+          return executeRuleFromJS( handler, [ this, index, value, params ] );
+      });
+    }
+
+    /**
+     * Return the value at the named data store for the first element in the
+     * jQuery collection, as set by data(name, value) or by an HTML5 data-* attribute.
+     *
+     * @param  jQuery element
+     * @param  String key     Name of the data stored.
+     * @return Object
+     */
+    maker_jQuery.getData = function ( element, key ) {
+      if ( key ) {
+        return element.data( key );
+      }
+
+      return element.data();
+    }
+
+    /**
+     * Store arbitrary data associated with the matched elements.
+     *
+     * @param  jQuery element
+     * @param  String key     A string naming the piece of data to set.
+     * @param  Object value   The new data value; this can be any Javascript type except undefined.
+     * @return jQuery
+     */
+    maker_jQuery.setData = function ( element, key, value ) {
+      return element.data( key, value );
+    }
+
+    /**
+     * Bind an event handler to the "dblclick" JavaScript event, or trigger that event on an element.
+     *
+     * @param  jQuery element
+     * @param  Fluxo  handler   A function to execute each time the event is triggered.
+     * @param  Object eventData An object containing data that will be passed to the event handler.
+     * @return jQuery
+     */
+    maker_jQuery.dblclick = function ( element, handler, eventData ) {
+      if ( handler ) {
+        return element.dblclick( function( event ) {
+            return executeRuleFromJS( handler, [ this, event, eventData ] );
+        });
+      }
+
+      return element.dblclick();
     }
 
     /**
