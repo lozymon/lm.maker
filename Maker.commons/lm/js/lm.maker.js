@@ -14,7 +14,8 @@
      * loging to the console
      * @return void
      */
-    Lozymon.log = function() {
+    Lozymon.log = function()
+    {
         console.log(arguments);
     }
 
@@ -22,7 +23,8 @@
      * logs to the console with date time
      * @return void
      */
-    Lozymon.debug = function() {
+    Lozymon.debug = function()
+    {
         if ( this.isDebugging ) {
             // get date time
             var date = new Date();
@@ -43,7 +45,8 @@
      * @param  object  obj
      * @return Boolean
      */
-    Lozymon.isFunction = function(obj) {
+    Lozymon.isFunction = function(obj)
+    {
         return !!(obj && obj.constructor && obj.call && obj.apply);
     };
 
@@ -51,7 +54,8 @@
      * start debug mode
      * @return void
      */
-    Lozymon.startDebugging = function() {
+    Lozymon.startDebugging = function()
+    {
         this.isDebugging = true;
     }
 
@@ -60,35 +64,37 @@
      * @param  object  obj
      * @return Boolean
      */
-    Lozymon.isArray = function (obj){
+    Lozymon.isArray = function (obj)
+    {
         return !!obj && Array === obj.constructor;
     }
 
     /**
      * add Javascript tag to the element
      *
-     * @param  Element elemnt
+     * @param  Element element
      * @param  Path    path   path to the javascript
      * @return void
      */
-    Lozymon.addJavaScript function ( elemnt, path )
+    Lozymon.addJavaScript = function ( element, path )
     {
         // load as tag
         if ( element ) {
             var script  = document.createElement('script');
             script.src  = path;
             script.type = "text/javascript";
-            elemnt.appendChild(script);
+            element.appendChild(script);
         }
         // load with webrun
         else {
+            console.log( path );
             webrun.include( path );
         }
     }
 
     /**
      * add StyleSheet tag to the element
-     * if element not is informed then use webrun include to load javascript object
+     * if  not is informed then use webrun include to load javascript object
      *
      * @param  Element element
      * @param  Path    path   path to the stylesheet
@@ -104,6 +110,36 @@
     }
 
     /**
+     * gets the url extension
+     *
+     * @param  String url
+     * @return String
+     */
+    Lozymon.getUrlExtension = function ( url )
+    {
+        var extension = (/[.]/.exec(url)) ? /\.([^\./\?]+)($|\?)/.exec(url) : undefined;
+
+        if ( extension !== undefined ) {
+            return extension[1].toLowerCase();
+        }
+
+        return undefined;
+    }
+
+    /**
+     * add version to url
+     *
+     * @param String url
+     * @param String version
+     */
+    Lozymon.addUrlVersion = function ( url, version )
+    {
+        var x = (/[\?]/.exec( url )) ? '&' : '?';
+
+        return url + x + 'lm_version=' + version;
+    }
+
+    /**
      * Load tpo files
      *
      * @return void
@@ -112,32 +148,28 @@
     {
         // load tpo file
         webrun.include('lm/tpo.json.js');
-        // sort list
-        items.sort(function (a, b) {
-          if (a.sort > b.sort) { return 1; }
-          if (a.sort < b.sort) { return -1;}
-          return 0;
-        });
+        // if there are not any element in the list then exit here
+        if ( lm.tpo.length == 0 ) { return; }
         // get body element
         var v_bodyArray = document.getElementsByTagName("body");
         // if body exists
-        if (v_bodyArray.length) {
+        if ( v_bodyArray.length ) {
             // get first body element
             var v_body = v_bodyArray[0];
             // add all tpo to the body
             for (var i = 0; i < Lozymon.tpo.length ; i++) {
                 // load object
                 var tpo = Lozymon.tpo[i];
-                // create path with version
-                var path = tpo.path + '?lm_v=' + tpo.version;
+                // find file extension
+                var extension = this.getUrlExtension(tpo.path);
                 // if type is javascript
-                if (tpo.type == 'J') {
+                if (extension == 'js') {
                     var element = ( tpo.useWebrunInclude == true ) ? null : b_body;
-                    this.addJavaScript( element, path );
+                    this.addJavaScript( element, this.addUrlVersion(tpo.path, tpo.version) );
                 }
                 // if type is StyleSheet
-                else if (tpo.typo == 'S') {
-                    this.addStyleSheet( v_body, path );
+                else if (extension == 'css') {
+                    this.addStyleSheet( v_body, this.addUrlVersion(tpo.path, tpo.version) );
                 }
             }
         }
