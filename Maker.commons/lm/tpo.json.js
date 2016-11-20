@@ -7,6 +7,7 @@ lm.tpo = [
     },{
         "description":"jquery-3.1.1",
         "version":"3.1.1",
+        "path":"lm/js/jquery-3.1.1.js",
         "useWebrunInclude": true
     },{
         "description":"lm.maker.object.js",
