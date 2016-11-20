@@ -1,10 +1,22 @@
 lm.tpo = [
     {
-        "sort":10,                  // object is sorted by this integer
-        "description":"jquery",     // add a description
-        "version":"2.1.1",          // object version
-        "type":"d",                 // J = Javascript or S = StyleSheet
-        "path":"path/to/object.js", // path to the objects
-        "useWebrunInclude": true    // if javascript use webrun.include or <script></script> tag
+        "description":"jquery",      // add a description
+        "version":"2.1.1",           // object version
+        "path":"path/to/object.ext", // path to the objects suported extension is js and css
+        "useWebrunInclude": true     // if javascript use webrun.include or <script></script> tag
+    },{
+        "description":"jquery-3.1.1",
+        "version":"3.1.1",
+        "useWebrunInclude": true
+    },{
+        "description":"lm.maker.object.js",
+        "version":"0.0.1",
+        "path":"lm/js/lm.maker.object.js",
+        "useWebrunInclude": true
+    },{
+        "description":"lm.maker.jquery.js",
+        "version":"0.0.1",
+        "path":"lm/js/lm.maker.jquery.js",
+        "useWebrunInclude": true
     }
 ];
