@@ -47,7 +47,7 @@
      * Adds the specified class(es) to each element in the set of matched elements.
      *
      * @param  jQuery element
-     * @param String  className One or more space-separated classes to be added
+     * @param  String className One or more space-separated classes to be added
      *                          to the class attribute of each matched element.
      * @return jQuery
      */
@@ -60,11 +60,11 @@
      * Adds the specified class(es) to each element in the set of matched elements.
      *
      * @param  jQuery element
-     * @param Fluxo   handler A function returning one or more space-separated class
-     *                names to be added to the existing class name(s). Receives the
-     *                index position of the element in the set and the existing class
-     *                name(s) as arguments. Within the function, this refers to the
-     *                current element in the set.
+     * @param  Fluxo  handler A function returning one or more space-separated class
+     *                        names to be added to the existing class name(s). Receives the
+     *                        index position of the element in the set and the existing class
+     *                        name(s) as arguments. Within the function, this refers to the
+     *                        current element in the set.
      * @param  Object params  params passed function
      * @return jQuery
      */
@@ -80,7 +80,7 @@
      * set of matched elements.
      *
      * @param  jQuery element
-     * @param  Fluxo  content HTML string, DOM element, text node, array of elements
+     * @param  Object content HTML string, DOM element, text node, array of elements
      *                        and text nodes, or jQuery object to insert after each
      *                        element in the set of matched elements.
      * @return jQuery
@@ -388,9 +388,9 @@
      * @param  Object  eventData An object containing data that will be passed to the event handler.
      * @return jQuery
      */
-    maker_jQuery.bindHandler = function ( element, handler, eventData )
+    maker_jQuery.bindHandler = function ( element, eventType, handler, eventData )
     {
-        return element.bind( eventData, function( eventObject ) {
+        return element.bind( eventType, eventData, function( eventObject ) {
             return executeRuleFromJS( handler, [ this, eventObject, eventData ] );
         });
     }
@@ -399,8 +399,8 @@
      * Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.
      *
      * @param  jQuery  element
-     * @param  String  handler A function to execute each time the event is triggered.
-     * @param  String  params  An object containing data that will be passed to the event handler.
+     * @param  Fluxo   handler A function to execute each time the event is triggered.
+     * @param  Object  params  An object containing data that will be passed to the event handler.
      * @return jQuery
      */
     maker_jQuery.blur = function ( element, handler, params )
