@@ -8,6 +8,7 @@
         email: 'lozymon@gmail.com',
         event: {},
         callbacks: {},
+        deferred: {},
     }
 
     /**
@@ -672,7 +673,7 @@
      *
      * @return Element
      */
-    maker_jQuery.context = function ( element, propertyName )
+    maker_jQuery.context = function ( element )
     {
         return element.context
     }
@@ -681,8 +682,8 @@
      * Bind an event handler to the "contextmenu" JavaScript event, or trigger that event on an element.
      *
      * @param  jQuery  element
-     * @param  String  handler A function to execute each time the event is triggered.
-     * @param  String  params  An object containing data that will be passed to the event handler.
+     * @param  Fluxo   handler A function to execute each time the event is triggered.
+     * @param  Object  params  An object containing data that will be passed to the event handler.
      * @return jQuery
      */
     maker_jQuery.contextmenu = function ( element, handler, params )
@@ -725,7 +726,7 @@
      * Set one or more CSS properties for the set of matched elements.
      *
      * @param  jQuery  element
-     * @param  String  properties An object of property-value pairs to set.
+     * @param  Object  properties An object of property-value pairs to set.
      * @return jQuery
      */
     maker_jQuery.setCssProperties = function ( element, properties)
@@ -738,8 +739,8 @@
      *
      * @param  jQuery  element
      * @param  String  propertyName
-     * @param  String  handler
-     * @param  String  params
+     * @param  Fluxo   handler
+     * @param  Object  params
      * @return jQuery
      */
     maker_jQuery.setCssHandler = function ( element, propertyName, handler, params )
@@ -806,7 +807,7 @@
      * @param  Object   params          params passado to function
      * @return Deferred
      */
-    maker_jQuery.always = function ( deferred, alwaysCallbacks, params )
+    maker_jQuery.deferred.always = function ( deferred, alwaysCallbacks, params )
     {
         return deferred.always( function() {
             return executeRuleFromJS( alwaysCallbacks, [ this, params ] );
@@ -821,7 +822,7 @@
      * @param  Object   params     params passado to function
      * @return Deferred
      */
-    maker_jQuery.catch = function ( deferred, failFilter, params )
+    maker_jQuery.deferred.catch = function ( deferred, failFilter, params )
     {
         return deferred.catch( function() {
             return executeRuleFromJS( failFilter, [ this, params ] );
@@ -836,7 +837,7 @@
      * @param  Object   params        params passado to function
      * @return Deferred
      */
-    maker_jQuery.done = function ( deferred, doneCallbacks, params )
+    maker_jQuery.deferred.done = function ( deferred, doneCallbacks, params )
     {
         return deferred.done( function() {
             return executeRuleFromJS( doneCallbacks, [ this, params ] );
@@ -851,7 +852,7 @@
      * @param  Object   params        params passado to function
      * @return Deferred
      */
-    maker_jQuery.fail = function ( deferred, failCallbacks, params )
+    maker_jQuery.deferred.fail = function ( deferred, failCallbacks, params )
     {
         return deferred.fail( function() {
             return executeRuleFromJS( failCallbacks, [ this, params ] );
@@ -865,7 +866,7 @@
      * @param  Object   args     Optional arguments that are passed to the progressCallbacks.
      * @return Deferred
      */
-    maker_jQuery.notify = function ( deferred, args )
+    maker_jQuery.deferred.notify = function ( deferred, args )
     {
         return deferred.notify( args );
     }
@@ -878,7 +879,7 @@
      * @param  Array    args     An optional array of arguments that are passed to the progressCallbacks.
      * @return Deferred
      */
-    maker_jQuery.notifyWith = function ( deferred, context, args )
+    maker_jQuery.deferred.notifyWith = function ( deferred, context, args )
     {
         return deferred.notifyWith( context, args );
     }
@@ -893,7 +894,7 @@
      * @param  Object   params         params passado to function
      * @return Promise
      */
-    maker_jQuery.pipe = function ( deferred, doneFilter, failFilter, progressFilter, params )
+    maker_jQuery.deferred.pipe = function ( deferred, doneFilter, failFilter, progressFilter, params )
     {
         return deferred.pipe( function() {
             if ( doneFilter ) {
@@ -911,14 +912,14 @@
     }
 
     /**
-     *  Add handlers to be called when the Deferred object is resolved, rejected, or still in progress.
+     * Add handlers to be called when the Deferred object is resolved, rejected, or still in progress.
      *
      * @param  Deferred deferred
      * @param  Fluxo    progressCallbacks A function, or array of functions, to be called when the Deferred generates progress notifications.
      * @param  Object   params            params passado to function
      * @return Deferred
      */
-    maker_jQuery.progress = function ( deferred, progressCallbacks, params )
+    maker_jQuery.deferred.progress = function ( deferred, progressCallbacks, params )
     {
         return deferred.progress( function() {
             return executeRuleFromJS( progressCallbacks, [ this, params ] );
@@ -932,7 +933,7 @@
      * @param  Object   target     Object onto which the promise methods have to be attached
      * @return Deferred
      */
-    maker_jQuery.promise = function ( deferred, target )
+    maker_jQuery.deferred.promise = function ( deferred, target )
     {
         return deferred.promise( target );
     }
@@ -944,7 +945,7 @@
      * @param  Array    args     Optional arguments that are passed to the failCallbacks.
      * @return Deferred
      */
-    maker_jQuery.reject = function ( deferred, args )
+    maker_jQuery.deferred.reject = function ( deferred, args )
     {
         return deferred.reject( args );
     }
@@ -957,7 +958,7 @@
      * @param  Array    args     An optional array of arguments that are passed to the failCallbacks.
      * @return Deferred
      */
-    maker_jQuery.rejectWith = function ( deferred, context, args )
+    maker_jQuery.deferred.rejectWith = function ( deferred, context, args )
     {
         return deferred.rejectWith( context, args );
     }
@@ -969,7 +970,7 @@
      * @param  Array    args     Optional arguments that are passed to the doneCallbacks.
      * @return Deferred
      */
-    maker_jQuery.resolve = function ( deferred, args )
+    maker_jQuery.deferred.resolve = function ( deferred, args )
     {
         return deferred.resolve( args );
     }
@@ -982,7 +983,7 @@
      * @param  Array    args     An optional array of arguments that are passed to the doneCallbacks.
      * @return Deferred
      */
-    maker_jQuery.resolveWith = function ( deferred, context, args )
+    maker_jQuery.deferred.resolveWith = function ( deferred, context, args )
     {
         return deferred.resolveWith( context, args );
     }
@@ -993,7 +994,7 @@
      * @param  Deferred deferred
      * @return String
      */
-    maker_jQuery.state = function ( deferred )
+    maker_jQuery.deferred.state = function ( deferred )
     {
         return deferred.state();
     }
@@ -1008,7 +1009,7 @@
      * @param  Object   params         params passado to function
      * @return Promise
      */
-    maker_jQuery.then = function ( deferred, doneFilter, failFilter, progressFilter, params )
+    maker_jQuery.deferred.then = function ( deferred, doneFilter, failFilter, progressFilter, params )
     {
         return deferred.then( function() {
             if ( doneFilter ) {
@@ -1099,7 +1100,7 @@
      *
      * @param  jQuery element jQuery
      * @param  Fluxo  fluxo   A function to execute for each matched element.
-     * @param  Onject params  params passado to function
+     * @param  Object params  params passado to function
      * @return jQuery
      */
     maker_jQuery.each = function ( element, fluxo, params )
@@ -1134,6 +1135,7 @@
 
     /**
      * Reduce the set of matched elements to the one at the specified index.
+     *
      * @param  jQuery  element An jQuery element
      * @param  Index   index   An integer indicating the 0-based position of the element.
      *                         or An integer indicating the position of the element,
@@ -1199,24 +1201,6 @@
     maker_jQuery.fadeOut = function ( element, duration, easing, complete, params )
     {
         return element.fadeOut( duration, easing, function( ) {
-            return executeRuleFromJS( complete, [ this, params ] );
-        });
-    }
-
-    /**
-     * Adjust the opacity of the matched elements.
-     *
-     * @param  Element element   A jQuery element
-     * @param  String  duration  A string or number determining how long the animation will run.
-     * @param  String  opacity   A number between 0 and 1 denoting the target opacity.
-     * @param  String  easing    A string indicating which easing function to use for the transition.
-     * @param  Fluxo   complete  A function to call once the animation is complete.
-     * @param  Object  params    params passado to function
-     * @return jQuery
-     */
-    maker_jQuery.fadeToggle = function ( element, duration, opacity, easing, complete, params )
-    {
-        return element.fadeToggle( duration, opacity, easing, function( ) {
             return executeRuleFromJS( complete, [ this, params ] );
         });
     }
@@ -1383,6 +1367,17 @@
     }
 
     /**
+     * Get the current computed height for the first element in the set of matched elements.
+     *
+     * @param  Element element   A jQuery element
+     * @return Number
+     */
+    maker_jQuery.getHeight = function ( element )
+    {
+        return element.height();
+    }
+
+    /**
      * Set the CSS height of every matched element.
      *
      * @param  Element element   A jQuery element
@@ -1424,8 +1419,7 @@
     }
 
     /**
-     * Bind a single handler to the matched elements, to be executed when the
-     * mouse pointer enters or leaves the elements.
+     * Hide the matched elements.
      *
      * @param  Element element   A jQuery element
      * @param  Object  options   A map of additional options to pass to the method.
@@ -1437,8 +1431,7 @@
     }
 
     /**
-     * Bind a single handler to the matched elements, to be executed when the
-     * mouse pointer enters or leaves the elements.
+     * Hide the matched elements.
      *
      * @param  Element element   A jQuery element
      * @param  String  duration  A string or number determining how long the animation will run.
@@ -1447,10 +1440,12 @@
      * @param  Object  params    params passado to function
      * @return jQuery
      */
-    maker_jQuery.hide = function ( element, duration, easing, complete, params )
+    maker_jQuery.hideComplete = function ( element, duration, easing, complete, params )
     {
         return element.hide( duration, easing, function( ) {
-            return executeRuleFromJS( complete, [ this, params ] );
+            if ( completed ) {
+                return executeRuleFromJS( complete, [ this, params ] );
+            }
         });
     }
 
@@ -1459,19 +1454,19 @@
      * Bind two handlers to the matched elements, to be executed when the mouse
      * pointer enters and leaves the elements.
      *
-     * @param  Element element   A jQuery element
-     * @param  Fluxo   fluxo     A function to execute when the mouse pointer enters the element.
-     * @param  Object  params    params passado to function
-     * @param  Fluxo   fluxoTwo  A function to execute when the mouse pointer leaves the element..
-     * @param  Object  paramsTwo params passado to function
+     * @param  Element element    A jQuery element
+     * @param  Fluxo   handlerIn  A function to execute when the mouse pointer enters the element.
+     * @param  Object  paramsIn   params passado to function
+     * @param  Fluxo   handlerOut A function to execute when the mouse pointer leaves the element..
+     * @param  Object  paramsOut  params passado to function
      * @return jQuery
      */
-    maker_jQuery.hoverTwo = function ( element, fluxo, params, fluxoTwo, paramsTwo )
+    maker_jQuery.hoverInOut = function ( element, handlerIn, paramsIn, handlerOut, paramsOut )
     {
         return element.hover( function( eventObject ) {
-            return executeRuleFromJS( fluxo, [ this, eventObject, params ] );
+            return executeRuleFromJS( handlerIn, [ this, eventObject, paramsIn ] );
         }, function( eventObject ) {
-            return executeRuleFromJS( fluxoTwo, [ this, eventObject, paramsTwo ] );
+            return executeRuleFromJS( handlerOut, [ this, eventObject, paramsOut ] );
         });
     }
 
@@ -1525,7 +1520,7 @@
      * @param  Object  params   params passado to function
      * @return jQuery
      */
-    maker_jQuery.setInnerHeightHandler = function ( element, fluxo, params )
+    maker_jQuery.setHtmlHandler = function ( element, fluxo, params )
     {
         return element.html( function( index, oldhtml ) {
             return executeRuleFromJS( fluxo, [ this, index, oldhtml, params ] );
@@ -1703,15 +1698,14 @@
      * Handle custom Ajax options or modify existing options before each
      * request is sent and before they are processed by $.ajax().
      *
-     * @param  String dataType An optional string containing one or more space-separated dataTypes
      * @param  Fluxo  handler  A handler to set default values for future Ajax requests.
-     * @param  Object params   params passado para function
+     * @param  String dataType An optional string containing one or more space-separated dataTypes
      * @return undefined
      */
-    maker_jQuery.ajaxPrefilter = function ( dataType, handler )
+    maker_jQuery.ajaxPrefilter = function ( handler, dataType )
     {
         return $.ajaxPrefilter( dataType, function( options, originalOptions, jqXHR ) {
-            return executeRuleFromJS( handler, [ this, options, originalOptions, jqXHR, params ] );
+            return executeRuleFromJS( handler, [ this, options, originalOptions, jqXHR, dataType ] );
         });
     }
 
@@ -1730,23 +1724,22 @@
     /**
      * Creates an object that handles the actual transmission of Ajax data.
      *
-     * @param  String dataType A string identifying the data type to use
      * @param  Fluxo  handler  A handler to return the new transport object to use
      *                         with the data type provided in the first argument.
-     * @param  Object params   params passado para function
+     * @param  String dataType A string identifying the data type to use
      * @return undefined
      */
-    maker_jQuery.ajaxTransport = function ( dataType, handler )
+    maker_jQuery.ajaxTransport = function ( handler, dataType )
     {
         return $.ajaxTransport( dataType, function( options, originalOptions, jqXHR ) {
-            return executeRuleFromJS( handler, [ this, options, originalOptions, jqXHR, params ] );
+            return executeRuleFromJS( handler, [ this, options, originalOptions, jqXHR, dataType ] );
         });
     }
 
     /**
      * A multi-purpose callbacks list object that provides a powerful way to manage callback lists.
      *
-     * @param String flags An optional list of space-separated flags that change how the callback list behaves.
+     * @param  String    flags  An optional list of space-separated flags that change how the callback list behaves.
      * @return Callbacks
      */
     maker_jQuery.Callbacks = function ( flags )
@@ -1850,7 +1843,7 @@
      * via their named properties.
      *
      * @param  Object object  The array to iterate over.
-     * @param  Object fluxo   The function that will be executed on every object.
+     * @param  Fluxo  fluxo   The function that will be executed on every object.
      * @param  Object params  params passado para function
      * @return void
      */
@@ -1900,7 +1893,7 @@
     }
 
     /**
-     * Globally disable all animations.
+     * Merge the contents of an object onto the jQuery prototype to provide new jQuery instance methods.
      *
      * @param  Object object An object to merge onto the jQuery prototype.
      * @return Number
@@ -1911,45 +1904,23 @@
     }
 
     /**
-     * Globally disable all animations.
+     * The rate (in milliseconds) at which animations fire.
      *
      * @return Number
      */
-    maker_jQuery.getFxInterval = function ()
+    maker_jQuery.fxInterval = function ()
     {
         return $.fx.interval;
     }
 
     /**
-     * The rate (in milliseconds) at which animations fire.
-     *
-     * @param  Number  value
-     * @return Number
-     */
-    maker_jQuery.setfxInterval = function ( value )
-    {
-        return $.fx.interval = value;
-    }
-
-    /**
      * Globally disable all animations.
      *
      * @return Boolean
      */
-    maker_jQuery.getFxOff = function ()
+    maker_jQuery.fxOff = function ()
     {
         return $.fx.off;
-    }
-
-    /**
-     * Globally disable all animations.
-     *
-     * @param  Boolean  value
-     * @return Boolean
-     */
-    maker_jQuery.setFxOff = function ( value )
-    {
-        return $.fx.off = value;
     }
 
     /**
@@ -1960,19 +1931,18 @@
      * @param  Fluxo   success  A callback function that is executed if the request succeeds.
      *                          Required if dataType is provided, but you can use null or
      *                          jQuery.noop as a placeholder.
-     * @param  Object  params   params passed to the function
      * @param  String  dataType The type of data expected from the server. Default:
      *                          Intelligent Guess (xml, json, script, text, html).
      * @return jqXHR
      */
-    maker_jQuery.get = function ( url, data, success, params, dataType )
+    maker_jQuery.get = function ( url, data, success, dataType )
     {
         if ( success ) {
             return $.get( url, data, dataType );
         }
 
-        return $.get( url, data, function( data, textStatus, jqXHR ) {
-            return executeRuleFromJS( success, [ this, data, textStatus, jqXHR, params ] );
+        return $.get( url, data, function( d, textStatus, jqXHR ) {
+            return executeRuleFromJS( success, [ this, d, textStatus, jqXHR ] );
         }, dataType);
     }
 
@@ -1982,17 +1952,16 @@
      * @param  String  url     The array-like object to search through.
      * @param  Object  data    A plain object or string that is sent to the server with the request.
      * @param  Fluxo   success A callback function that is executed if the request succeeds.
-     * @param  Object  params  params passed to the function
      * @return jqXHR
      */
-    maker_jQuery.getJSON = function ( url, data, success, params )
+    maker_jQuery.getJSON = function ( url, data, success )
     {
         if ( success ) {
             return $.getJSON( url, data );
         }
 
-        return $.getJSON( url, data, function( data, textStatus, jqXHR ) {
-            return executeRuleFromJS( success, [ this, data, textStatus, jqXHR, params ] );
+        return $.getJSON( url, data, function( d, textStatus, jqXHR ) {
+            return executeRuleFromJS( success, [ this, d, textStatus, jqXHR ] );
         });
     }
 
@@ -2005,7 +1974,7 @@
      * @param  Object  params  params passed to the function
      * @return jqXHR
      */
-    maker_jQuery.getScript = function ( url, success, params)
+    maker_jQuery.getScript = function ( url, success, params )
     {
         if ( success ) {
             return $.getScript( url );
@@ -2014,17 +1983,6 @@
         return $.getScript( url, function( script, textStatus, jqXHR ) {
             return executeRuleFromJS( success, [ this, script, textStatus, jqXHR, params ] );
         });
-    }
-
-    /**
-     * Execute some JavaScript code globally.
-     *
-     * @param  String  code The JavaScript code to execute.
-     * @return void
-     */
-    maker_jQuery.hasData = function ( code )
-    {
-        return $.hasData( code );
     }
 
     /**
@@ -2198,7 +2156,7 @@
      *                         can return any value. A returned array will be flattened into
      *                         the resulting array. Within the function, this refers to the
      *                         global (window) object.
-     * @param  String params   params passado to the function
+     * @param  Object params   params passado to the function
      * @return jqXHR
      */
     maker_jQuery.map = function ( object, callback, params )
@@ -2392,7 +2350,7 @@
      * @param  Object  params    params passed to the function
      * @return jQuery
      */
-    maker_jQuery.setQueue = function ( element, queueName, callback )
+    maker_jQuery.setQueueCallback = function ( element, queueName, callback )
     {
         return $.queue( duration, easing, function() {
             return executeRuleFromJS( callback, [ this, params ] );
@@ -2402,7 +2360,7 @@
     /**
      * Handles errors thrown synchronously in functions wrapped in jQuery().
      *
-     * @param  Error error An error thrown in the function wrapped in jQuery().
+     * @param  Error    error  An error thrown in the function wrapped in jQuery().
      * @return Selector
      */
     maker_jQuery.readyException = function ( error )
@@ -2614,7 +2572,7 @@
     {
         return element.load( url, data, function( responseText, textStatus, jqXHR ) {
             if ( complete ) {
-                return executeRuleFromJS( complete, [ this, responseText, textStatus, jqXHR, params ] );
+                return executeRuleFromJS( complete, [ this, responseText, textStatus, jqXHR, data ] );
             }
         });
     }
@@ -2629,7 +2587,7 @@
      * @param  Object params   params passed to the function
      * @return jQuery
      */
-    maker_jQuery.map = function ( element, callback, params )
+    maker_jQuery.mapElement = function ( element, callback, params )
     {
         return element.map( function( index, domElement ) {
             if ( callback ) {
@@ -2932,18 +2890,18 @@
      *                         selected elements that trigger the event. If the
      *                         selector is null or omitted, the event is always
      *                         triggered when it reaches the selected element.
-     * @param  Object data     Data to be passed to the handler in event.data
-     *                         when an event is triggered.
      * @param  Fluxo  handler  A function to execute when the event is triggered.
      *                         The value false is also allowed as a shorthand
      *                         for a function that simply does return false.
+     * @param  Object data     Data to be passed to the handler in event.data
+     *                         when an event is triggered.
      * @return jQuery
      */
     maker_jQuery.on = function ( element, events, selector, data, handler )
     {
-        return element.on( events, selector, data, function( event ) {
+        return element.on( events, selector, d, function( event ) {
             if ( handler ) {
-                return executeRuleFromJS( handler, [ this, event, data ] );
+                return executeRuleFromJS( handler, [ this, event, d, data] );
             }
         });
     }
@@ -2959,18 +2917,18 @@
      *                         selected elements that trigger the event. If the
      *                         selector is null or omitted, the event is always
      *                         triggered when it reaches the selected element.
-     * @param  Object data     Data to be passed to the handler in event.data
-     *                         when an event is triggered.
      * @param  Fluxo  handler  A function to execute when the event is triggered.
      *                         The value false is also allowed as a shorthand
      *                         for a function that simply does return false.
+     * @param  Object data     Data to be passed to the handler in event.data
+     *                         when an event is triggered.
      * @return jQuery
      */
-    maker_jQuery.one = function ( element, events, selector, data, handler )
+    maker_jQuery.one = function ( element, events, selector, handler, data )
     {
-        return element.one( events, selector, data, function( eventObject ) {
+        return element.one( events, selector, d, function( eventObject ) {
             if ( handler ) {
-                return executeRuleFromJS( handler, [ this, eventObject, data ] );
+                return executeRuleFromJS( handler, [ this, eventObject, d, data ] );
             }
         });
     }
@@ -3687,9 +3645,9 @@
      * @param  Object params   Params passed to the function
      * @return jQuery
      */
-    maker_jQuery.showDuration = function ( element, duration, easing, complete, params )
+    maker_jQuery.showComplete = function ( element, duration, easing, complete, params )
     {
-        return element.slideToggle( duration ,easing ,function() {
+        return element.show( duration ,easing ,function() {
             if ( complete ) {
                 return executeRuleFromJS( complete, [ this, params ] );
             }
