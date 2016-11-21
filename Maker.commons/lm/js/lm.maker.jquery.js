@@ -1103,7 +1103,7 @@
      * @param  Object params  params passado to function
      * @return jQuery
      */
-    maker_jQuery.each = function ( element, fluxo, params )
+    maker_jQuery.eachElement = function ( element, fluxo, params )
     {
         return element.each( function( index, element ) {
             return executeRuleFromJS( fluxo, [ this, index, element, params ] );
@@ -1830,7 +1830,7 @@
      * @param  String  queueName A string containing the name of the queue. Defaults to fx, the standard effects queue.
      * @return undefined
      */
-    maker_jQuery.dequeue = function ( element, queueName )
+    maker_jQuery.dequeueElement = function ( element, queueName )
     {
         return $.dequeue( element, queueName );
     }
@@ -3655,28 +3655,6 @@
     }
 
     /**
-     *  Display or hide the matched elements with a sliding motion.
-     *
-     * @param  jQuery element  jQuery element
-     * @param  String duration A string or number determining how long the
-     *                         animation will run.
-     * @param  String easing   A string indicating which easing function to use
-     *                         for the transition.
-     * @param  Fluxo  complete A function to call once the animation is complete,
-     *                         called once per matched element.
-     * @param  Object params   Params pased to function
-     * @return jQuery
-     */
-    maker_jQuery.slideToggle = function ( element, duration ,easing ,complete, params )
-    {
-        return element.slideToggle( duration ,easing ,function() {
-            if ( complete ) {
-                return executeRuleFromJS( complete, [ this, params ] );
-            }
-        });
-    }
-
-    /**
      * Get the siblings of each element in the set of matched elements,
      * optionally filtered by a selector.
      *
@@ -3721,7 +3699,7 @@
     }
 
     /**
-     *  Display the matched elements with a sliding motion.
+     * Display the matched elements with a sliding motion.
      *
      * @param  jQuery element  jQuery element
      * @param  String duration A string or number determining how long the
@@ -3755,7 +3733,7 @@
     }
 
     /**
-     *  Display or hide the matched elements with a sliding motion.
+     * Display or hide the matched elements with a sliding motion.
      *
      * @param  jQuery element  jQuery element
      * @param  String duration A string or number determining how long the
@@ -3789,7 +3767,7 @@
     }
 
     /**
-     *  Hide the matched elements with a sliding motion.
+     * Hide the matched elements with a sliding motion.
      *
      * @param  jQuery element  jQuery element
      * @param  String duration A string or number determining how long the
@@ -3831,15 +3809,15 @@
      * Bind an event handler to the "submit" JavaScript event,
      * or trigger that event on an element.
      *
-     * @param  jQuery element jQuery event
-     * @param  Fluxo  fluxo   A function to execute each time the event is triggered.
-     * @param  Object params  Params passed to the function
+     * @param  jQuery element  jQuery event
+     * @param  Fluxo  handler  A function to execute each time the event is triggered.
+     * @param  Object params   Params passed to the function
      * @return jQuery
      */
-    maker_jQuery.submit = function ( element, fluxo, params )
+    maker_jQuery.submitHandler = function ( element, handler, params )
     {
         return element.submit( function( event ) {
-            return executeRuleFromJS( fluxo, [ this, event, params ] );
+            return executeRuleFromJS( handler, [ this, event, params ] );
         });
     }
 
@@ -3887,16 +3865,16 @@
      * elements to the specified text.
      *
      * @param  jQuery element jQuery element
-     * @param  Fluxo  fluxo   A function returning the text content to set.
+     * @param  Fluxo  handler A function returning the text content to set.
      *                        Receives the index position of the element in the
      *                        set and the old text value as arguments.
      * @param  Object params  params passed to the function
      * @return jQuery
      */
-    maker_jQuery.setTextWithFluxo = function ( element, fluxo )
+    maker_jQuery.setTextHandler = function ( element, handler, params )
     {
         return element.text( function( index, txt ) {
-            return executeRuleFromJS( fluxo, [ this, index, txt, params ] );
+            return executeRuleFromJS( handler, [ this, index, txt, params ] );
         });
     }
 
@@ -3936,7 +3914,7 @@
     }
 
     /**
-     *  Display or hide the matched elements.
+     * Display or hide the matched elements.
      *
      * @param  jQuery element  jQuery element
      * @param  String duration A string or number determining how long the
@@ -3948,9 +3926,9 @@
      * @param  Object params   Params pased to function
      * @return jQuery
      */
-    maker_jQuery.toggleOptions = function ( element, duration ,easing ,complete, params )
+    maker_jQuery.toggleHandler = function ( element, duration ,easing ,complete, params )
     {
-        return element.toggle( duration ,easing ,function() {
+        return element.toggle( duration, easing, function() {
             if ( complete ) {
                 return executeRuleFromJS( complete, [ this, params ] );
             }
@@ -3977,14 +3955,33 @@
      * set of matched elements, depending on either the class's
      * presence or the value of the state argument.
      *
+     * @param  jQuery  element  jQuery element
+     * @param  Fluxo   handler  A function that returns class names to be toggled
+     *                          in the class attribute of each element in the matched set.
+     *                          Receives the index position of the element in the set,
+     *                          the old class value, and the state as arguments.
+     * @param  Object  params   params passado to the function
+     * @param  Boolean state    A boolean value to determine whether the class should be added or removed.
+     * @return jQuery
+     */
+    maker_jQuery.toggleClassHandler = function ( element, handler, params, state )
+    {
+        return element.toggle( function() {
+            return executeRuleFromJS( handler, [ this, params ] );
+        }, state);
+    }
+
+    /**
+     * Add or remove one or more classes from each element in the
+     * set of matched elements, depending on either the class's
+     * presence or the value of the state argument.
+     *
      * @param  jQuery          element    jQuery element
-     * @param  String | Fluxo  className  One or more class names (separated by spaces)
-     *                                    to be toggled for each element in the matched set.
      * @param  Boolean         state      A Boolean (not just truthy/falsy) value to
      *                                    determine whether the class should be added or removed.
      * @return jQuery
      */
-    maker_jQuery.toggleClass = function ( element, className, state )
+    maker_jQuery.toggleClass = function ( element, state )
     {
         return element.toggleClass( state );
     }
@@ -4175,7 +4172,7 @@
      * @param  jQuery element
      * @return Object
      */
-    maker_jQuery.val = function ( element )
+    maker_jQuery.getVal = function ( element )
     {
         return element.val();
     }
@@ -4185,19 +4182,26 @@
      *
      * @param  jQuery element
      * @param  Object value
-     * @param  Fluxo fluxo
+     * @return jQuery
+     */
+    maker_jQuery.setVal = function ( element, value )
+    {
+        return element.val( value );
+    }
+
+    /**
+     * Set the value of each element in the set of matched elements
+     *
+     * @param  jQuery element
+     * @param  Fluxo  handler
      * @param  Object params
      * @return jQuery
      */
-    maker_jQuery.val = function ( element, value, fluxo, params )
+    maker_jQuery.setValHandler = function ( element, handler, params )
     {
-        if ( fluxo ) {
-            return element.val( function(index, val) {
-                return executeRuleFromJS( fluxo, [ this, index, val, params ] );
-            });
-        }
-
-        return element.val();
+        return element.val( function(index, value) {
+            return executeRuleFromJS( handler, [ this, index, value, params ] );
+        });
     }
 
     /**
@@ -4217,19 +4221,27 @@
      *
      * @param  jQuery element
      * @param  Object value
-     * @param  Fluxo fluxo
+     * @return jQuery
+     */
+    maker_jQuery.setWidth = function ( element, value )
+    {
+
+        return element.width( value );
+    }
+
+    /**
+     * Set the CSS width of each element in the set of matched elements.
+     *
+     * @param  jQuery element
+     * @param  Fluxo handler
      * @param  Object params
      * @return jQuery
      */
-    maker_jQuery.setWidth = function ( element, value, fluxo, params )
+    maker_jQuery.setWidthHandler = function ( element, handler, params )
     {
-        if ( fluxo ) {
-            return element.width( function(index, val) {
-                return executeRuleFromJS( fluxo, [ this, index, val, params ] );
-            });
-        }
-
-        return element.width( value );
+        return element.width( function(index, val) {
+            return executeRuleFromJS( handler, [ this, index, val, params ] );
+        });
     }
 
     /**
@@ -4237,19 +4249,26 @@
      *
      * @param  jQuery element
      * @param  Object wrappingElement
+     * @return jQuery
+     */
+    maker_jQuery.wrap = function ( element, wrappingElement )
+    {
+        return element.wrap( wrappingElement );
+    }
+
+    /**
+     * Wrap an HTML structure around each element in the set of matched elements.
+     *
+     * @param  jQuery element
      * @param  Fluxo fluxo
      * @param  Object params
      * @return jQuery
      */
-    maker_jQuery.wrap = function ( element, wrappingElement, fluxo, params )
+    maker_jQuery.wrapHandler = function ( element, fluxo, params )
     {
-        if ( fluxo ) {
-            return element.wrap( function( index ) {
-                return executeRuleFromJS( fluxo, [ this, index, params ] );
-            });
-        }
-
-        return element.wrap( wrappingElement );
+        return element.wrap( function( index ) {
+            return executeRuleFromJS( fluxo, [ this, index, params ] );
+        });
     }
 
     /**
@@ -4257,19 +4276,26 @@
      *
      * @param  jQuery element
      * @param  Object wrappingElement
+     * @return jQuery
+     */
+    maker_jQuery.wrapAll = function ( element, wrappingElement )
+    {
+        return element.wrapAll( wrappingElement );
+    }
+
+    /**
+     * Wrap an HTML structure around all elements in the set of matched elements.
+     *
+     * @param  jQuery element
      * @param  Fluxo fluxo
      * @param  Object params
      * @return jQuery
      */
-    maker_jQuery.wrapAll = function ( element, wrappingElement, fluxo, params )
+    maker_jQuery.wrapAllHandler = function ( element, fluxo, params )
     {
-        if ( fluxo ) {
-            return element.wrapAll( function( index ) {
-                return executeRuleFromJS( fluxo, [ this, index, params ] );
-            });
-        }
-
-        return element.wrapAll( wrappingElement );
+        return element.wrapAll( function( index ) {
+            return executeRuleFromJS( fluxo, [ this, index, params ] );
+        });
     }
 
     /**
@@ -4278,19 +4304,27 @@
      *
      * @param  jQuery element
      * @param  Object wrappingElement
+     * @return jQuery
+     */
+    maker_jQuery.wrapInner = function ( element, wrappingElement )
+    {
+        return element.wrapInner( wrappingElement );
+    }
+
+    /**
+     * Wrap an HTML structure around the content of each element in the set of
+     * matched elements.
+     *
+     * @param  jQuery element
      * @param  Fluxo fluxo
      * @param  Object params
      * @return jQuery
      */
-    maker_jQuery.wrapInner = function ( element, wrappingElement, fluxo, params )
+    maker_jQuery.wrapInnerHandler = function ( element, fluxo, params )
     {
-        if ( fluxo ) {
-            return element.wrapInner( function( index ) {
-                return executeRuleFromJS( fluxo, [ this, index, params ] );
-            });
-        }
-
-        return element.wrapInner( wrappingElement );
+        return element.wrapInner( function( index ) {
+            return executeRuleFromJS( fluxo, [ this, index, params ] );
+        });
     }
 
     /**
@@ -4376,9 +4410,9 @@
      * @param  Evemt event
      * @return String
      */
-    maker_jQuery.event.namespaceReturns = function ( event )
+    maker_jQuery.event.namespace = function ( event )
     {
-        return event.namespaceReturns;
+        return event.namespace;
     }
 
     /**
@@ -4420,9 +4454,9 @@
      * @param  Evemt event
      * @return Element
      */
-    maker_jQuery.event.relatedTargetReturns = function ( event )
+    maker_jQuery.event.relatedTarget = function ( event )
     {
-        return event.relatedTargetReturns;
+        return event.relatedTarget;
     }
 
     /**
