@@ -758,7 +758,7 @@
      * @param  String key     Name of the data stored.
      * @return Object
      */
-    maker_jQuery.getData = function ( element, key )
+    maker_jQuery.getDataElement = function ( element, key )
     {
         if ( key ) {
             return element.data( key );
@@ -775,7 +775,7 @@
      * @param  Object value   The new data value; this can be any Javascript type except undefined.
      * @return jQuery
      */
-    maker_jQuery.setData = function ( element, key, value )
+    maker_jQuery.setDataElement = function ( element, key, value )
     {
         return element.data( key, value );
     }
@@ -1335,7 +1335,7 @@
      * @param  Integer index     A zero-based integer indicating which element to retrieve.
      * @return Element
      */
-    maker_jQuery.get = function ( element, index )
+    maker_jQuery.getElement = function ( element, index )
     {
         return element.get( index );
     }
@@ -2473,17 +2473,6 @@
     }
 
     /**
-     * Reduce the set of matched elements to the final one in the set.
-     *
-     * @param  jQuery element  jQuery element
-     * @return jQuery
-     */
-    maker_jQuery.last = function ( element )
-    {
-        return element.last();
-    }
-
-    /**
      * Bind an event handler to the "keydown" JavaScript event,
      * or trigger that event on an element.
      *
@@ -3403,7 +3392,7 @@
      *                        of data to delete.
      * @return jQuery
      */
-    maker_jQuery.removeData = function ( element, object )
+    maker_jQuery.removeDataElement = function ( element, object )
     {
         return element.removeData( object );
     }
