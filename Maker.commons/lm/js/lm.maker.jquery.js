@@ -1,5 +1,5 @@
 $.noConflict();
-( function (window, lm, $) {
+( function (window, lm, $, maker_c) {
 
     "use strict";
 
@@ -1667,6 +1667,14 @@ $.noConflict();
      */
     maker_jQuery.jQuery = function ( selector )
     {
+        // try to find maker component by name
+        var obj = maker_c( selector );
+
+        if ( obj !== undefined ) {
+            selector = obj.div;
+        }
+
+        // create jQuery object
         return $( selector );
     }
 
@@ -4530,4 +4538,4 @@ $.noConflict();
 
     return maker_jQuery;
 
-})( window, lm, jQuery );
+})( window, lm, jQuery, $c );
