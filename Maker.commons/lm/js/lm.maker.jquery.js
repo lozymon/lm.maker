@@ -1,3 +1,4 @@
+$.noConflict();
 ( function (window, lm, $) {
 
     "use strict";
