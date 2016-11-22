@@ -1,14 +1,27 @@
 # lm.maker
 
-This is a ALPHA release
+<font color="red">This is a ALPHA release</font>
 
-lm Object
+### Globaly load StyleSheet and JavaScript files
+
+```javascript
+lm.tpo = [
+    {
+        "description":"jquery",      // add a description
+        "version":"2.1.1",           // object version
+        "path":"path/to/object.ext", // path to the object, suported extension is js and css
+        "useWebrunInclude": true     // if javascript use webrun.include or <script></script> tag
+    },...
+]
+```
+
+####lm Object
   - Create Object
   - Set Object Property
   - Get Object Property
   - Array List To Object
 
-lm Utility
+####lm Utility
   - Add JavaScript
   - Add StyleSheet
   - Get URL Extension
@@ -16,7 +29,7 @@ lm Utility
   - Console Log
 
 
-lm jQuery
+####lm jQuery
   - jQuery
   - jQuery Callbacks
   - jQuery Deferred
