@@ -4,7 +4,7 @@
 
 ### Globaly load StyleSheet and JavaScript files
 
-If you have a javascript or a style sheet file that you want to load globally in make you can use the tpo.json.js to achieve that.
+If you have a javascript or a style sheet that you want to load globally in make, you can use the tpo.json.js to achieve that.
 The file is located in the Maker.commons\lm folder, se the example below to how you can include your file
 
 ```javascript
@@ -50,6 +50,7 @@ In the next exemple we are changing the background of a input element. In this e
 ####lm jQuery functions
   - jQuery
   > **Description:** Accepts a string containing a CSS selector which is then used to match a set of elements. In this maker version it's also addes suport for using the name of a component to select a element
+  > 1. A string containing a selector expression
 
   - jQuery Callbacks
   - jQuery Deferred
@@ -171,6 +172,8 @@ In the next exemple we are changing the background of a input element. In this e
   - jQuery get attr
   - jQuery get css
   > **Description:** Get the computed style properties for the first element in the set of matched elements.
+  > 1. jQuery Element
+  > 2. A CSS property.
 
   - jQuery get data
   - jQuery get data from element
@@ -284,8 +287,22 @@ In the next exemple we are changing the background of a input element. In this e
   - jQuery set attr
   - jQuery set attr handler
   - jQuery set css
+  > **Description:** Set one or more CSS properties for the set of matched elements.
+  > 1. jQuery Element
+  > 2. A CSS property name.
+  > 3. A value to set for the property.
+
   - jQuery set css handler
+  > **Description:** Set one or more CSS properties for the set of matched elements.
+  > 1. jQuery Element
+  > 2. A CSS property name.
+  > 3. A function returning the value to set. this is the current element. Receives the index position of the element in the set and the old value as arguments.
+
   - jQuery set css properties
+  > **Description:** Set one or more CSS properties for the set of matched elements.
+  > 1. jQuery Element
+  > 2. An object of property-value pairs to set.
+
   - jQuery set data
   - jQuery set data to element
   - jQuery set height
