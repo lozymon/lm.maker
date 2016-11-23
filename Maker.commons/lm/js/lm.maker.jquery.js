@@ -1,4 +1,6 @@
+// do not use $ for jquery
 $.noConflict();
+
 ( function (window, lm, $, maker_c) {
 
     "use strict";
