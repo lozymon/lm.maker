@@ -87,7 +87,6 @@
         }
         // load with webrun
         else {
-            console.log( path );
             webrun.include( path );
         }
     }
