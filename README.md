@@ -35,6 +35,8 @@ lm.tpo = [
   - isArray
   - Console Log
 
+![alt tag](https://github.com/lozymon/lm.maker/blob/master/docs/images/get%20value%20from%20input.png)
+![alt tag](https://github.com/lozymon/lm.maker/blob/master/docs/images/set%20css%20attribute%20to%20element.png)
 
 ####lm jQuery
   - jQuery
