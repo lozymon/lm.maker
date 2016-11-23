@@ -4,7 +4,8 @@
 
 ### Globaly load StyleSheet and JavaScript files
 
-In the Maker.commons\lm folder there are a file named tpo.json.js that contains a json object that you can add javascript or Style Sheet that you want to be loaded global in maker
+If you have a javascript or a style sheet file that you want to load globally in make you can use the tpo.json.js to achieve that.
+The file is located in the Maker.commons\lm folder, se the example below to how you can include your file
 
 ```javascript
 lm.tpo = [
@@ -14,9 +15,9 @@ lm.tpo = [
         "path":"lm/css/style.css"  // path to the object, suported extension is js and css
     },{
         "description":"my javascript", // add a description
-        "version":"0.0.1",            // object version
-        "path":"lm/js/javascript.js", // path to the object, suported extension is js and css
-        "useWebrunInclude": true      // if true its use webrun.include or if false then use <script></script> tag
+        "version":"0.0.1",             // object version
+        "path":"lm/js/javascript.js",  // path to the object, suported extension is js and css
+        "useWebrunInclude": true       // if true its use webrun.include or if false then use <script></script> tag
     },...
 ]
 ```
