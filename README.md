@@ -37,19 +37,20 @@ lm.tpo = [
 
 ###lm jQuery
 
-Getting the value of a input element using jQuery and flow
+Getting the value of a input element using jQuery and flow.
 
-jQuery element you can also use the maker component name to find the element like shown in the image below, then use find to select the input element and then use get value to get the value of the input element
+jQuery element you can use the maker component name to find the element like shown in the image below, then we use find to select the input element, and then use get value to get the value of the input element
 
 ![alt tag](https://github.com/lozymon/lm.maker/blob/master/docs/images/get%20value%20from%20input.png)
 
-In the next exemple we are changing the background of a input element
-in this example we are also using the maker component name and the find to localice input element. Then we uses jQuery set css to set the background color og the input
+In the next exemple we are changing the background of a input element. In this example we are also using the maker component name and the find to localice input element. Then we uses jQuery set css to set the background color of the input.
 
 ![alt tag](https://github.com/lozymon/lm.maker/blob/master/docs/images/set%20css%20attribute%20to%20element.png)
 
 ####lm jQuery functions
   - jQuery
+  > **Description:** Accepts a string containing a CSS selector which is then used to match a set of elements. In this maker version it's also addes suport for using the name of a component to select a element
+
   - jQuery Callbacks
   - jQuery Deferred
   - jQuery add
