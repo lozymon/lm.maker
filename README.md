@@ -170,6 +170,8 @@ In the next exemple we are changing the background of a input element. In this e
   - jQuery get
   - jQuery get attr
   - jQuery get css
+  > **Description:** Get the computed style properties for the first element in the set of matched elements.
+
   - jQuery get data
   - jQuery get data from element
   - jQuery get element
@@ -189,6 +191,8 @@ In the next exemple we are changing the background of a input element. In this e
   - jQuery get scrollTop
   - jQuery get text
   - jQuery get val
+  > **Description:** Get the current value of the first element in the set of matched elements.
+
   - jQuery get width
   - jQuery grep
   - jQuery has
