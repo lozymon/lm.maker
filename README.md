@@ -48,10 +48,12 @@ In the next exemple we are changing the background of a input element. In this e
 ![alt tag](https://github.com/lozymon/lm.maker/blob/master/docs/images/set%20css%20attribute%20to%20element.png)
 
 ####lm jQuery functions
-  - jQuery
-  > **Description:** Accepts a string containing a CSS selector which is then used to match a set of elements. In this maker version it's also addes suport for using the name of a component to select a element
-  >
-  > 1. A string containing a selector expression
+  * jQuery
+    **Description:**
+    Accepts a string containing a CSS selector which is then used to match a set of elements. In this maker version it's also addes suport for using the name of a component to select a element
+
+    **Parameter**
+      1. A string containing a selector expression
 
   - jQuery Callbacks
   > **Description:** A multi-purpose callbacks list object that provides a powerful way to manage callback lists.
