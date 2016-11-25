@@ -53,7 +53,13 @@ In the next exemple we are changing the background of a input element. In this e
   > 1. A string containing a selector expression
 
   - jQuery Callbacks
+  > **Description:** A multi-purpose callbacks list object that provides a powerful way to manage callback lists.
+  > 1. An optional list of space-separated flags that change how the callback list behaves.
+
   - jQuery Deferred
+  > **Description:** A factory function that returns a chainable utility object with methods to register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.
+  > 1. A function that is called just before the constructor returns.
+
   - jQuery add
   - jQuery addBack
   - jQuery addClass
