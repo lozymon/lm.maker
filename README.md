@@ -48,23 +48,10 @@ In the next exemple we are changing the background of a input element. In this e
 ![alt tag](https://github.com/lozymon/lm.maker/blob/master/docs/images/set%20css%20attribute%20to%20element.png)
 
 ####lm jQuery functions
-  * jQuery
-    **Description:**
-    Accepts a string containing a CSS selector which is then used to match a set of elements. In this maker version it's also addes suport for using the name of a component to select a element
 
-    **Parameter**
-      1. A string containing a selector expression
-
+  - jQuery
   - jQuery Callbacks
-  > **Description:** A multi-purpose callbacks list object that provides a powerful way to manage callback lists.
-  >
-  > 1. An optional list of space-separated flags that change how the callback list behaves.
-
   - jQuery Deferred
-  > **Description:** A factory function that returns a chainable utility object with methods to register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.
-  >
-  > 1. A function that is called just before the constructor returns.
-
   - jQuery add
   - jQuery addBack
   - jQuery addClass
@@ -182,10 +169,6 @@ In the next exemple we are changing the background of a input element. In this e
   - jQuery get
   - jQuery get attr
   - jQuery get css
-  > **Description:** Get the computed style properties for the first element in the set of matched elements.
-  > 1. jQuery Element
-  > 2. A CSS property.
-
   - jQuery get data
   - jQuery get data from element
   - jQuery get element
@@ -205,8 +188,6 @@ In the next exemple we are changing the background of a input element. In this e
   - jQuery get scrollTop
   - jQuery get text
   - jQuery get val
-  > **Description:** Get the current value of the first element in the set of matched elements.
-
   - jQuery get width
   - jQuery grep
   - jQuery has
@@ -298,22 +279,8 @@ In the next exemple we are changing the background of a input element. In this e
   - jQuery set attr
   - jQuery set attr handler
   - jQuery set css
-  > **Description:** Set one or more CSS properties for the set of matched elements.
-  > 1. jQuery Element
-  > 2. A CSS property name.
-  > 3. A value to set for the property.
-
   - jQuery set css handler
-  > **Description:** Set one or more CSS properties for the set of matched elements.
-  > 1. jQuery Element
-  > 2. A CSS property name.
-  > 3. A function returning the value to set. this is the current element. Receives the index position of the element in the set and the old value as arguments.
-
   - jQuery set css properties
-  > **Description:** Set one or more CSS properties for the set of matched elements.
-  > 1. jQuery Element
-  > 2. An object of property-value pairs to set.
-
   - jQuery set data
   - jQuery set data to element
   - jQuery set height
