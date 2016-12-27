@@ -147,25 +147,40 @@
     {
         // load tpo file
         webrun.include('lm/tpo.json.js');
+
         // if there are not any element in the list then exit here
-        if ( lm.tpo.length == 0 ) { return; }
+        if ( lm.tpo.length == 0 ) {
+            return;
+        }
+
         // get body element
         var v_bodyArray = document.getElementsByTagName("body");
+
         // if body exists
         if ( v_bodyArray.length ) {
+
             // get first body element
             var v_body = v_bodyArray[0];
+
             // add all tpo to the body
             for (var i = 0; i < Lozymon.tpo.length ; i++) {
+
                 // load object
                 var tpo = Lozymon.tpo[i];
+
+                // if tmp is undefined then goto nest object
+                if (tpo == undefined) {
+                    continue;
+                }
                 // find file extension
                 var extension = this.getUrlExtension(tpo.path);
+
                 // if type is javascript
                 if (extension == 'js') {
                     var element = ( tpo.useWebrunInclude == true ) ? null : b_body;
                     this.addJavaScript( element, this.addUrlVersion(tpo.path, tpo.version) );
                 }
+
                 // if type is StyleSheet
                 else if (extension == 'css') {
                     this.addStyleSheet( v_body, this.addUrlVersion(tpo.path, tpo.version) );
