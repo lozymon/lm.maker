@@ -310,7 +310,7 @@ $.noConflict();
      *                              the current element. Receives the index position
      *                              of the element in the set and the old attribute
      *                              value as arguments.
-     * @param  Object params        params passed function
+     * @param  Object params        params passed to function
      * @return jQuery
      */
     maker_jQuery.setAttrHandler = function ( element, attributeName, fluxo, params )
@@ -2897,7 +2897,7 @@ $.noConflict();
      *                         when an event is triggered.
      * @return jQuery
      */
-    maker_jQuery.on = function ( element, events, selector, data, handler )
+    maker_jQuery.on = function ( element, events, selector, handler, data )
     {
         return element.on( events, selector, d, function( event ) {
             if ( handler ) {
