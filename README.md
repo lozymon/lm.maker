@@ -35,6 +35,13 @@ lm.tpo = [
   - isArray
   - Console Log
 
+####lm Sweet Alert
+  - Sweet Alert Basic message
+  - Sweet Alert Close
+  - Sweet Alert Confirm message
+  - Sweet Alert Message
+  - Sweet Alert set defaults propertys
+
 ###lm jQuery
 
 Getting the value of a input element using jQuery and flow.
