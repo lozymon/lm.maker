@@ -104,7 +104,7 @@ $.noConflict();
      *                        in the set of matched elements. Receives the index position
      *                        of the element in the set as an argument. Within the function,
      *                        this refers to the current element in the set.
-     * @param  Object params  params passed function
+     * @param  Object params  params passed to function
      * @return jQuery
      */
     maker_jQuery.afterHandler = function ( element, handler, params )
@@ -120,7 +120,7 @@ $.noConflict();
      *
      * @param  jQuery element
      * @param  Fluxo  handler The function to be invoked.
-     * @param  Object params  params passed function
+     * @param  Object params  params passed to the function
      * @return jQuery
      */
     maker_jQuery.ajaxComplete = function ( element, handler, params )
@@ -136,7 +136,7 @@ $.noConflict();
      *
      * @param  jQuery element
      * @param  Fluxo  handler The function to be invoked.
-     * @param  Object params  params passed function
+     * @param  Object params  params passed to the function
      * @return jQuery
      */
     maker_jQuery.ajaxError = function ( element, handler, params )
@@ -152,7 +152,7 @@ $.noConflict();
      *
      * @param  jQuery element
      * @param  Fluxo  handler The function to be invoked.
-     * @param  Object params  params passed function
+     * @param  Object params  params passed to the function
      * @return jQuery
      */
     maker_jQuery.ajaxSend = function ( element, handler, params )
@@ -168,7 +168,7 @@ $.noConflict();
      *
      * @param  jQuery element
      * @param  Fluxo  handler The function to be invoked.
-     * @param  Object params  params passed function
+     * @param  Object params  params passed to the function
      * @return jQuery
      */
     maker_jQuery.ajaxStart = function ( element, handler, params )
@@ -184,7 +184,7 @@ $.noConflict();
      *
      * @param  jQuery element
      * @param  Fluxo  handler The function to be invoked.
-     * @param  Object params  params passed function
+     * @param  Object params  params passed to the function
      * @return jQuery
      */
     maker_jQuery.ajaxStop = function ( element, handler, params )
@@ -200,7 +200,7 @@ $.noConflict();
      *
      * @param  jQuery element
      * @param  Fluxo  handler The function to be invoked.
-     * @param  Object params  params passed function
+     * @param  Object params  params passed to the function
      * @return jQuery
      */
     maker_jQuery.ajaxSuccess = function ( element, handler, params )
@@ -218,7 +218,7 @@ $.noConflict();
      * @param  String duration   A string or number determining how long the animation will run.
      * @param  String easing     A string indicating which easing function to use for the transition.
      * @param  Fluxo  complete   A function to call once the animation is complete, called once per matched element.
-     * @param  Object params     params passed to function
+     * @param  Object params     params passed to the function
      * @return jQuery
      */
     maker_jQuery.animate = function ( element, properties, duration, easing, complete, params )
