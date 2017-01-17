@@ -39,6 +39,7 @@
     maker_swal.message = function( options, fluxo, params ) {
         if ( fluxo ) {
             swal( options, function(isConfirm) {
+                isConfirm = "" + isConfirm;
                 var v_params = [];
                 if ( lm.isArray(params) ) {
                     params.unshift(isConfirm);
