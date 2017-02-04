@@ -177,7 +177,7 @@
 
                 // if type is javascript
                 if (extension == 'js') {
-                    var element = ( tpo.useWebrunInclude == true ) ? null : b_body;
+                    var element = ( tpo.useWebrunInclude == true ) ? null : v_body;
                     this.addJavaScript( element, this.addUrlVersion(tpo.path, tpo.version) );
                 }
 
